@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Mock Test - SSCEC</title>
+<style>
+    :root {
+        --primary: #059669;
+        --secondary: #064e3b;
+        --success: #10b981;
+        --danger: #ef4444;
+        --bg: #f8fafc;
+    }
+
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding: 0; }
+    .header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 25px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    
+    .container { max-width: 750px; margin: 25px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; }
+    
+    #timer { position: absolute; top: 20px; right: 20px; font-weight: bold; color: var(--danger); font-size: 18px; border: 2px solid var(--danger); padding: 5px 15px; border-radius: 20px; background: #fff1f2; }
+
+    .question { font-size: 20px; font-weight: bold; margin-bottom: 25px; color: #1e293b; line-height: 1.5; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+    
+    .options { display: flex; flex-direction: column; gap: 15px; }
+    .option { padding: 15px; border: 2px solid #e2e8f0; border-radius: 12px; cursor: pointer; transition: 0.3s; font-weight: 500; font-size: 17px; }
+    .option:hover { background: #f0fdf4; border-color: var(--primary); }
+    
+    .correct { background: #d1fae5 !important; border-color: var(--success) !important; color: #065f46; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2); }
+    .wrong { background: #fee2e2 !important; border-color: var(--danger) !important; color: #991b1b; }
+
+    .footer-tools { margin-top: 35px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 20px; }
+    .score-board { font-size: 18px; font-weight: bold; color: var(--primary); }
+    
+    .btn { padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; }
+    .btn-next { background: var(--primary); color: white; display: none; box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3); }
+    .btn-whatsapp { background: #25d366; color: white; width: 100%; margin-top: 20px; display: none; text-decoration: none; text-align: center; font-size: 18px; }
+    
+    #result-screen { display: none; text-align: center; }
+    .progress-bar { width: 100%; height: 10px; background: #e2e8f0; border-radius: 5px; margin-bottom: 25px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--primary); width: 0%; transition: 0.4s; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🏛️ GST & Taxation Mock Test</h1>
+    <p>SUPER SUCCESS COMPUTER EDUCATION CENTER</p>
+</div>
+
+<div class="container" id="quiz-container">
+    <div id="timer">সময়: 20:00</div>
+    <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+    
+    <div id="quiz-content">
+        <div id="question-text" class="question">প্রশ্ন লোড হচ্ছে...</div>
+        <div id="options-list" class="options"></div>
+    </div>
+
+    <div class="footer-tools">
+        <div class="score-board">স্কোর: <span id="current-score">0</span> / 25</div>
+        <button id="next-btn" class="btn btn-next" onclick="nextQuestion()">পরবর্তী প্রশ্ন ⮕</button>
+    </div>
+</div>
+
+<div class="container" id="result-screen">
+    <h2 id="congrats-text" style="color: var(--primary);">পরীক্ষা সম্পন্ন হয়েছে!</h2>
+    <p style="font-size: 24px; font-weight: bold;">আপনার মোট স্কোর: <span id="final-score">0</span> / 25</p>
+    
+    <div style="background: #f8fafc; padding: 20px; border-radius: 10px; margin-top: 20px;">
+        <input type="text" id="student-name" placeholder="আপনার নাম লিখুন" style="width: 100%; padding: 15px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+        <a href="#" id="whatsapp-btn" class="btn btn-whatsapp" onclick="sendToSir()">📲 স্যারকে রেজাল্ট পাঠান (WhatsApp)</a>
+    </div>
+    
+    <button class="btn" style="background:#64748b; color:white; margin-top:15px; width:100%;" onclick="location.reload()">আবার পরীক্ষা দিন</button>
+</div>
+
+<audio id="correct-sound" src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3"></audio>
+<audio id="wrong-sound" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+
+<script>
+const quizData = [
+    { q: "GSTIN এর পূর্ণরূপ কী?", a: ["GST Identification Number", "GST Information Network", "GST Internal Number", "GST Income Note"], c: 0 },
+    { q: "পশ্চিমবঙ্গের স্টেট কোড (State Code) কত?", a: ["07", "09", "19", "21"], c: 2 },
+    { q: "একটি GSTIN মোট কত ডিজিটের হয়?", a: ["10", "12", "15", "16"], c: 2 },
+    { q: "GSTIN এর ৩ থেকে ১২ নম্বর ডিজিটগুলো আসলে কী?", a: ["State Code", "PAN Number", "Pin Code", "Entity Code"], c: 1 },
+    { q: "একই রাজ্যের ভেতরে কেনাবেচাকে কী বলে?", a: ["Inter-State", "Intra-State", "International", "None"], c: 1 },
+    { q: "Intra-State সেল এর ক্ষেত্রে কোন দুটি ট্যাক্স লাগে?", a: ["CGST & IGST", "SGST & IGST", "CGST & SGST", "Only IGST"], c: 2 },
+    { q: "অন্য রাজ্যে পণ্য বিক্রির সময় (Inter-State) কোন ট্যাক্স চার্জ করা হয়?", a: ["CGST", "SGST", "IGST", "UTGST"], c: 2 },
+    { q: "যদি GST হার ১৮% হয় এবং Intra-State সেল হয়, তবে CGST কত হবে?", a: ["১৮%", "৯%", "৬%", "০%"], c: 1 },
+    { q: "ট্যালিতে GST ফিচার এনাবল করার শর্টকাট কী?", a: ["F1", "F12", "F11", "Alt+P"], c: 2 },
+    { q: "কত টাকার বেশি পণ্য পরিবহনের জন্য E-Way Bill বাধ্যতামূলক?", a: ["২০,০০০", "৩০,০০০", "৫০,০০০", "১,০০,০০০"], c: 2 },
+    { q: "ই-ওয়ে বিলের পার্ট-বি (Part B) তে কীসের তথ্য থাকে?", a: ["পণ্যের দাম", "গাড়ির নম্বর", "ক্রেতার নাম", "ট্যাক্স রেট"], c: 1 },
+    { q: "পণ্য কেনার সময় যে ট্যাক্স দেওয়া হয় তাকে কী বলে?", a: ["Output Tax", "Input Tax (ITC)", "Service Tax", "Cess"], c: 1 },
+    { q: "নিট ট্যাক্স বের করার সূত্র কোনটি?", a: ["Output + Input", "Output - Input", "Input - Output", "Only Output"], c: 1 },
+    { q: "GSTR-1 রিপোর্টে কীসের তথ্য থাকে?", a: ["Purchase", "Sales", "Expenses", "Stock"], c: 1 },
+    { q: "GSTR-3B আসলে কী ধরনের রিপোর্ট?", a: ["Sales Detail", "Purchase Detail", "Monthly Summary", "Error Report"], c: 2 },
+    { q: "GSTR-2 রিপোর্টে কীসের তথ্য পাওয়া যায়?", a: ["Inward Supply (Purchase)", "Outward Supply", "Profit", "Balance Sheet"], c: 0 },
+    { q: "CGST এর পুরো নাম কী?", a: ["Common GST", "Central GST", "Consumer GST", "Combined GST"], c: 1 },
+    { q: "IGST এর পুরো নাম কী?", a: ["Internal GST", "Indian GST", "Integrated GST", "Important GST"], c: 2 },
+    { q: "ট্যালিতে GSTR রিপোর্ট কোন মেনুতে পাওয়া যায়?", a: ["Vouchers", "Banking", "Display More Reports", "Inventory Info"], c: 2 },
+    { q: "জিএসটি পোর্টালে ই-ওয়ে বিল জেনারেট করার জন্য ট্যালি থেকে কোন ফাইল এক্সপোর্ট করা হয়?", a: ["Excel", "PDF", "JSON", "JPEG"], c: 2 },
+    { q: "যদি কাস্টমারের লেজারে রাজ্য ভুল থাকে, তবে ট্যালি রিপোর্ট কোথায় দেখাবে?", a: ["GSTR-1", "Uncertain Transactions", "GSTR-3B", "Balance Sheet"], c: 1 },
+    { q: "কম্পোজিশন ডিলাররা কি ITC দাবি করতে পারে?", a: ["হ্যাঁ", "না", "মাঝে মাঝে", "জানা নেই"], c: 1 },
+    { q: "GSTIN এর শেষ ২ ডিজিটকে কী বলা হয়?", a: ["State Code", "PAN", "Check Sum Characters", "Entity Number"], c: 2 },
+    { q: "পশ্চিমবঙ্গ থেকে ওড়িশায় মাল পাঠালে কোন ট্যাক্স কাটতে হবে?", a: ["CGST+SGST", "IGST", "SGST", "ট্যাক্স লাগবে না"], c: 1 },
+    { q: "E-Way Bill এর বৈধতা কিসের ওপর নির্ভর করে?", a: ["বিলের দাম", "দূরত্ব (Distance)", "পণ্যের ওজন", "গাড়ির স্পিড"], c: 1 }
+];
+
+let currentQ = 0;
+let score = 0;
+let timeLeft = 1200; // 20 Minutes
+let timerInterval;
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = `সময়: ${mins}:${secs < 10 ? '0'+secs : secs}`;
+        if(timeLeft <= 0) endQuiz();
+    }, 1000);
+}
+
+function loadQuestion() {
+    const data = quizData[currentQ];
+    document.getElementById('question-text').innerText = `প্রশ্ন ${currentQ + 1}: ${data.q}`;
+    const optionsDiv = document.getElementById('options-list');
+    optionsDiv.innerHTML = "";
+    
+    data.a.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = 'option';
+        div.innerText = opt;
+        div.onclick = () => checkAnswer(i, div);
+        optionsDiv.appendChild(div);
+    });
+    
+    document.getElementById('next-btn').style.display = "none";
+    document.getElementById('progress').style.width = `${((currentQ + 1) / 25) * 100}%`;
+}
+
+function checkAnswer(idx, el) {
+    const correct = quizData[currentQ].c;
+    const allOptions = document.querySelectorAll('.option');
+    allOptions.forEach(opt => opt.style.pointerEvents = "none");
+
+    if(idx === correct) {
+        el.classList.add('correct');
+        score++;
+        document.getElementById('correct-sound').play();
+    } else {
+        el.classList.add('wrong');
+        allOptions[correct].classList.add('correct');
+        document.getElementById('wrong-sound').play();
+    }
+    
+    document.getElementById('current-score').innerText = score;
+    document.getElementById('next-btn').style.display = "block";
+}
+
+function nextQuestion() {
+    currentQ++;
+    if(currentQ < quizData.length) {
+        loadQuestion();
+    } else {
+        endQuiz();
+    }
+}
+
+function endQuiz() {
+    clearInterval(timerInterval);
+    document.getElementById('quiz-container').style.display = "none";
+    document.getElementById('result-screen').style.display = "block";
+    document.getElementById('final-score').innerText = score;
+    document.getElementById('whatsapp-btn').style.display = "block";
+}
+
+function sendToSir() {
+    const name = document.getElementById('student-name').value;
+    if(!name) { alert("দয়া করে আপনার নাম লিখুন!"); return; }
+    
+    const phone = "918017247298"; // আপনার নম্বর দিন
+    const msg = `নমস্কার স্যার,%0Aআমি ${name},%0AGST & Taxation মক টেস্ট সম্পন্ন করেছি।%0Aআমার স্কোর: ${score} / 25।`;
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+}
+
+startTimer();
+loadQuestion();
+</script>
+</body>
+</html>

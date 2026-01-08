@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ratio Analysis - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --ratio-purple: #6d28d9;
+        --tally-yellow: #ffc412;
+        --bg: #f8fafc;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        background-color: var(--bg);
+        margin: 0; padding: 0; line-height: 1.6; color: #334155;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #4c1d95, #6d28d9);
+        color: white; padding: 40px 20px; text-align: center;
+        border-bottom: 5px solid var(--tally-yellow);
+    }
+
+    .container { max-width: 950px; margin: 30px auto; padding: 20px; }
+
+    .lesson-card {
+        background: white; border-radius: 15px; padding: 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 25px;
+        border-left: 8px solid var(--ratio-purple);
+    }
+
+    h2 { color: var(--ratio-purple); margin-top: 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;}
+
+    .lang-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px; margin-top: 15px;
+    }
+
+    .bn-box { background: #f5f3ff; padding: 18px; border-radius: 12px; border: 1px solid #ddd6fe; }
+    .en-box { background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; font-style: italic; }
+
+    .ratio-table {
+        width: 100%; border-collapse: collapse; margin-top: 15px; background: white;
+    }
+
+    .ratio-table th, .ratio-table td {
+        border: 1px solid #e2e8f0; padding: 12px; text-align: left;
+    }
+
+    .ratio-table th { background: var(--ratio-purple); color: white; }
+
+    .formula-box {
+        background: #1e293b; color: #fbbf24; padding: 15px; border-radius: 8px;
+        text-align: center; font-size: 18px; font-weight: bold; margin: 20px 0;
+    }
+
+    .btn-back {
+        display: inline-block; background: var(--tally-blue); color: white;
+        padding: 12px 25px; text-decoration: none; border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .footer { text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📈 Lesson 13: Ratio Analysis in TallyPrime</h1>
+    <p>Interpreting Financial Performance through Numbers</p>
+</div>
+
+<div class="container">
+
+    <div class="lesson-card">
+        <h2>What is Ratio Analysis? (রেশিও অ্যানালাইসিস কী?)</h2>
+        <div class="lang-grid">
+            <div class="bn-box">
+                <b>বাংলা:</b> রেশিও অ্যানালাইসিস হলো একটি কোম্পানির ফাইনান্সিয়াল স্টেটমেন্টের বিভিন্ন উপাদানের মধ্যে গাণিতিক সম্পর্ক তৈরি করা। এটি ব্যবসার লাভজনকতা, ঋণ পরিশোধের ক্ষমতা এবং দক্ষতা বুঝতে সাহায্য করে।
+            </div>
+            <div class="en-box">
+                <b>English:</b> Ratio Analysis is a mathematical study of the relationship between various items in financial statements. It helps evaluate a company's profitability, liquidity, and operational efficiency.
+            </div>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <h2>Key Ratios in Tally (প্রধান অনুপাতসমূহ)</h2>
+        
+        <table class="ratio-table">
+            <tr>
+                <th>Ratio Name</th>
+                <th>Formula / Meaning</th>
+                <th>Ideal Range (আদর্শ মান)</th>
+            </tr>
+            <tr>
+                <td><b>Current Ratio</b></td>
+                <td>Current Assets ÷ Current Liabilities. (ব্যবসার নগদ টাকা ও দেনার অনুপাত)</td>
+                <td>2 : 1</td>
+            </tr>
+            <tr>
+                <td><b>Quick Ratio</b></td>
+                <td>(Current Assets - Stock) ÷ Current Liabilities. (জরুরি দেনা মেটানোর ক্ষমতা)</td>
+                <td>1 : 1</td>
+            </tr>
+            <tr>
+                <td><b>Net Profit %</b></td>
+                <td>(Net Profit ÷ Total Sales) × 100. (বিক্রয়ের ওপর নীট লাভের হার)</td>
+                <td>ব্যবসার ধরন অনুযায়ী</td>
+            </tr>
+            <tr>
+                <td><b>Debt-Equity Ratio</b></td>
+                <td>Total Debt ÷ Owner's Equity. (ব্যবসায় নিজের টাকা বনাম ঋণের টাকা)</td>
+                <td>নিচু হলে ভালো (1:1 এর কম)</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="lesson-card" style="border-left-color: #10b981;">
+        <h2>Why it is Important? (কেন এটি প্রয়োজনীয়?)</h2>
+        <div class="lang-grid">
+            <div class="bn-box">
+                - <b>তরলতা পরীক্ষা:</b> ব্যবসাটি তার ছোটখাটো দেনা শোধ করতে পারবে কি না।<br>
+                - <b>কর্মদক্ষতা:</b> স্টক কত দ্রুত বিক্রি হচ্ছে তা বোঝা যায়।<br>
+                - <b>ভবিষ্যদ্বাণী:</b> গত বছরের সাথে তুলনা করে ব্যবসার উন্নতি বা অবনতি বোঝা যায়।
+            </div>
+            <div class="en-box">
+                - <b>Liquidity Check:</b> Ability to pay short-term debts.<br>
+                - <b>Efficiency:</b> How fast inventory is moving.<br>
+                - <b>Benchmarking:</b> Comparing current data with previous years to track growth.
+            </div>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <h2>How to View in TallyPrime? (ট্যালিতে দেখার নিয়ম)</h2>
+        <div class="formula-box">
+            Gateway of Tally > Ratio Analysis (Shortcut: R)
+        </div>
+        <div class="bn-box">
+            ট্যালি প্রাইমে একবার ভাউচার এন্ট্রি হয়ে গেলে এটি অটোমেটিক রেশিও ক্যালকুলেট করে দেয়। আপনাকে আলাদাভাবে কোনো হিসাব করতে হয় না।
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="tally-prime.html" class="btn-back">⬅️ Back to Tally Course</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 22/1 Bipin Paul Road, Nimta, Kolkata - 49
+</div>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Godown Management - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --tally-yellow: #ffc412;
+        --bg: #f8fafc;
+        --white: #ffffff;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        background-color: var(--bg);
+        margin: 0; padding: 0; line-height: 1.6; color: #334155;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #00428a, #075985);
+        color: white; padding: 40px 20px; text-align: center;
+        border-bottom: 5px solid var(--tally-yellow);
+    }
+
+    .container { max-width: 900px; margin: 30px auto; padding: 20px; }
+
+    .lesson-card {
+        background: var(--white); border-radius: 15px; padding: 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 25px;
+        border-left: 8px solid #0891b2;
+    }
+
+    h2 { color: #0891b2; margin-top: 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;}
+
+    .lang-box {
+        display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;
+    }
+
+    .bn-text { flex: 1; background: #fdf2f2; padding: 18px; border-radius: 12px; border: 1px solid #fecaca; }
+    .en-text { flex: 1; background: #f0fdf4; padding: 18px; border-radius: 12px; border: 1px solid #bbf7d0; font-style: italic; }
+
+    .tally-table {
+        width: 100%; border-collapse: collapse; margin-top: 15px; background: white;
+    }
+
+    .tally-table th, .tally-table td {
+        border: 1px solid #e2e8f0; padding: 12px; text-align: left;
+    }
+
+    .tally-table th { background: #0891b2; color: white; }
+
+    .btn-back {
+        display: inline-block; background: var(--tally-blue); color: white;
+        padding: 12px 25px; text-decoration: none; border-radius: 8px;
+        font-weight: bold; transition: 0.3s;
+    }
+
+    .footer { text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🏬 Lesson 06: Multiple Godown Management</h1>
+    <p>SUPER SUCCESS COMPUTER EDUCATION CENTER</p>
+</div>
+
+<div class="container">
+
+    <div class="lesson-card">
+        <h2>What is Godown? (গোডাউন কী?)</h2>
+        <div class="lang-box">
+            <div class="bn-text">
+                <b>বাংলা:</b> গোডাউন হলো এমন একটি জায়গা যেখানে ব্যবসায়িক পণ্য বা স্টক মজুদ করে রাখা হয়। ট্যালিতে একে 'Location'ও বলা হয়। যখন একটি কোম্পানির একাধিক গুদাম বা শোরুম থাকে, তখন এই ফিচারটি প্রয়োজন হয়।
+            </div>
+            <div class="en-text">
+                <b>English:</b> A Godown is a place where stock items are stored. In TallyPrime, it is also referred to as 'Location'. This feature is used when a company has multiple warehouses or showrooms.
+            </div>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <h2>Why Use Multiple Godowns? (কেন এটি ব্যবহার করব?)</h2>
+        <div class="lang-box">
+            <div class="bn-text">
+                ১. আলাদা আলাদা শোরুম বা গুদামের স্টকের হিসাব রাখা।<br>
+                ২. এক গোডাউন থেকে অন্য গোডাউনে মাল ট্রান্সফার করা (Stock Transfer)।<br>
+                ৩. কোন জায়গায় কত টাকার মাল আছে তা দ্রুত জানা।
+            </div>
+            <div class="en-text">
+                1. To track stock levels at different showrooms or warehouses.<br>
+                2. To manage stock transfers between locations.<br>
+                3. To quickly identify the value of stock at specific locations.
+            </div>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <h2>Practical Example (বাস্তব উদাহরণ)</h2>
+        <p>ধরুন আপনার একটি মোবাইলের দোকান আছে এবং দুটি জায়গা আছে:</p>
+        <table class="tally-table">
+            <tr>
+                <th>Stock Item</th>
+                <th>Godown A (Nimta)</th>
+                <th>Godown B (Dum Dum)</th>
+                <th>Total Stock</th>
+            </tr>
+            <tr>
+                <td>Vivo V29</td>
+                <td>10 Pcs</td>
+                <td>05 Pcs</td>
+                <td>15 Pcs</td>
+            </tr>
+            <tr>
+                <td>Oppo Reno 10</td>
+                <td>08 Pcs</td>
+                <td>12 Pcs</td>
+                <td>20 Pcs</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="lesson-card">
+        <h2>Steps in TallyPrime (ট্যালিতে করার নিয়ম)</h2>
+        <div class="lang-box">
+            <div class="bn-text">
+                <b>ধাপ ১ (Enable):</b><br>
+                F11 (Features) > Inventory > <b>Enable Godowns</b>-কে 'Yes' করুন।<br><br>
+                <b>ধাপ ২ (Create):</b><br>
+                Gateway of Tally > Create > <b>Godown</b> সিলেক্ট করুন। নাম দিন এবং সেভ করুন।
+            </div>
+            <div class="en-text">
+                <b>Step 1 (Enable):</b><br>
+                Press F11 (Features) > Inventory > set <b>Enable Godowns</b> to 'Yes'.<br><br>
+                <b>Step 2 (Create):</b><br>
+                Gateway of Tally > Create > select <b>Godown</b>. Enter name and save.
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="tally-prime.html" class="btn-back">⬅️ Back to Tally Course</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 22/1 Bipin Paul Road, Nimta, Kolkata - 49
+</div>
+
+</body>
+</html>

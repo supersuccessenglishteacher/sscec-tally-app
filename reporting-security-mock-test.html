@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporting & Security Mock Test - SSCEC</title>
+<style>
+    :root {
+        --primary: #1e293b;
+        --secondary: #334155;
+        --success: #10b981;
+        --danger: #ef4444;
+        --accent: #fbbf24;
+        --bg: #f1f5f9;
+    }
+
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding: 0; }
+    .header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 25px; text-align: center; border-bottom: 5px solid var(--accent); }
+    
+    .container { max-width: 750px; margin: 25px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; }
+    
+    #timer { position: absolute; top: 20px; right: 20px; font-weight: bold; color: var(--danger); font-size: 18px; border: 2px solid var(--danger); padding: 5px 15px; border-radius: 20px; background: #fff1f2; }
+
+    .question { font-size: 19px; font-weight: bold; margin-bottom: 25px; color: #1e293b; line-height: 1.5; border-left: 5px solid var(--accent); padding-left: 15px; }
+    
+    .options { display: flex; flex-direction: column; gap: 12px; }
+    .option { padding: 14px; border: 2px solid #e2e8f0; border-radius: 10px; cursor: pointer; transition: 0.3s; font-weight: 500; }
+    .option:hover { background: #f8fafc; border-color: var(--secondary); }
+    
+    .correct { background: #d1fae5 !important; border-color: var(--success) !important; color: #065f46; }
+    .wrong { background: #fee2e2 !important; border-color: var(--danger) !important; color: #991b1b; }
+
+    .footer-tools { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 20px; }
+    .score-board { font-size: 18px; font-weight: bold; color: var(--secondary); }
+    
+    .btn { padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+    .btn-next { background: var(--primary); color: white; display: none; }
+    .btn-whatsapp { background: #25d366; color: white; width: 100%; margin-top: 20px; display: none; text-decoration: none; text-align: center; font-size: 18px; }
+    
+    #result-screen { display: none; text-align: center; }
+    .progress-bar { width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 25px; }
+    .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: 0.4s; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📊 Reporting & Security Mock Test</h1>
+    <p>SUPER SUCCESS COMPUTER EDUCATION CENTER</p>
+</div>
+
+<div class="container" id="quiz-container">
+    <div id="timer">সময়: 10:00</div>
+    <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+    
+    <div id="quiz-content">
+        <div id="question-text" class="question">প্রশ্ন লোড হচ্ছে...</div>
+        <div id="options-list" class="options"></div>
+    </div>
+
+    <div class="footer-tools">
+        <div class="score-board">স্কোর: <span id="current-score">0</span> / 15</div>
+        <button id="next-btn" class="btn btn-next" onclick="nextQuestion()">পরবর্তী প্রশ্ন ⮕</button>
+    </div>
+</div>
+
+<div class="container" id="result-screen">
+    <h2 style="color: var(--success);">পরীক্ষা শেষ হয়েছে!</h2>
+    <p style="font-size: 22px;">আপনার স্কোর: <b><span id="final-score">0</span> / 15</b></p>
+    
+    <div style="margin-top: 20px;">
+        <input type="text" id="student-name" placeholder="আপনার নাম লিখুন" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; margin-bottom: 10px; box-sizing: border-box;">
+        <a href="#" id="whatsapp-btn" class="btn btn-whatsapp" onclick="sendToSir()">📲 স্যারকে রেজাল্ট পাঠান</a>
+    </div>
+    
+    <button class="btn" style="background:#64748b; color:white; margin-top:10px; width:100%;" onclick="location.reload()">আবার চেষ্টা করো</button>
+</div>
+
+<audio id="correct-sound" src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3"></audio>
+<audio id="wrong-sound" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+
+<script>
+const quizData = [
+    { q: "ব্যালেন্স শিট (Balance Sheet) ব্যবসার কী প্রকাশ করে?", a: ["লাভ-ক্ষতি", "আর্থিক অবস্থা", "স্টক ডিটেইলস", "ট্যাক্স রিপোর্ট"], c: 1 },
+    { q: "P/L Account-এর ডান দিকে (Right Side) কোনটি থাকে?", a: ["Expenses", "Incomes", "Assets", "Liabilities"], c: 1 },
+    { q: "Assets = Liabilities + _______ (শুন্যস্থান পূরণ করো)", a: ["Purchase", "Sales", "Capital", "Loan"], c: 2 },
+    { q: "ট্যালিতে ব্যালেন্স শিট দেখার শর্টকাট কী?", a: ["P", "B", "S", "R"], c: 1 },
+    { q: "নিট লাভ (Net Profit) বের করার সঠিক সূত্র কোনটি?", a: ["Income + Expense", "Income - Expense", "Sales - Purchase", "Assets - Liabilities"], c: 1 },
+    { q: "Current Ratio-র আদর্শ মান (Ideal Ratio) কত?", a: ["1 : 1", "2 : 1", "3 : 1", "1 : 2"], c: 1 },
+    { q: "Ratio Analysis দেখার জন্য Gateway of Tally থেকে কী প্রেস করতে হয়?", a: ["Alt+R", "Ctrl+R", "R", "F10"], c: 2 },
+    { q: "ট্যালিতে ডাটা ব্যাকআপ ফাইলের এক্সটেনশন সাধারণত কী হয়?", a: [".txt", ".xlsx", ".tbk", ".pdf"], c: 2 },
+    { q: "Data Backup করার শর্টকাট কী?", a: ["Alt + Y", "Alt + K", "Ctrl + B", "Alt + Z"], c: 0 },
+    { q: "Restore করার অর্থ কী?", a: ["ডাটা মোছা", "ডাটা কপি করা", "ব্যাকআপ ডাটা ফিরিয়ে আনা", "পাসওয়ার্ড বদলানো"], c: 2 },
+    { q: "কোন পাসওয়ার্ড দিলে কোম্পানির নাম লিস্টে দেখা যায় না (**** দেখায়)?", a: ["User Password", "Tally Vault", "Security Control", "Windows Password"], c: 1 },
+    { q: "Administrator-এর কাজ কী?", a: ["শুধু এন্ট্রি করা", "শুধু দেখা", "পূর্ণ নিয়ন্ত্রণ ও সেটিংস পরিবর্তন", "কোনোটিই নয়"], c: 2 },
+    { q: "Quick Ratio বের করার সময় Current Assets থেকে কোনটি বাদ দেওয়া হয়?", a: ["Cash", "Bank", "Stock", "Debtors"], c: 2 },
+    { q: "ট্যালি ভল্ট পাসওয়ার্ড হারিয়ে ফেললে কী হবে?", a: ["রিসেট করা যাবে", "ডাটা আর পাওয়া যাবে না", "ট্যালি নতুন করে খুলবে", "অটোমেটিক খুলবে"], c: 1 },
+    { q: "Security Control অপশনটি কোথায় পাওয়া যায়?", a: ["F11 Features", "Alt+K (Company)", "Display", "Banking"], c: 1 }
+];
+
+let currentQ = 0, score = 0, timeLeft = 600; // 10 Min
+let timerInterval;
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = `সময়: ${mins}:${secs < 10 ? '0'+secs : secs}`;
+        if(timeLeft <= 0) endQuiz();
+    }, 1000);
+}
+
+function loadQuestion() {
+    const data = quizData[currentQ];
+    document.getElementById('question-text').innerText = `প্রশ্ন ${currentQ + 1}: ${data.q}`;
+    const optionsDiv = document.getElementById('options-list');
+    optionsDiv.innerHTML = "";
+    data.a.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = 'option';
+        div.innerText = opt;
+        div.onclick = () => checkAnswer(i, div);
+        optionsDiv.appendChild(div);
+    });
+    document.getElementById('next-btn').style.display = "none";
+    document.getElementById('progress').style.width = `${((currentQ + 1) / 15) * 100}%`;
+}
+
+function checkAnswer(idx, el) {
+    const correct = quizData[currentQ].c;
+    const all = document.querySelectorAll('.option');
+    all.forEach(o => o.style.pointerEvents = "none");
+    if(idx === correct) {
+        el.classList.add('correct'); score++;
+        document.getElementById('correct-sound').play();
+    } else {
+        el.classList.add('wrong'); all[correct].classList.add('correct');
+        document.getElementById('wrong-sound').play();
+    }
+    document.getElementById('current-score').innerText = score;
+    document.getElementById('next-btn').style.display = "block";
+}
+
+function nextQuestion() {
+    currentQ++;
+    if(currentQ < quizData.length) loadQuestion(); else endQuiz();
+}
+
+function endQuiz() {
+    clearInterval(timerInterval);
+    document.getElementById('quiz-container').style.display = "none";
+    document.getElementById('result-screen').style.display = "block";
+    document.getElementById('final-score').innerText = score;
+    document.getElementById('whatsapp-btn').style.display = "block";
+}
+
+function sendToSir() {
+    const name = document.getElementById('student-name').value;
+    if(!name) { alert("নাম লিখুন!"); return; }
+    const phone = "91XXXXXXXXXX"; // আপনার নম্বর দিন
+    const msg = `নমস্কার স্যার, আমি ${name}, Reporting & Security মক টেস্ট সম্পন্ন করেছি। আমার স্কোর: ${score}/15।`;
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+}
+
+startTimer(); loadQuestion();
+</script>
+</body>
+</html>

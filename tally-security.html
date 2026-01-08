@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tally Vault & Security - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --security-red: #991b1b;
+        --vault-gold: #854d0e;
+        --tally-yellow: #ffc412;
+        --bg: #f8fafc;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        background-color: var(--bg);
+        margin: 0; padding: 0; line-height: 1.6; color: #334155;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        color: white; padding: 40px 20px; text-align: center;
+        border-bottom: 5px solid var(--tally-yellow);
+    }
+
+    .container { max-width: 950px; margin: 30px auto; padding: 20px; }
+
+    .lesson-card {
+        background: white; border-radius: 15px; padding: 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 25px;
+        border-left: 8px solid var(--security-red);
+    }
+
+    h2 { margin-top: 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+    .lang-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px; margin-top: 15px;
+    }
+
+    .bn-box { background: #fff1f2; padding: 18px; border-radius: 12px; border: 1px solid #fecaca; }
+    .en-box { background: #fefce8; padding: 18px; border-radius: 12px; border: 1px solid #fef08a; font-style: italic; }
+
+    .feature-table {
+        width: 100%; border-collapse: collapse; margin-top: 15px; background: white;
+    }
+
+    .feature-table th, .feature-table td {
+        border: 1px solid #e2e8f0; padding: 12px; text-align: left;
+    }
+
+    .feature-table th { background: #334155; color: white; }
+
+    .warning-box {
+        background: #ef4444; color: white; padding: 15px; border-radius: 8px;
+        text-align: center; font-weight: bold; margin: 20px 0;
+    }
+
+    .btn-back {
+        display: inline-block; background: var(--tally-blue); color: white;
+        padding: 12px 25px; text-decoration: none; border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .footer { text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🔐 Lesson 15: Tally Vault & User Security</h1>
+    <p>Protecting Your Financial Data from Unauthorized Access</p>
+</div>
+
+<div class="container">
+
+    <div class="lesson-card" style="border-left-color: var(--vault-gold);">
+        <h2 style="color: var(--vault-gold);">💎 Tally Vault Password (ট্যালি ভল্ট)</h2>
+        <div class="lang-grid">
+            <div class="bn-box">
+                <b>বাংলা:</b> ট্যালি ভল্ট হলো ডাটা এনক্রিপশন করার একটি পদ্ধতি। এটি ব্যবহার করলে কোম্পানির নাম "Select Company" লিস্টে দেখা যায় না, তার বদলে স্টার (****) চিহ্ন দেখায়। পাসওয়ার্ড ছাড়া ডাটা হ্যাক করা অসম্ভব।
+            </div>
+            <div class="en-box">
+                <b>English:</b> Tally Vault is a security feature that encrypts your data. It hides the company name in the selection list, showing asterisks (****) instead. Data cannot be accessed without the password.
+            </div>
+        </div>
+        
+        
+
+        <div class="warning-box">
+            সতর্কতা: ট্যালি ভল্ট পাসওয়ার্ড হারিয়ে ফেললে ডাটা রিকভার করা সম্ভব নয়! (Forgotten passwords cannot be recovered!)
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <h2 style="color: var(--security-red);">👤 User Roles & Security (ইউজার কন্ট্রোল)</h2>
+        <div class="lang-grid">
+            <div class="bn-box">
+                <b>বাংলা:</b> এটি ব্যবসার মালিককে বিভিন্ন ইউজার (যেমন: Data Entry Operator, Manager) তৈরি করতে এবং কার কতটুকু কাজের ক্ষমতা থাকবে তা নির্ধারণ করতে সাহায্য করে।
+            </div>
+            <div class="en-box">
+                <b>English:</b> This allows the owner to create multiple users and define their access levels (e.g., restricted access for data entry staff).
+            </div>
+        </div>
+
+        
+
+        <h3>Types of Access (অ্যাক্সেসের ধরন):</h3>
+        <table class="feature-table">
+            <tr>
+                <th>User Type</th>
+                <th>Permissions (অনুমতি)</th>
+            </tr>
+            <tr>
+                <td><b>Administrator</b></td>
+                <td>সব ধরনের কাজ এবং সেটিংস পরিবর্তন করার পূর্ণ ক্ষমতা।</td>
+            </tr>
+            <tr>
+                <td><b>Data Entry</b></td>
+                <td>শুধুমাত্র ভাউচার এন্ট্রি করতে পারবে, কিন্তু রিপোর্ট দেখতে পারবে না।</td>
+            </tr>
+            <tr>
+                <td><b>Auditor</b></td>
+                <td>রিপোর্ট চেক এবং অডিট করতে পারবে, কিন্তু কোনো ডাটা মুছতে পারবে না।</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="lesson-card" style="border-left-color: var(--tally-blue);">
+        <h2>⚙️ How to Set Up? (সেট আপ করার নিয়ম)</h2>
+        <div class="bn-box">
+            ১. <b>Alt + K</b> (Company Menu) প্রেস করুন।<br>
+            ২. <b>Security</b> অপশনে যান।<br>
+            ৩. <b>Control User Access to Company Data</b>-কে 'Yes' করুন।<br>
+            ৪. Administrator-এর নাম এবং পাসওয়ার্ড দিন।<br>
+            ৫. এবার <b>Users and Passwords</b>-এ গিয়ে নতুন স্টাফদের জন্য আইডি তৈরি করুন।
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="tally-prime.html" class="btn-back">⬅️ Back to Tally Course</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 22/1 Bipin Paul Road, Nimta, Kolkata - 49
+</div>
+
+</body>
+</html>

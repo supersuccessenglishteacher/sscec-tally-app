@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Calculation - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --gst-green: #059669;
+        --tally-yellow: #ffc412;
+        --bg: #f1f5f9;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        background-color: var(--bg);
+        margin: 0; padding: 0; line-height: 1.6; color: #334155;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #064e3b, #059669);
+        color: white; padding: 40px 20px; text-align: center;
+        border-bottom: 5px solid var(--tally-yellow);
+    }
+
+    .container { max-width: 950px; margin: 30px auto; padding: 20px; }
+
+    .lesson-card {
+        background: white; border-radius: 15px; padding: 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 25px;
+        border-left: 8px solid var(--tally-blue);
+    }
+
+    h2 { color: var(--tally-blue); margin-top: 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;}
+
+    .tax-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px; margin-top: 20px;
+    }
+
+    .tax-box { padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    .intra { background-color: #f0f9ff; border-top: 5px solid #3b82f6; }
+    .inter { background-color: #fff1f2; border-top: 5px solid #e11d48; }
+
+    .lang-box { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 10px; }
+    .bn { flex: 1; font-size: 15px; }
+    .en { flex: 1; font-size: 15px; font-style: italic; color: #475569; }
+
+    .tally-table {
+        width: 100%; border-collapse: collapse; margin-top: 15px; background: white;
+    }
+
+    .tally-table th, .tally-table td {
+        border: 1px solid #e2e8f0; padding: 12px; text-align: center;
+    }
+
+    .tally-table th { background: #334155; color: white; }
+
+    .formula-box {
+        background: #1e293b; color: #fbbf24; padding: 15px; border-radius: 8px;
+        text-align: center; font-size: 18px; font-weight: bold; margin: 20px 0;
+    }
+
+    .btn-back {
+        display: inline-block; background: var(--tally-blue); color: white;
+        padding: 12px 25px; text-decoration: none; border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .footer { text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📉 Lesson 09: CGST, SGST & IGST Calculation</h1>
+    <p>Understanding Intra-State and Inter-State Tax Rules</p>
+</div>
+
+<div class="container">
+
+    <div class="lesson-card">
+        <h2>Types of GST (জিএসটি-র ধরন)</h2>
+        <div class="tax-grid">
+            <div class="tax-box intra">
+                <h3>🏠 Intra-State Sale</h3>
+                <p><b>নিজ রাজ্যের ভেতরে কেনাবেচা</b></p>
+                <div class="lang-box">
+                    <div class="bn">যখন ক্রেতা ও বিক্রেতা একই রাজ্যে থাকে (যেমন: নিমতা থেকে দমদম)। এখানে <b>CGST</b> এবং <b>SGST</b> দুই ভাগে ট্যাক্স কাটা হয়।</div>
+                    <div class="en">When the buyer and seller are in the same state. Here, tax is split into <b>CGST</b> and <b>SGST</b>.</div>
+                </div>
+            </div>
+            <div class="tax-box inter">
+                <h3>✈️ Inter-State Sale</h3>
+                <p><b>অন্য রাজ্যের সাথে কেনাবেচা</b></p>
+                <div class="lang-box">
+                    <div class="bn">যখন কেনাবেচা দুটি আলাদা রাজ্যের মধ্যে হয় (যেমন: পশ্চিমবঙ্গ থেকে দিল্লি)। এখানে কেবল <b>IGST</b> কার্যকর হয়।</div>
+                    <div class="en">When transaction happens between two different states. Here, only <b>IGST</b> is applied.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="lesson-card">
+        <h2>Definitions (সংজ্ঞা)</h2>
+        <table class="tally-table">
+            <tr>
+                <th>Tax Type</th>
+                <th>Full Form</th>
+                <th>Who Collects? (কার কাছে যায়?)</th>
+            </tr>
+            <tr>
+                <td><b>CGST</b></td>
+                <td>Central GST</td>
+                <td>Central Government (কেন্দ্রীয় সরকার)</td>
+            </tr>
+            <tr>
+                <td><b>SGST</b></td>
+                <td>State GST</td>
+                <td>State Government (রাজ্য সরকার)</td>
+            </tr>
+            <tr>
+                <td><b>IGST</b></td>
+                <td>Integrated GST</td>
+                <td>Central Govt. (পরে রাজ্যগুলোর মধ্যে ভাগ হয়)</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="lesson-card" style="border-left-color: var(--tally-yellow);">
+        <h2>Calculation Example (হিসাব করার উদাহরণ)</h2>
+        <p>ধরুন একটি ল্যাপটপের দাম <b>৪০,০০০ টাকা</b> এবং জিএসটি হার <b>১৮%</b>।</p>
+        
+        <div class="formula-box">
+            যদি একই রাজ্যের ভেতরে (Intra-State) হয়:
+        </div>
+        <table class="tally-table">
+            <tr>
+                <td>CGST (9%)</td>
+                <td>40,000 × 9% = 3,600/-</td>
+            </tr>
+            <tr>
+                <td>SGST (9%)</td>
+                <td>40,000 × 9% = 3,600/-</td>
+            </tr>
+            <tr>
+                <td><b>Total Bill</b></td>
+                <td><b>47,200/-</b></td>
+            </tr>
+        </table>
+
+        <div class="formula-box" style="background: #0f172a;">
+            যদি অন্য রাজ্যের সাথে (Inter-State) হয়:
+        </div>
+        <table class="tally-table">
+            <tr>
+                <td>IGST (18%)</td>
+                <td>40,000 × 18% = 7,200/-</td>
+            </tr>
+            <tr>
+                <td><b>Total Bill</b></td>
+                <td><b>47,200/-</b></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="lesson-card">
+        <h2>How Tally Calculates? (ট্যালি কীভাবে হিসাব করে?)</h2>
+        <div class="lang-box">
+            <div class="bn">
+                ১. ট্যালি প্রথমে কোম্পানির রাজ্য এবং কাস্টমারের লেজারে থাকা রাজ্য তুলনা করে।<br>
+                ২. রাজ্য একই হলে <b>CGST/SGST</b> এবং আলাদা হলে <b>IGST</b> অটোমেটিক ক্যালকুলেট করে।<br>
+                ৩. সঠিক ট্যাক্স পেতে হলে লেজার তৈরির সময় <b>Registration Type</b> ঠিক রাখা জরুরি।
+            </div>
+            <div class="en">
+                1. Tally compares the Company's state with the Customer's state.<br>
+                2. If the states match, it applies <b>CGST/SGST</b>; if they differ, it applies <b>IGST</b>.<br>
+                3. Accurate ledger configuration is mandatory for automatic calculation.
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="tally-prime.html" class="btn-back">⬅️ Back to Tally Course</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 22/1 Bipin Paul Road, Nimta, Kolkata - 49
+</div>
+
+</body>
+</html>

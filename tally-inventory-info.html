@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory Info - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --tally-yellow: #ffc412;
+        --bg: #f8fafc;
+        --white: #ffffff;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        background-color: var(--bg);
+        margin: 0; padding: 0; line-height: 1.6; color: #334155;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #00428a, #075985);
+        color: white; padding: 40px 20px; text-align: center;
+        border-bottom: 5px solid var(--tally-yellow);
+    }
+
+    .container { max-width: 900px; margin: 30px auto; padding: 20px; }
+
+    .lesson-card {
+        background: var(--white); border-radius: 15px; padding: 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 25px;
+        border-left: 8px solid var(--tally-blue);
+    }
+
+    h2 { color: var(--tally-blue); margin-top: 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;}
+
+    .lang-box {
+        display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;
+    }
+
+    .bn-text { flex: 1; background: #fffcf0; padding: 18px; border-radius: 12px; border: 1px solid #fde68a; }
+    .en-text { flex: 1; background: #f0f7ff; padding: 18px; border-radius: 12px; border: 1px solid #bae6fd; font-style: italic; }
+
+    .tally-table {
+        width: 100%; border-collapse: collapse; margin-top: 15px; background: white;
+    }
+
+    .tally-table th, .tally-table td {
+        border: 1px solid #e2e8f0; padding: 12px; text-align: left;
+    }
+
+    .tally-table th { background: var(--tally-blue); color: white; }
+
+    .highlight { color: #b91c1c; font-weight: bold; }
+
+    .btn-back {
+        display: inline-block; background: var(--tally-blue); color: white;
+        padding: 12px 25px; text-decoration: none; border-radius: 8px;
+        font-weight: bold; transition: 0.3s;
+    }
+
+    .footer { text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📦 Inventory Info: Stock Item & Grouping</h1>
+    <p>SUPER SUCCESS COMPUTER EDUCATION CENTER</p>
+</div>
+
+<div class="container">
+
+    <div class="lesson-card">
+        <h2>1. Stock Group (পণ্য বিভাগ)</h2>
+        <div class="lang-box">
+            <div class="bn-text">
+                <b>বাংলা:</b> স্টক গ্রুপ হলো পণ্যের একটি সাধারণ বিভাগ। একই জাতীয় পণ্যগুলোকে একটি নির্দিষ্ট গ্রুপের অধীনে রাখা হয় যাতে স্টক রিপোর্ট দেখতে সুবিধা হয়।
+            </div>
+            <div class="en-text">
+                <b>English:</b> A Stock Group is a category for products. Similar items are grouped together to make inventory reporting and analysis easier.
+            </div>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <h2>2. Stock Item (পণ্য)</h2>
+        <div class="lang-box">
+            <div class="bn-text">
+                <b>বাংলা:</b> স্টক আইটেম হলো সেই নির্দিষ্ট পণ্য যা আপনার ব্যবসায় কেনা বা বেচা হয়। এটি ইনভেন্টরির প্রধান ইউনিট।
+            </div>
+            <div class="en-text">
+                <b>English:</b> A Stock Item is the specific product that you buy or sell in your business. It is the primary unit of inventory management.
+            </div>
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <h2>3. Units of Measure (পরিমাপের একক)</h2>
+        <div class="lang-box">
+            <div class="bn-text">
+                <b>বাংলা:</b> পণ্যটি কীভাবে গণনা বা পরিমাপ করা হবে তাকেই ইউনিট বলে। যেমন: পিস (Pcs), কেজি (Kg), লিটার (Ltr) ইত্যাদি।
+            </div>
+            <div class="en-text">
+                <b>English:</b> Units of Measure (UoM) are used to measure the stock items. For example: Pieces (Pcs), Kilograms (Kg), Liters (Ltr), etc.
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="lesson-card">
+        <h2>Practical Example (বাস্তব উদাহরণ)</h2>
+        <table class="tally-table">
+            <tr>
+                <th>Stock Item (পণ্য)</th>
+                <th>Under Group (বিভাগ)</th>
+                <th>Units (একক)</th>
+            </tr>
+            <tr>
+                <td>Dell Monitor 19"</td>
+                <td>Computer Accessories</td>
+                <td>Pcs</td>
+            </tr>
+            <tr>
+                <td>Fortune Oil 1L</td>
+                <td>Grocery</td>
+                <td>Bottle</td>
+            </tr>
+            <tr>
+                <td>Sugar</td>
+                <td>Grocery</td>
+                <td>Kg</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="lesson-card">
+        <h2>How to Create? (কীভাবে তৈরি করবেন?)</h2>
+        <div class="lang-box">
+            <div class="bn-text">
+                ১. <b>Gateway of Tally</b>-তে যান।<br>
+                ২. <b>Create</b> অপশনে ক্লিক করুন।<br>
+                ৩. <b>Stock Group / Stock Item / Unit</b> সিলেক্ট করুন।<br>
+                ৪. নাম ও প্রয়োজনীয় তথ্য দিয়ে <b>Ctrl+A</b> চেপে সেভ করুন।
+            </div>
+            <div class="en-text">
+                1. Go to <b>Gateway of Tally</b>.<br>
+                2. Select <b>Create</b>.<br>
+                3. Choose <b>Stock Group / Stock Item / Unit</b>.<br>
+                4. Fill the details and press <b>Ctrl+A</b> to save.
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="tally-prime.html" class="btn-back">⬅️ Back to Tally Course</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 22/1 Bipin Paul Road, Nimta, Kolkata - 49
+</div>
+
+</body>
+</html>

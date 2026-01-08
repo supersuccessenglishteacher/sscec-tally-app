@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tally Prime with GST - SSCEC</title>
+<style>
+  :root {
+    --tally-blue: #00428a;
+    --tally-yellow: #ffc412;
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+  }
+ 
+  body { 
+    font-family: 'Segoe UI', Tahoma, sans-serif; 
+    background-color: var(--bg-light); 
+    margin: 0; padding: 0; color: var(--text-dark);
+  }
+ 
+  /* Header Section */
+  .tally-header {
+    background: linear-gradient(135deg, #00428a 0%, #002a5a 100%);
+    color: white; padding: 60px 20px; text-align: center;
+    border-bottom: 8px solid var(--tally-yellow);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  .tally-header h1 { font-size: 32px; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+  .tally-header .institute-name { font-size: 22px; font-weight: bold; margin-top: 15px; color: var(--tally-yellow); }
+  .tally-header .address { font-size: 14px; opacity: 0.9; margin-top: 10px; line-height: 1.5; }
+ 
+  .container { max-width: 1000px; margin: -30px auto 40px; padding: 0 20px; }
+ 
+  /* Highlight Box */
+  .highlight-box {
+    background: white; color: var(--tally-blue);
+    padding: 25px; border-radius: 20px; font-weight: bold;
+    text-align: center; margin-bottom: 30px; font-size: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+  }
+ 
+  .course-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+ 
+  .module-card {
+    background: white; border-radius: 20px; padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--tally-yellow);
+    transition: 0.3s ease;
+  }
+  .module-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+  .module-card h3 { color: var(--tally-blue); margin-top: 0; display: flex; align-items: center; gap: 10px; }
+  .module-card ul { padding-left: 20px; font-size: 15px; line-height: 2; color: #475569; }
+ 
+  /* Link Styling for Modules */
+  .module-link {
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .module-link:hover {
+    color: #ffc412;
+    text-decoration: underline;
+  }
+
+  .btn-container { text-align: center; margin-top: 50px; }
+  .btn-home {
+    background: var(--tally-blue); color: white; padding: 15px 40px;
+    text-decoration: none; border-radius: 12px; font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,66,138,0.3);
+  }
+ 
+  @media (max-width: 600px) {
+    .tally-header h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+ 
+<div class="tally-header">
+    <h1>📊 Tally Prime with GST Masterclass</h1>
+    <div class="institute-name">SUPER SUCCESS COMPUTER EDUCATION CENTER</div>
+    <div class="address">
+        📍 22/1 Bipin Paul Road, Nimta Shyamaprasad Nagar, Kolkata - 700049<br>
+        📞 8017247298 | 9874152080
+    </div>
+</div>
+ 
+<div class="container">
+    <div class="highlight-box">
+        🚀 এই কোর্সটি সম্পন্ন করে আপনি প্রফেশনাল অ্যাকাউন্টিং ক্যারিয়ার শুরু করুন।
+    </div>
+ 
+    <div class="course-grid">
+<div class="module-card">
+  <h3>📂 Accounts Basics</h3>
+  <ul>
+    <li><a href="accounting-intro.html" class="module-link">📖 Introduction to Accounting</a></li>
+    <li><a href="double-entry.html" class="module-link">📖 Double Entry System</a></li>
+    <li><a href="tally-company-creation.html" class="module-link">📖 Company Creation in Tally</a></li>
+    <li><a href="tally-ledger-creation.html" class="module-link">📖 Ledger & Chart of Accounts</a></li>
+  </ul>
+</div> 
+        <div class="module-card">
+          <h3>📦 Inventory Info</h3>
+          <ul>
+           <li>Stock Item & Grouping</li>
+           <li>Multiple Godown Management</li>
+           <li>Purchase & Sales Cycle</li>
+           <li>Stock Summary Analysis</li>
+          </ul>
+        </div>
+ 
+        <div class="module-card">
+          <h3>🧾 GST Compliance</h3>
+          <ul>
+           <li>GST Registration Details</li>
+           <li>CGST, SGST & IGST Calculation</li>
+           <li>E-Way Bill Generation</li>
+           <li>GSTR Reports & Taxation</li>
+          </ul>
+        </div>
+ 
+        <div class="module-card">
+          <h3>📜 Reporting & Tools</h3>
+          <ul>
+           <li>Balance Sheet & P/L Account</li>
+           <li>Ratio Analysis</li>
+           <li>Data Backup & Restore</li>
+           <li>Tally Vault & Security</li>
+          </ul>
+        </div>
+    </div>
+ 
+    <div class="btn-container">
+        <div style="margin-bottom: 25px;">
+            <span style="color: #64748b;">যোগাযোগ করুন:</span><br>
+           <b>8017247298 | 9874152080</b>
+        </div>
+        <a href="index.html" class="btn-home">🏠 ব্যাক টু হোম পেজ</a>
+    </div>
+</div>
+ 
+<div style="text-align: center; padding: 20px; color: #94a3b8; font-size: 13px;">
+    © 2026 SUPER SUCCESS COMPUTER EDUCATION CENTER. All Rights Reserved.
+</div>
+ 
+</body>
+</html>

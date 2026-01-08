@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purchase & Sales Cycle - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --tally-yellow: #ffc412;
+        --purchase-color: #0369a1;
+        --sales-color: #15803d;
+        --bg: #f8fafc;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        background-color: var(--bg);
+        margin: 0; padding: 0; line-height: 1.6; color: #334155;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: white; padding: 40px 20px; text-align: center;
+        border-bottom: 5px solid var(--tally-yellow);
+    }
+
+    .container { max-width: 950px; margin: 30px auto; padding: 20px; }
+
+    .cycle-card {
+        background: white; border-radius: 15px; padding: 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 30px;
+        position: relative; overflow: hidden;
+    }
+
+    .purchase-header { border-left: 10px solid var(--purchase-color); }
+    .sales-header { border-left: 10px solid var(--sales-color); }
+
+    h2 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
+    .purchase-title { color: var(--purchase-color); }
+    .sales-title { color: var(--sales-color); }
+
+    .lang-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px; margin-top: 15px;
+    }
+
+    .bn-box { background: #f0f9ff; padding: 18px; border-radius: 12px; border: 1px solid #bae6fd; }
+    .en-box { background: #f0fdf4; padding: 18px; border-radius: 12px; border: 1px solid #bbf7d0; font-style: italic; }
+
+    .shortcut-badge {
+        background: #1e293b; color: white; padding: 4px 10px;
+        border-radius: 6px; font-family: monospace; font-weight: bold;
+    }
+
+    .flow-step {
+        display: flex; align-items: center; gap: 10px; margin: 10px 0;
+        padding: 10px; background: #fff; border: 1px dashed #cbd5e1; border-radius: 8px;
+    }
+
+    .btn-back {
+        display: inline-block; background: var(--tally-blue); color: white;
+        padding: 12px 25px; text-decoration: none; border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .footer { text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🔄 Purchase & Sales Cycle in TallyPrime</h1>
+    <p>SUPER SUCCESS COMPUTER EDUCATION CENTER</p>
+</div>
+
+<div class="container">
+
+    <div class="cycle-card purchase-header">
+        <h2 class="purchase-title">🛒 1. Purchase Cycle (ক্রয় চক্র)</h2>
+        <p>যখন আমরা কোনো সাপ্লায়ারের কাছ থেকে পণ্য কিনি, তখন এই ধাপগুলো অনুসরণ করা হয়:</p>
+        
+        <div class="lang-grid">
+            <div class="bn-box">
+                <b>ধাপসমূহ:</b><br>
+                ১. <b>Purchase Order:</b> পণ্যের অর্ডার দেওয়া।<br>
+                ২. <b>Receipt Note:</b> পণ্য বুঝে পাওয়া।<br>
+                ৩. <b>Purchase Voucher:</b> ফাইনাল বিল এন্ট্রি করা। <span class="shortcut-badge">F9</span><br>
+                ৪. <b>Payment:</b> টাকা পরিশোধ করা। <span class="shortcut-badge">F5</span>
+            </div>
+            <div class="en-box">
+                <b>Steps:</b><br>
+                1. <b>Purchase Order:</b> Placing order to supplier.<br>
+                2. <b>Receipt Note:</b> Receiving the goods.<br>
+                3. <b>Purchase Voucher:</b> Recording the final bill. <span class="shortcut-badge">F9</span><br>
+                4. <b>Payment:</b> Making the payment to supplier. <span class="shortcut-badge">F5</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cycle-card sales-header">
+        <h2 class="sales-title">💰 2. Sales Cycle (বিক্রয় চক্র)</h2>
+        <p>যখন আমরা কোনো কাস্টমারের কাছে পণ্য বিক্রি করি, তখন এই ধাপগুলো অনুসরণ করা হয়:</p>
+        
+        <div class="lang-grid">
+            <div class="bn-box">
+                <b>ধাপসমূহ:</b><br>
+                ১. <b>Sales Order:</b> কাস্টমারের থেকে অর্ডার নেওয়া।<br>
+                ২. <b>Delivery Note:</b> কাস্টমারকে পণ্য পাঠানো।<br>
+                ৩. <b>Sales Voucher:</b> বিক্রয়ের বিল তৈরি করা। <span class="shortcut-badge">F8</span><br>
+                ৪. <b>Receipt:</b> টাকা বুঝে পাওয়া। <span class="shortcut-badge">F6</span>
+            </div>
+            <div class="en-box">
+                <b>Steps:</b><br>
+                1. <b>Sales Order:</b> Receiving order from customer.<br>
+                2. <b>Delivery Note:</b> Dispatching goods to customer.<br>
+                3. <b>Sales Voucher:</b> Creating the sales invoice. <span class="shortcut-badge">F8</span><br>
+                4. <b>Receipt:</b> Receiving money from customer. <span class="shortcut-badge">F6</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cycle-card" style="border-top: 5px solid var(--tally-yellow);">
+        <h2>⚖️ Detailed Differences (বিস্তারিত পার্থক্য)</h2>
+        
+        <div class="lang-grid">
+            <div class="bn-box">
+                <h3 style="color: var(--purchase-color); margin-top: 0;">🛒 Purchase (ক্রয়)</h3>
+                <ul>
+                    <li><b>ইনভেন্টরি:</b> পণ্য কেনা হলে গোডাউনে স্টকের পরিমাণ <b>বৃদ্ধি পায় (Inward)</b>।</li>
+                    <li><b>আর্থিক প্রভাব:</b> এটি ব্যবসার জন্য একটি <b>খরচ (Expense)</b>। এর ফলে নগদ টাকা কমে বা পাওনাদার (Creditor) বৃদ্ধি পায়।</li>
+                    <li><b>উদ্দেশ্য:</b> পণ্য পুনরায় বিক্রি করা বা ব্যবসায়িক কাজে ব্যবহারের জন্য কেনা হয়।</li>
+                </ul>
+            </div>
+            <div class="en-box">
+                <h3 style="color: var(--purchase-color); margin-top: 0;">🛒 Purchase (Buying)</h3>
+                <ul>
+                    <li><b>Inventory:</b> Stock level <b>Increases (Inward)</b> when goods are purchased.</li>
+                    <li><b>Financial Impact:</b> It is an <b>Expense</b> for the business. It reduces cash or increases Sundry Creditors.</li>
+                    <li><b>Purpose:</b> Goods are bought for resale or for business operations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+
+        <div class="lang-grid">
+            <div class="bn-box">
+                <h3 style="color: var(--sales-color); margin-top: 0;">💰 Sales (বিক্রয়)</h3>
+                <ul>
+                    <li><b>ইনভেন্টরি:</b> পণ্য বিক্রি করা হলে গোডাউন থেকে স্টকের পরিমাণ <b>হ্রাস পায় (Outward)</b>।</li>
+                    <li><b>আর্থিক প্রভাব:</b> এটি ব্যবসার জন্য প্রধান <b>আয় (Revenue)</b>। এর ফলে নগদ টাকা বাড়ে বা দেনাদার (Debtor) তৈরি হয়।</li>
+                    <li><b>উদ্দেশ্য:</b> মুনাফা বা লাভ অর্জনের উদ্দেশ্যে কাস্টমারকে পণ্য প্রদান করা হয়।</li>
+                </ul>
+            </div>
+            <div class="en-box">
+                <h3 style="color: var(--sales-color); margin-top: 0;">💰 Sales (Selling)</h3>
+                <ul>
+                    <li><b>Inventory:</b> Stock level <b>Decreases (Outward)</b> when goods are sold.</li>
+                    <li><b>Financial Impact:</b> It is the main <b>Revenue/Income</b> for the business. It increases cash or Sundry Debtors.</li>
+                    <li><b>Purpose:</b> Goods are provided to customers to earn profit.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="tally-prime.html" class="btn-back">⬅️ Back to Tally Course</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 22/1 Bipin Paul Road, Nimta, Kolkata - 49
+</div>
+
+</body>
+</html>

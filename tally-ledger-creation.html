@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledger & Chart of Accounts - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --tally-yellow: #ffc412;
+        --bg: #fdfdfd;
+        --white: #ffffff;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        background-color: var(--bg);
+        margin: 0; padding: 0; line-height: 1.6; color: #334155;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #00428a, #075985);
+        color: white; padding: 40px 20px; text-align: center;
+        border-bottom: 5px solid var(--tally-yellow);
+    }
+
+    .container { max-width: 900px; margin: 30px auto; padding: 20px; }
+
+    .lesson-card {
+        background: var(--white); border-radius: 15px; padding: 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 25px;
+        border-top: 5px solid var(--tally-blue);
+    }
+
+    h2 { color: var(--tally-blue); margin-top: 0; display: flex; align-items: center; gap: 10px; }
+
+    .explanation {
+        display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;
+    }
+
+    .bn-box { flex: 1; background: #fffbeb; padding: 15px; border-radius: 10px; border-left: 5px solid var(--tally-yellow); }
+    .en-box { flex: 1; background: #f0f9ff; padding: 15px; border-radius: 10px; border-left: 5px solid var(--tally-blue); font-style: italic; }
+
+    .group-table {
+        width: 100%; border-collapse: collapse; margin-top: 15px;
+    }
+
+    .group-table th, .group-table td {
+        border: 1px solid #e2e8f0; padding: 12px; text-align: left;
+    }
+
+    .group-table th { background: var(--tally-blue); color: white; }
+
+    .steps { background: #f8fafc; padding: 20px; border-radius: 10px; border: 1px dashed #cbd5e1; }
+    
+    .shortcut {
+        background: #e11d48; color: white; padding: 2px 6px;
+        border-radius: 4px; font-weight: bold; font-family: monospace;
+    }
+
+    .btn-back {
+        display: inline-block; background: var(--tally-blue); color: white;
+        padding: 12px 25px; text-decoration: none; border-radius: 8px;
+        font-weight: bold; transition: 0.3s;
+    }
+
+    .footer { text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📚 Lesson 04: Ledger & Chart of Accounts</h1>
+    <p>SUPER SUCCESS COMPUTER EDUCATION CENTER</p>
+</div>
+
+<div class="container">
+
+    <div class="lesson-card">
+        <h2>What is a Ledger? (লেজার কী?)</h2>
+        <div class="explanation">
+            <div class="bn-box"><b>বাংলা:</b> লেজার বা খতিয়ান হলো একটি নির্দিষ্ট হিসাবের সারসংক্ষেপ। যেমন: সব নগদ লেনদেনের জন্য 'Cash Ledger' বা সব ক্রয়ের জন্য 'Purchase Ledger'।</div>
+            <div class="en-box"><b>English:</b> A Ledger is an individual record of a particular account where all related transactions are summarized.</div>
+        </div>
+        <p>💡 <b>Note:</b> ট্যালিতে আগে থেকেই দুটি লেজার তৈরি করা থাকে: <b>Cash</b> এবং <b>Profit & Loss A/c</b>।</p>
+    </div>
+
+    <div class="lesson-card">
+        <h2>Chart of Accounts (Groups)</h2>
+        <p>ট্যালিতে লেজার তৈরি করার সময় তাকে সঠিক 'Group'-এর আন্ডারে রাখতে হয়। নিচে কিছু উদাহরণ দেওয়া হলো:</p>
+        <table class="group-table">
+            <tr>
+                <th>Ledger Name</th>
+                <th>Under Group (আন্ডারে)</th>
+            </tr>
+            <tr>
+                <td>Capital A/c</td>
+                <td>Capital Account</td>
+            </tr>
+            <tr>
+                <td>SBI Bank / PNB Bank</td>
+                <td>Bank Accounts</td>
+            </tr>
+            <tr>
+                <td>Salary / Rent / Electric Bill</td>
+                <td>Indirect Expenses</td>
+            </tr>
+            <tr>
+                <td>Sales A/c</td>
+                <td>Sales Accounts</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="lesson-card">
+        <h2>How to Create a Ledger? (লেজার তৈরির ধাপ)</h2>
+        <div class="steps">
+            ১. <b>Gateway of Tally</b>-তে যাও।<br>
+            ২. <b>Create</b> অপশনে ক্লিক করো।<br>
+            ৩. <b>Ledger</b> সিলেক্ট করো।<br>
+            ৪. লেজারের নাম লেখো এবং সঠিক <b>Group</b> নির্বাচন করো।<br>
+            ৫. <span class="shortcut">Ctrl + A</span> প্রেস করে সেভ করো।
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="tally-prime.html" class="btn-back">⬅️ Back to Tally Course</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 22/1 Bipin Paul Road, Nimta, Kolkata - 49
+</div>
+
+</body>
+</html>

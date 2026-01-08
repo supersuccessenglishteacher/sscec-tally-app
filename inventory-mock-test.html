@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory Mock Test - SSCEC</title>
+<style>
+    :root {
+        --primary: #00428a;
+        --secondary: #075985;
+        --success: #10b981;
+        --danger: #ef4444;
+        --bg: #f1f5f9;
+    }
+
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); margin: 0; padding: 0; }
+    .header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    
+    .container { max-width: 700px; margin: 20px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; }
+    
+    #timer { position: absolute; top: 20px; right: 20px; font-weight: bold; color: var(--danger); font-size: 18px; border: 2px solid var(--danger); padding: 5px 15px; border-radius: 20px; }
+
+    .question { font-size: 20px; font-weight: bold; margin-bottom: 20px; color: #1e293b; line-height: 1.5; }
+    
+    .options { display: flex; flex-direction: column; gap: 12px; }
+    .option { padding: 15px; border: 2px solid #e2e8f0; border-radius: 10px; cursor: pointer; transition: 0.3s; font-weight: 500; }
+    .option:hover { background: #f8fafc; border-color: var(--primary); }
+    
+    .correct { background: #d1fae5 !important; border-color: var(--success) !important; color: #065f46; }
+    .wrong { background: #fee2e2 !important; border-color: var(--danger) !important; color: #991b1b; }
+
+    .footer-tools { margin-top: 30px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 20px; }
+    .score-board { font-size: 18px; font-weight: bold; color: var(--primary); }
+    
+    .btn { padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; }
+    .btn-next { background: var(--primary); color: white; display: none; }
+    .btn-whatsapp { background: #25d366; color: white; width: 100%; margin-top: 20px; display: none; text-decoration: none; text-align: center; }
+    
+    #result-screen { display: none; text-align: center; }
+    .progress-bar { width: 100%; height: 10px; background: #e2e8f0; border-radius: 5px; margin-bottom: 20px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--success); width: 0%; transition: 0.4s; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📦 Inventory & Cycle Mock Test</h1>
+    <p>SUPER SUCCESS COMPUTER EDUCATION CENTER</p>
+</div>
+
+<div class="container" id="quiz-container">
+    <div id="timer">সময়: 15:00</div>
+    <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+    
+    <div id="quiz-content">
+        <div id="question-text" class="question">প্রশ্ন লোড হচ্ছে...</div>
+        <div id="options-list" class="options"></div>
+    </div>
+
+    <div class="footer-tools">
+        <div class="score-board">স্কোর: <span id="current-score">0</span> / 25</div>
+        <button id="next-btn" class="btn btn-next" onclick="nextQuestion()">পরবর্তী প্রশ্ন ⮕</button>
+    </div>
+</div>
+
+<div class="container" id="result-screen">
+    <h2 id="congrats-text">অভিনন্দন!</h2>
+    <p style="font-size: 22px;">আপনার স্কোর: <span id="final-score">0</span> / 25</p>
+    <div id="performance-msg"></div>
+    
+    <input type="text" id="student-name" placeholder="আপনার নাম লিখুন" style="width: 80%; padding: 12px; margin-top: 20px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px;">
+    
+    <a href="#" id="whatsapp-btn" class="btn btn-whatsapp" onclick="sendToSir()">📲 স্যারকে রেজাল্ট জানান (WhatsApp)</a>
+    <button class="btn" style="background:#64748b; color:white; margin-top:10px; width:100%;" onclick="location.reload()">আবার পরীক্ষা দিন</button>
+</div>
+
+<audio id="correct-sound" src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3"></audio>
+<audio id="wrong-sound" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+
+<script>
+const quizData = [
+    { q: "ট্যালিতে একই ধরনের পণ্যগুলোকে একটি সাধারণ নামে সাজানোকে কী বলে?", a: ["Stock Group", "Stock Item", "Stock Category", "Unit of Measure"], c: 0 },
+    { q: "নিচের কোনটি একটি Stock Item-এর সঠিক উদাহরণ?", a: ["Electronics", "Samsung Galaxy S23", "Pieces", "Godown"], c: 1 },
+    { q: "পণ্য পিস না কেজিতে মাপা হবে, তা কোথায় সেট করা হয়?", a: ["Units of Measure", "Stock Group", "Godown", "Stock Summary"], c: 0 },
+    { q: "ট্যালিতে 'Godown' ফিচারের অন্য নাম কী?", a: ["Warehouse", "Stock Room", "Location", "Bin"], c: 2 },
+    { q: "একাধিক গোডাউন ফিচার চালু করতে কোন বাটন চাপতে হয়?", a: ["F1", "F12", "F11", "Alt+F1"], c: 2 },
+    { q: "Purchase Cycle-এর প্রথম ধাপ সাধারণত কোনটি?", a: ["Payment", "Receipt Note", "Purchase Order", "Purchase Voucher"], c: 2 },
+    { q: "ট্যালিতে Purchase Voucher-এর শর্টকাট কী?", a: ["F8", "F9", "F5", "F7"], c: 1 },
+    { q: "কাস্টমার থেকে টাকা পেলে কোন ভাউচার ব্যবহার করা হয়?", a: ["Payment (F5)", "Receipt (F6)", "Sales (F8)", "Contra (F4)"], c: 1 },
+    { q: "Stock Summary-তে 'Closing Stock' বলতে কী বোঝায়?", a: ["মোট কেনা পণ্য", "বিক্রি করা পণ্য", "অবশিষ্ট মজুদ পণ্য", "নষ্ট হওয়া পণ্য"], c: 2 },
+    { q: "Stock Summary-তে ডিটেইল ভিউ দেখতে কোন শর্টকাট লাগে?", a: ["Alt + F1", "Ctrl + A", "F2", "Alt + P"], c: 0 },
+    { q: "পণ্য কেনা হলে স্টকের ওপর কী প্রভাব পড়ে?", a: ["স্টক কমে যায়", "স্টক বৃদ্ধি পায়", "পরিবর্তন হয় না", "কেবল দাম কমে"], c: 1 },
+    { q: "ট্যালিতে Sales Voucher-এর শর্টকাট কী?", a: ["F9", "F8", "F6", "F4"], c: 1 },
+    { q: "এক গোডাউন থেকে অন্য গোডাউনে পণ্য পাঠানোকে কী বলে?", a: ["Sales", "Purchase", "Stock Transfer", "Adjustment"], c: 2 },
+    { q: "Stock Summary-তে 'Value' কীভাবে গণনা করা হয়?", a: ["Qty + Rate", "Qty × Rate", "Qty ÷ Rate", "কেবল Rate"], c: 1 },
+    { q: "নিচের কোনটি Unit-এর উদাহরণ নয়?", a: ["Bags", "Kgs", "Dozens", "Laptop"], c: 3 },
+    { q: "সাপ্লায়ারকে টাকা দেওয়ার জন্য কোন ভাউচার ব্যবহৃত হয়?", a: ["Receipt", "Journal", "Payment (F5)", "Sales"], c: 2 },
+    { q: "আইটেম তৈরির সময় 'Under' অপশনে কী দিতে হয়?", a: ["Unit", "Stock Group", "Godown", "Rate"], c: 1 },
+    { q: "পণ্য দ্রুত বিক্রি হচ্ছে কি না তা কিসে বোঝা যায়?", a: ["Opening Stock", "Unit", "Movement Analysis", "Godown"], c: 2 },
+    { q: "নগদ বিক্রয় (Cash Sales) করলে ক্যাশ ব্যালেন্স—", a: ["কমে যায়", "বৃদ্ধি পায়", "একই থাকে", "শূন্য হয়"], c: 1 },
+    { q: "নতুন গোডাউন তৈরি করার সঠিক ধাপ কোনটি?", a: ["Create > Godown", "Alter > Item", "Display > Report", "Voucher > F10"], c: 0 },
+    { q: "Purchase Cycle-এ 'Receipt Note' বলতে কী বোঝায়?", a: ["টাকা দেওয়া", "পণ্য পাওয়া", "অর্ডার বাতিল", "বিক্রয় বিল"], c: 1 },
+    { q: "Stock Summary-তে 'Inwards' মানে কী?", a: ["বিক্রয়", "মোট আগত পণ্য", "নষ্ট মাল", "মালিকের অংশ"], c: 1 },
+    { q: "স্টক আইটেমের জন্য কয়টি ইউনিট থাকা বাধ্যতামূলক?", a: ["১টি", "২টি", "৩টি", "প্রয়োজন নেই"], c: 0 },
+    { q: "Stock Summary-তে প্রফিট দেখতে কোন বাটন ব্যবহৃত হয়?", a: ["F8", "F7", "F5", "F10"], c: 1 },
+    { q: "ইনভেন্টরি ম্যানেজমেন্টের প্রধান সুবিধা কী?", a: ["ট্যাক্স কমানো", "অফিস সাজানো", "পণ্যের ঘাটতি বা অপচয় রোধ", "বেতন দেওয়া"], c: 2 }
+];
+
+let currentQ = 0;
+let score = 0;
+let timeLeft = 900; // 15 Minutes
+let timerInterval;
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        document.getElementById('timer').innerText = `সময়: ${mins}:${secs < 10 ? '0'+secs : secs}`;
+        if(timeLeft <= 0) endQuiz();
+    }, 1000);
+}
+
+function loadQuestion() {
+    const data = quizData[currentQ];
+    document.getElementById('question-text').innerText = `প্রশ্ন ${currentQ + 1}: ${data.q}`;
+    const optionsDiv = document.getElementById('options-list');
+    optionsDiv.innerHTML = "";
+    
+    data.a.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = 'option';
+        div.innerText = opt;
+        div.onclick = () => checkAnswer(i, div);
+        optionsDiv.appendChild(div);
+    });
+    
+    document.getElementById('next-btn').style.display = "none";
+    document.getElementById('progress').style.width = `${(currentQ / 25) * 100}%`;
+}
+
+function checkAnswer(idx, el) {
+    const correct = quizData[currentQ].c;
+    const allOptions = document.querySelectorAll('.option');
+    allOptions.forEach(opt => opt.style.pointerEvents = "none");
+
+    if(idx === correct) {
+        el.classList.add('correct');
+        score++;
+        document.getElementById('correct-sound').play();
+    } else {
+        el.classList.add('wrong');
+        allOptions[correct].classList.add('correct');
+        document.getElementById('wrong-sound').play();
+    }
+    
+    document.getElementById('current-score').innerText = score;
+    document.getElementById('next-btn').style.display = "block";
+}
+
+function nextQuestion() {
+    currentQ++;
+    if(currentQ < quizData.length) {
+        loadQuestion();
+    } else {
+        endQuiz();
+    }
+}
+
+function endQuiz() {
+    clearInterval(timerInterval);
+    document.getElementById('quiz-container').style.display = "none";
+    document.getElementById('result-screen').style.display = "block";
+    document.getElementById('final-score').innerText = score;
+    document.getElementById('whatsapp-btn').style.display = "block";
+}
+
+function sendToSir() {
+    const name = document.getElementById('student-name').value;
+    if(!name) { alert("দয়া করে আপনার নাম লিখুন!"); return; }
+    
+    const phone = "918017247298"; // আপনার হোয়াটসঅ্যাপ নম্বর এখানে দিন (যেমন: 919830000000)
+    const msg = `নমস্কার স্যার,%0Aআমি ${name},%0Aইনভেন্টরি মক টেস্ট সম্পন্ন করেছি।%0Aআমার স্কোর: ${score} / 25।`;
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+}
+
+startTimer();
+loadQuestion();
+</script>
+</body>
+</html>
