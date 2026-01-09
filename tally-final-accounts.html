@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSCEC Final Accounts Report</title>
+<style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f1f5f9; padding: 20px; color: #1e293b; }
+    .container { max-width: 1100px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    h2 { color: #1e3a8a; border-bottom: 3px solid #1e3a8a; padding-bottom: 10px; margin-top: 40px; text-align: center; text-transform: uppercase; }
+    
+    .report-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background: #fff; font-size: 14px; }
+    .report-table th { background: #1e3a8a; color: white; padding: 12px; text-align: left; border: 1px solid #cbd5e1; }
+    .report-table td { padding: 10px; border: 1px solid #cbd5e1; }
+    .report-table tr:nth-child(even) { background: #f8fafc; }
+    
+    .total-row { font-weight: bold; background: #e2e8f0 !important; }
+    .amount { text-align: right; font-family: 'Courier New', Courier, monospace; font-weight: bold; }
+    .header-info { text-align: center; margin-bottom: 30px; }
+    .header-info h1 { margin: 0; color: #1e3a8a; }
+    
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid #cbd5e1; }
+    .side { padding: 0; }
+    .side h4 { background: #334155; color: white; margin: 0; padding: 10px; text-align: center; }
+
+    .highlight-profit { color: #059669; font-weight: bold; }
+    .highlight-loss { color: #dc2626; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-info">
+        <h1>SSCEC DIGITAL STORE</h1>
+        <p>Nimta, Kolkata - 700049</p>
+        <p><b>Final Accounts for the Period: 01-Apr-2025 to 31-Mar-2026</b></p>
+    </div>
+
+    <h2>1. Trial Balance</h2>
+    <table class="report-table">
+        <thead>
+            <tr>
+                <th>Particulars (Ledger Name)</th>
+                <th style="text-align:right">Debit (₹)</th>
+                <th style="text-align:right">Credit (₹)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Capital Account (Owner)</td><td></td><td class="amount">10,00,000.00</td></tr>
+            <tr><td>Purchase Account</td><td class="amount">6,50,000.00</td><td></td></tr>
+            <tr><td>Sales Account</td><td></td><td class="amount">9,80,000.00</td></tr>
+            <tr><td>Direct Expenses (Freight/Wages)</td><td class="amount">45,000.00</td><td></td></tr>
+            <tr><td>Indirect Expenses (Rent/Electricity)</td><td class="amount">85,500.00</td><td></td></tr>
+            <tr><td>Fixed Assets (Furniture/Computers)</td><td class="amount">4,20,000.00</td><td></td></tr>
+            <tr><td>Sundry Debtors (Customers)</td><td class="amount">3,10,000.00</td><td></td></tr>
+            <tr><td>Sundry Creditors (Suppliers)</td><td></td><td class="amount">2,45,000.00</td></tr>
+            <tr><td>Cash in Hand & Bank balance</td><td class="amount">7,14,500.00</td><td></td></tr>
+            <tr class="total-row">
+                <td>Grand Total</td>
+                <td class="amount">22,25,000.00</td>
+                <td class="amount">22,25,000.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. Trading & Profit and Loss A/c</h2>
+    <div class="grid-2">
+        <div class="side">
+            <h4>Debit (Expenses)</h4>
+            <table class="report-table">
+                <tr><td>To Opening Stock</td><td class="amount">0.00</td></tr>
+                <tr><td>To Purchases</td><td class="amount">6,50,000.00</td></tr>
+                <tr><td>To Direct Expenses</td><td class="amount">45,000.00</td></tr>
+                <tr class="highlight-profit"><td>To Gross Profit c/d</td><td class="amount">4,05,000.00</td></tr>
+                <tr class="total-row"><td>Total</td><td class="amount">11,00,000.00</td></tr>
+                <tr><td>To Indirect Expenses</td><td class="amount">85,500.00</td></tr>
+                <tr class="highlight-profit"><td>To Net Profit (Transferred)</td><td class="amount">3,19,500.00</td></tr>
+                <tr class="total-row"><td>Total</td><td class="amount">4,05,000.00</td></tr>
+            </table>
+        </div>
+        <div class="side">
+            <h4>Credit (Incomes)</h4>
+            <table class="report-table">
+                <tr><td>By Sales</td><td class="amount">9,80,000.00</td></tr>
+                <tr><td>By Closing Stock</td><td class="amount">1,20,000.00</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr class="total-row"><td>Total</td><td class="amount">11,00,000.00</td></tr>
+                <tr><td>By Gross Profit b/d</td><td class="amount">4,05,000.00</td></tr>
+                <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                <tr class="total-row"><td>Total</td><td class="amount">4,05,000.00</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <h2>3. Balance Sheet</h2>
+    <div class="grid-2">
+        <div class="side">
+            <h4>Liabilities</h4>
+            <table class="report-table">
+                <tr><td>Capital Account</td><td class="amount">10,00,000.00</td></tr>
+                <tr><td>(+) Net Profit</td><td class="amount">3,19,500.00</td></tr>
+                <tr><td>Sundry Creditors</td><td class="amount">2,45,000.00</td></tr>
+                <tr class="total-row"><td>Total</td><td class="amount">15,64,500.00</td></tr>
+            </table>
+        </div>
+        <div class="side">
+            <h4>Assets</h4>
+            <table class="report-table">
+                <tr><td>Fixed Assets</td><td class="amount">4,20,000.00</td></tr>
+                <tr><td>Closing Stock</td><td class="amount">1,20,000.00</td></tr>
+                <tr><td>Sundry Debtors</td><td class="amount">3,10,000.00</td></tr>
+                <tr><td>Cash & Bank Balance</td><td class="amount">7,14,500.00</td></tr>
+                <tr class="total-row"><td>Total</td><td class="amount">15,64,500.00</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px; background: #fffbeb; padding: 15px; border-radius: 8px; border-left: 5px solid #1e3a8a;">
+        <b>👨‍🏫 স্টুডেন্টদের নির্দেশিকা:</b> তোমরা যখন তাদের করা ১ বছরের এন্ট্রিগুলো শেষ করবে, তখন ট্যালির <b>Gateway of Tally > Display More Reports</b> থেকে এই রিপোর্টগুলো মিলিয়ে নেবে। Gross Profit এবং Net Profit-এর হিসাবটি তোমাদের ম্যানুয়ালি ক্যালকুলেটর দিয়ে চেক করে নেবে।
+    </div>
+</div>
+
+</body>
+</html>

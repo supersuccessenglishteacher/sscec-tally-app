@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical Lab 4 - Sales Transactions</title>
+<style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdfdfd; padding: 20px; line-height: 1.5; }
+    .lab-container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 10px solid #059669; }
+    .header-area { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 20px; }
+    .title { color: #059669; font-size: 26px; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+    th { background: #059669; color: white; padding: 12px; text-align: left; text-transform: uppercase; border: 1px solid #047857; }
+    td { border: 1px solid #e2e8f0; padding: 10px; vertical-align: top; }
+    tr:nth-child(even) { background-color: #ecfdf5; }
+    .party-info { font-size: 11px; color: #475569; margin-top: 4px; }
+    .gst-no { color: #059669; font-family: monospace; font-weight: bold; }
+    .gst-tag { display: inline-block; background: #d1fae5; color: #065f46; padding: 2px 5px; border-radius: 4px; font-weight: bold; font-size: 10px; margin-top: 5px; }
+    .total-amt { font-weight: bold; color: #1e293b; }
+</style>
+</head>
+<body>
+
+<div class="lab-container">
+    <div class="header-area">
+        <div class="title">📊 Practical Lab 4: Annual Sales Register (Outward Supplies)</div>
+        <div style="text-align: right; font-size: 14px;">
+            <b>Billing Unit:</b> SSCEC Digital Store<br>
+            <b>GSTIN:</b> 19SSCEC2025C1Z1
+        </div>
+    </div>
+
+    <p style="color: #64748b;">নিচের কাস্টমারদের নামে <b>Sales Voucher (F8)</b> এন্ট্রি করো এবং <b>GST Tax Invoice</b> জেনারেট করো।</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Customer Details (Buyer Name, Address & GST)</th>
+                <th>Sold Items & Qty</th>
+                <th>Selling Price (₹)</th>
+                <th>Tax Type</th>
+                <th>Invoice No.</th>
+            </tr>
+        </thead>
+        <tbody id="salesBody">
+            </tbody>
+    </table>
+
+    <div style="background: #f0fdf4; border-left: 5px solid #10b981; padding: 15px; margin-top: 25px; border-radius: 6px; color: #065f46;">
+        <b>💡 স্টুডেন্টদের বিশেষ টিপস:</b> 
+       কীভাবে সেলস ইনভয়েসে <b>Discount Column</b> ব্যবহার করবে। এছাড়াও বিক্রয়ের পর <b>Receipt Voucher (F6)</b> এর মাধ্যমে কাস্টমারের কাছ থেকে টাকা পাওয়ার এন্ট্রিও প্র্যাকটিস করবে, শিক্ষকের কাছ থেকে জেনে নিও।
+    </div>
+</div>
+
+<script>
+    const months = ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"];
+    
+    // ৫টি ভিন্ন ধরণের কাস্টমার ও সেলস ট্রানজ্যাকশন
+    const salesData = [
+        { 
+            day: "01", 
+            party: "Sarker Computer Academy", 
+            addr: "Subhas Pally, Burdwan, West Bengal", 
+            gst: "19SSSSS1234S1Z1", 
+            item: "Dell Laptops (i5)", qty: "2 Nos", rate: "52,000", tax: "CGST/SGST 18%", inv: "SSCEC/SL/" 
+        },
+        { 
+            day: "01", 
+            party: "Tech Solution Inc.", 
+            addr: "Boring Road, Patna, Bihar", 
+            gst: "10TTTTT5555T1Z9", 
+            item: "Laserjet Printers", qty: "5 Nos", rate: "19,500", tax: "IGST 18%", inv: "SSCEC/SL/" 
+        },
+        { 
+            day: "02", 
+            party: "M/S Gupta & Sons (Unregistered)", 
+            addr: "Nimta Bazar, Kolkata - 700049", 
+            gst: "URD (Consumer)", 
+            item: "Wireless Mouse & KB", qty: "10 Sets", rate: "1,500", tax: "CGST/SGST 18%", inv: "SSCEC/SL/" 
+        },
+        { 
+            day: "02", 
+            party: "Modern School of Arts", 
+            addr: "Agartala, Tripura West", 
+            gst: "16AAAAA9999A1Z0", 
+            item: "Antivirus Pack (10 User)", qty: "1 Nos", rate: "4,500", tax: "IGST 18%", inv: "SSCEC/SL/" 
+        },
+        { 
+            day: "30", 
+            party: "Pioneer IT Solutions", 
+            addr: "Sector 1, Bidhannagar, Kolkata", 
+            gst: "19PPPPP7777P1Z5", 
+            item: "HP Desktop PCs", qty: "3 Nos", rate: "35,000", tax: "CGST/SGST 18%", inv: "SSCEC/SL/" 
+        }
+    ];
+
+    const tbody = document.getElementById('salesBody');
+    let html = "";
+
+    months.forEach((month, index) => {
+        let year = (index > 8) ? "2026" : "2025";
+        salesData.forEach((data, i) => {
+            html += `<tr>
+                <td><b>${data.day}-${month}-${year}</b></td>
+                <td>
+                    <b>${data.party}</b><br>
+                    <div class="party-info">
+                        Addr: ${data.addr}<br>
+                        GSTIN: <span class="gst-no">${data.gst}</span>
+                    </div>
+                </td>
+                <td>${data.item}<br><small>Qty: ${data.qty}</small></td>
+                <td class="total-amt">${data.rate}</td>
+                <td><span class="gst-tag">${data.tax}</span></td>
+                <td>${data.inv}${month}/00${i+1}</td>
+            </tr>`;
+        });
+    });
+
+    tbody.innerHTML = html;
+</script>
+
+</body>
+</html>

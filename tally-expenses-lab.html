@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical Lab 5 - Expense Transactions</title>
+<style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #fdf2f8; padding: 20px; line-height: 1.5; }
+    .lab-container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid #7c3aed; }
+    .header-area { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 20px; }
+    .title { color: #7c3aed; font-size: 26px; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+    th { background: #7c3aed; color: white; padding: 12px; text-align: left; text-transform: uppercase; border: 1px solid #6d28d9; }
+    td { border: 1px solid #e2e8f0; padding: 12px; vertical-align: top; }
+    tr:nth-child(even) { background-color: #f5f3ff; }
+    .expense-type { display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+    .direct { background: #ffedd5; color: #9a3412; } /* Direct Expense Color */
+    .indirect { background: #dcfce7; color: #166534; } /* Indirect Expense Color */
+    .gst-no { color: #7c3aed; font-family: monospace; font-weight: bold; font-size: 11px; }
+</style>
+</head>
+<body>
+
+<div class="lab-container">
+    <div class="header-area">
+        <div class="title">💸 Practical Lab 5: Miscellaneous Expenses Register</div>
+        <div style="text-align: right; font-size: 14px;">
+            <b>Entity:</b> SSCEC Digital Store<br>
+            <b>Voucher Type:</b> Payment (F5) / Journal (F7)
+        </div>
+    </div>
+
+    <p style="color: #64748b;">নিচের খরচগুলো সঠিক <b>Ledger Group</b> (Direct/Indirect) সিলেক্ট করে ট্যালিতে এন্ট্রি করো।</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Expense Head & Payee Details</th>
+                <th>Expense Type</th>
+                <th>Amount (₹)</th>
+                <th>GST Status</th>
+                <th>Ref No.</th>
+            </tr>
+        </thead>
+        <tbody id="expenseBody">
+            </tbody>
+    </table>
+
+    <div style="background: #f5f3ff; border-left: 5px solid #7c3aed; padding: 15px; margin-top: 25px; border-radius: 6px; color: #4c1d95;">
+        <b>👨‍🏫 স্টুডেন্টদের নোট:</b> 
+       তোমরা মনে রাখবে—যেসব খরচ পণ্য কেনা বা তৈরির সাথে সরাসরি যুক্ত (যেমন: Freight, Wages) সেগুলো <b>Direct Expense</b>। আর যেসব খরচ অফিস চালানোর জন্য (যেমন: Rent, Electricity) সেগুলো <b>Indirect Expense</b>।
+    </div>
+</div>
+
+<script>
+    const months = ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"];
+    
+    const expenseData = [
+        { 
+            day: "01", 
+            head: "Carriage Inward (Freight)", 
+            payee: "M/S Nimta Transport Co.", 
+            gst: "19TTTTT8888T1Z1", 
+            type: "Direct Expense", typeClass: "direct", 
+            amt: "2,500.00", tax: "GST 5% (RCM)", ref: "TRN/" 
+        },
+        { 
+            day: "01", 
+            head: "Office Rent", 
+            payee: "S.K. Mukherjee (Landlord)", 
+            gst: "N/A (Exempted)", 
+            type: "Indirect Expense", typeClass: "indirect", 
+            amt: "15,000.00", tax: "Nil", ref: "RENT/" 
+        },
+        { 
+            day: "02", 
+            head: "Wages to Casual Workers", 
+            payee: "Daily Labor Group", 
+            gst: "Unregistered", 
+            type: "Direct Expense", typeClass: "direct", 
+            amt: "4,800.00", tax: "Nil", ref: "WAG/" 
+        },
+        { 
+            day: "02", 
+            head: "Electricity Bill (Office)", 
+            payee: "WBSEDCL", 
+            gst: "19WBS2025E1Z5", 
+            type: "Indirect Expense", typeClass: "indirect", 
+            amt: "3,250.00", tax: "GST Incl.", ref: "ELEC/" 
+        },
+        { 
+            day: "30", 
+            head: "Tea & Refreshment", 
+            payee: "Local Tea Stall", 
+            gst: "Cash Expense", 
+            type: "Indirect Expense", typeClass: "indirect", 
+            amt: "450.00", tax: "Nil", ref: "PETTY/" 
+        }
+    ];
+
+    const tbody = document.getElementById('expenseBody');
+    let html = "";
+
+    months.forEach((month, index) => {
+        let year = (index > 8) ? "2026" : "2025";
+        expenseData.forEach((data, i) => {
+            html += `<tr>
+                <td><b>${data.day}-${month}-${year}</b></td>
+                <td>
+                    <b>${data.head}</b><br>
+                    <small style="color:#64748b">Paid to: ${data.payee}</small><br>
+                    <span class="gst-no">GSTIN: ${data.gst}</span>
+                </td>
+                <td><span class="expense-type ${data.typeClass}">${data.type}</span></td>
+                <td style="font-weight:bold">${data.amt}</td>
+                <td>${data.tax}</td>
+                <td>${data.ref}${month}/25-${i+1}</td>
+            </tr>`;
+        });
+    });
+
+    tbody.innerHTML = html;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical Lab 3 - Purchase Transactions</title>
+<style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; padding: 20px; line-height: 1.5; }
+    .lab-container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 10px solid #e11d48; }
+    .header-area { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 20px; }
+    .title { color: #e11d48; font-size: 26px; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+    th { background: #e11d48; color: white; padding: 12px; text-align: left; text-transform: uppercase; border: 1px solid #be123c; }
+    td { border: 1px solid #e2e8f0; padding: 10px; vertical-align: top; }
+    tr:nth-child(even) { background-color: #fff1f2; }
+    .party-info { font-size: 11px; color: #475569; margin-top: 4px; }
+    .gst-no { color: #e11d48; font-family: monospace; font-weight: bold; }
+    .gst-tag { display: inline-block; background: #ffe4e6; color: #b91c1c; padding: 2px 5px; border-radius: 4px; font-weight: bold; font-size: 10px; margin-top: 5px; }
+</style>
+</head>
+<body>
+
+<div class="lab-container">
+    <div class="header-area">
+        <div class="title">🛒 Practical Lab 3: Annual Purchase Register (With GST Details)</div>
+        <div style="text-align: right; font-size: 14px;">
+            <b>Entity:</b> SSCEC Digital Store<br>
+            <b>State:</b> West Bengal (Code: 19)
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Supplier Details (Party Name, Address & GST)</th>
+                <th>Item & Qty</th>
+                <th>Rate (₹)</th>
+                <th>Tax Type</th>
+                <th>Invoice No.</th>
+            </tr>
+        </thead>
+        <tbody id="purchaseBody">
+            </tbody>
+    </table>
+
+    <div style="background: #fffbeb; border-left: 5px solid #f59e0b; padding: 15px; margin-top: 25px; border-radius: 6px;">
+        <b>👨‍🏫 Student's Note:</b> 
+        ছাত্রদের লেজার তৈরির সময় সঠিক <b>State</b> এবং <b>GST Registration Type</b> সিলেক্ট করবে। ইন্টারস্টেট (Interstate) সাপ্লায়ারের ক্ষেত্রে  <b>IGST</b> ব্যবহার করবে এবং লোকাল সাপ্লায়ারের জন্য <b>CGST/SGST</b>।
+    </div>
+</div>
+
+<script>
+    const months = ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"];
+    
+    // ৫টি নির্দিষ্ট ট্রানজ্যাকশন ডেটা
+    const transactionData = [
+        { 
+            day: "01", 
+            party: "Dell India Pvt Ltd", 
+            addr: "Plot No 2, Industrial Area, Bangalore, Karnataka", 
+            gst: "29AAAAA0000A1Z5", 
+            item: "Dell Latitude Laptops", qty: "5 Nos", rate: "45,000", tax: "IGST 18%", inv: "DL/" 
+        },
+        { 
+            day: "01", 
+            party: "M/S Local Stationery Mart", 
+            addr: "12/A Nilgunj Road, Nimta, Kolkata - 700049", 
+            gst: "19BBBBB1111B1Z2", 
+            item: "A4 Printing Paper", qty: "20 Pkts", rate: "280", tax: "CGST/SGST 12%", inv: "LSM/" 
+        },
+        { 
+            day: "02", 
+            party: "HP World (Kolkata Unit)", 
+            addr: "Salt Lake Sector-V, Kolkata, West Bengal", 
+            gst: "19CCCCC2222C1Z3", 
+            item: "HP Laserjet Printers", qty: "2 Nos", rate: "16,200", tax: "CGST/SGST 18%", inv: "HPW/" 
+        },
+        { 
+            day: "02", 
+            party: "Reliance Digital Ltd", 
+            addr: "Mumbai Main Hub, Maharashtra", 
+            gst: "27DDDDD3333D1Z4", 
+            item: "Logitech Mouse & KB", qty: "12 Sets", rate: "1,150", tax: "IGST 18%", inv: "RD/" 
+        },
+        { 
+            day: "30", 
+            party: "Global Tech Services", 
+            addr: "N.S. Road, Kolkata, West Bengal", 
+            gst: "19EEEEE4444E1Z9", 
+            item: "K7 Antivirus (1 Year)", qty: "50 Nos", rate: "380", tax: "CGST/SGST 18%", inv: "GTS/" 
+        }
+    ];
+
+    const tbody = document.getElementById('purchaseBody');
+    let html = "";
+
+    months.forEach((month, index) => {
+        let year = (index > 8) ? "2026" : "2025";
+        transactionData.forEach((data, i) => {
+            html += `<tr>
+                <td><b>${data.day}-${month}-${year}</b></td>
+                <td>
+                    <b>${data.party}</b><br>
+                    <div class="party-info">
+                        Addr: ${data.addr}<br>
+                        GSTIN: <span class="gst-no">${data.gst}</span>
+                    </div>
+                </td>
+                <td>${data.item}<br><small>Qty: ${data.qty}</small></td>
+                <td>${data.rate}</td>
+                <td><span class="gst-tag">${data.tax}</span></td>
+                <td>${data.inv}${month}/INV-${300+i}</td>
+            </tr>`;
+        });
+    });
+
+    tbody.innerHTML = html;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical Lab 6 - Income Transactions</title>
+<style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0fdf4; padding: 20px; line-height: 1.5; }
+    .lab-container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid #d97706; }
+    .header-area { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 20px; }
+    .title { color: #d97706; font-size: 26px; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+    th { background: #d97706; color: white; padding: 12px; text-align: left; text-transform: uppercase; border: 1px solid #b45309; }
+    td { border: 1px solid #e2e8f0; padding: 12px; vertical-align: top; }
+    tr:nth-child(even) { background-color: #fffbeb; }
+    .income-type { display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+    .direct { background: #dcfce7; color: #15803d; } /* Direct Income - Greenish */
+    .indirect { background: #fef3c7; color: #92400e; } /* Indirect Income - Amber */
+    .gst-no { color: #d97706; font-family: monospace; font-weight: bold; font-size: 11px; }
+</style>
+</head>
+<body>
+
+<div class="lab-container">
+    <div class="header-area">
+        <div class="title">💰 Practical Lab 6: Miscellaneous Income Register</div>
+        <div style="text-align: right; font-size: 14px;">
+            <b>Entity:</b> SSCEC Digital Store<br>
+            <b>Voucher Type:</b> Receipt (F6) / Journal (F7)
+        </div>
+    </div>
+
+    <p style="color: #64748b;">নিচের প্রাপ্তিগুলো সঠিক <b>Ledger Group</b> (Direct/Indirect Income) সিলেক্ট করে ট্যালিতে এন্ট্রি করো।</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Income Head & Received From</th>
+                <th>Income Type</th>
+                <th>Amount (₹)</th>
+                <th>GST Status</th>
+                <th>Ref No.</th>
+            </tr>
+        </thead>
+        <tbody id="incomeBody">
+            </tbody>
+    </table>
+
+    <div style="background: #fffbeb; border-left: 5px solid #d97706; padding: 15px; margin-top: 25px; border-radius: 6px; color: #92400e;">
+        <b>👨‍🏫 স্টুডেন্টদের নোট:</b> 
+       তোমরা মনে রাখবে—যেসব আয় সরাসরি ব্যবসার প্রধান কাজ থেকে আসে (যেমন: Training Fees, Consultancy) সেগুলো <b>Direct Income</b>। আর যেসব আয় মূল ব্যবসা ছাড়া অন্য উৎস থেকে আসে (যেমন: Interest, Commission, Scrap Sale) সেগুলো <b>Indirect Income</b>।
+    </div>
+</div>
+
+<script>
+    const months = ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"];
+    
+    const incomeData = [
+        { 
+            day: "01", 
+            head: "Professional Training Fees", 
+            from: "Corporate Batch - Alpha Ltd", 
+            gst: "19AAAAA1111A1Z5", 
+            type: "Direct Income", typeClass: "direct", 
+            amt: "25,000.00", tax: "GST 18%", ref: "FEES/" 
+        },
+        { 
+            day: "01", 
+            head: "Bank Savings Interest", 
+            from: "SBI Nimta Branch", 
+            gst: "N/A (Exempted)", 
+            type: "Indirect Income", typeClass: "indirect", 
+            amt: "1,250.00", tax: "Nil", ref: "INT/" 
+        },
+        { 
+            day: "02", 
+            head: "Software Installation Charges", 
+            from: "Local Small Business", 
+            gst: "Unregistered", 
+            type: "Direct Income", typeClass: "direct", 
+            amt: "3,500.00", tax: "GST 18%", ref: "SRV/" 
+        },
+        { 
+            day: "02", 
+            head: "Commission Received", 
+            from: "Tech Partner Services", 
+            gst: "19BBBBB2222B1Z2", 
+            type: "Indirect Income", typeClass: "indirect", 
+            amt: "5,800.00", tax: "GST 18%", ref: "COM/" 
+        },
+        { 
+            day: "30", 
+            head: "Sale of Old Newspapers & Scrap", 
+            from: "Local Scrap Dealer", 
+            gst: "Cash Receipt", 
+            type: "Indirect Income", typeClass: "indirect", 
+            amt: "850.00", tax: "Nil", ref: "SCRAP/" 
+        }
+    ];
+
+    const tbody = document.getElementById('incomeBody');
+    let html = "";
+
+    months.forEach((month, index) => {
+        let year = (index > 8) ? "2026" : "2025";
+        incomeData.forEach((data, i) => {
+            html += `<tr>
+                <td><b>${data.day}-${month}-${year}</b></td>
+                <td>
+                    <b>${data.head}</b><br>
+                    <small style="color:#64748b">From: ${data.from}</small><br>
+                    <span class="gst-no">GSTIN: ${data.gst}</span>
+                </td>
+                <td><span class="income-type ${data.typeClass}">${data.type}</span></td>
+                <td style="font-weight:bold">${data.amt}</td>
+                <td>${data.tax}</td>
+                <td>${data.ref}${month}/RC-${i+1}</td>
+            </tr>`;
+        });
+    });
+
+    tbody.innerHTML = html;
+</script>
+
+</body>
+</html>
