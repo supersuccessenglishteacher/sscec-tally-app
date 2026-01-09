@@ -8,12 +8,14 @@
     :root {
         --tally-blue: #00428a;
         --tally-gold: #ffc412;
+        --start-clr: #0d9488;
         --masters-clr: #3b82f6;
         --trans-clr: #10b981;
         --util-clr: #f59e0b;
         --report-clr: #6366f1;
         --exam-clr: #ef4444;
-        --start-clr: #0d9488;
+        --utility-sync-clr: #4f46e5; /* Indigo */
+        --quick-gold: #fcd34d;      /* Light Golden */
     }
 
     body {
@@ -29,8 +31,6 @@
         text-align: center;
         border-bottom: 5px solid var(--tally-gold);
     }
-
-
 
     .header h1 { margin: 0; font-size: 28px; letter-spacing: 1px; }
     .header p { margin: 5px 0 0; font-size: 16px; opacity: 0.9; }
@@ -50,7 +50,6 @@
     .category-card {
         background: white;
         border-radius: 12px;
-        padding: 0;
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         overflow: hidden;
         border: 1px solid #e2e8f0;
@@ -74,13 +73,8 @@
     .utilities-h { background: var(--util-clr); }
     .reports-h { background: var(--report-clr); }
     .exam-h { background: var(--exam-clr); }
-
-    .menu-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        flex-grow: 1;
-    }
+    .utility-h { background: var(--utility-sync-clr); }
+    .quick-h { background: var(--quick-gold); color: #92400e; } /* ডার্ক টেক্সট ফর লাইট গোল্ড */
 
     .menu-item {
         padding: 14px 20px;
@@ -114,33 +108,6 @@
     .footer b { color: var(--tally-gold); font-size: 18px; display: block; margin-bottom: 5px; }
     .contact-info { margin-top: 10px; font-size: 14px; line-height: 1.6; }
 </style>
-<style>
-    /* নতুন কার্ডের হেডারের জন্য কালার ক্লাস */
-    .utility-h {
-        background-color: #4f46e5 !important; /* Indigo Color */
-        color: white !important;
-    }
-    
-    /* হোভার এফেক্ট যদি আপনার স্টাইলে থাকে */
-    .menu-item:hover {
-        background-color: #f8fafc;
-        color: #4f46e5;
-    }
-</style>
-<style>
-    /* এই কার্ডের হেডারের জন্য বিশেষ কালার ক্লাস */
-    .quick-h {
-        background-color: #f59e0b !important; /* Amber/Golden Color */
-        color: white !important;
-    }
-    
-    /* হোভার এফেক্ট */
-    .quick-item:hover {
-        background-color: #fffbeb;
-        color: #d97706;
-    }
-</style>
-
 </head>
 <body>
 
@@ -157,7 +124,7 @@
             <div class="menu-list">
                 <a href="tally-step-guide1.html" class="menu-item"><span><b>O</b>pen Tally</span> ➔</a>
                 <a href="tally-step-guide2.html" class="menu-item"><span><b>C</b>ompany Setup</span> ➔</a>
-<a href="tally-step-guide3.html" class="menu-item"><span><b>V</b>isual Guide</span> ➔</a>
+                <a href="tally-step-guide3.html" class="menu-item"><span><b>V</b>isual Guide</span> ➔</a>
             </div>
         </div>
 
@@ -165,7 +132,7 @@
             <div class="card-header masters-h">Masters Management</div>
             <div class="menu-list">
                 <a href="tally-step-guide4.html" class="menu-item"><span><b>C</b>reate Ledgers</span> ➔</a>
-                <a href="tally-step-guide5.html" class="menu-item"><span><b>I</b>ventory Masters</span> ➔</a>
+                <a href="tally-step-guide5.html" class="menu-item"><span><b>I</b>nventory Masters</span> ➔</a>
                 <a href="tally-step-guide6.html" class="menu-item"><span><b>S</b>tatutory Masters </span> ➔</a>
             </div>
         </div>
@@ -206,41 +173,24 @@
             </div>
         </div>
 
-<div class="category-card">
-    <div class="card-header utility-h">Utility & Sync</div>
-    
-    <div class="menu-list">
-        <a href="tally-exchange-guide.html" class="menu-item">
-            <span><b>E</b>xchange (Data Sync)</span> ➔
-        </a>
+        <div class="category-card">
+            <div class="card-header utility-h">Utility & Sync</div>
+            <div class="menu-list">
+                <a href="tally-exchange-guide.html" class="menu-item"><span><b>E</b>xchange (Data Sync)</span> ➔</a>
+                <a href="tally-share-guide.html" class="menu-item"><span><b>S</b>hare (E-mail)</span> ➔</a>
+                <a href="tally-print-guide.html" class="menu-item"><span><b>P</b>rinting Reports</span> ➔</a>
+            </div>
+        </div>
 
-        <a href="tally-share-guide.html" class="menu-item">
-            <span><b>S</b>hare (E-mail)</span> ➔
-        </a>
+        <div class="category-card">
+            <div class="card-header quick-h">Quick Links & Exam</div>
+            <div class="menu-list">
+                <a href="tally-goto-guide.html" class="menu-item"><span><b>G</b>o To Feature (Alt+G)</span> ➔</a>
+                <a href="tally-shortcuts-list.html" class="menu-item"><span><b>5</b>0 Tally Shortcuts</span> ➔</a>
+                <a href="tally-mock-test.html" class="menu-item"><span>Online <b>M</b>ock Test</span> ➔</a>
+            </div>
+        </div>
 
-        <a href="tally-print-guide.html" class="menu-item">
-            <span><b>P</b>rinting Reports</span> ➔
-        </a>
-    </div>
-</div>
-
-<div class="category-card">
-    <div class="card-header quick-h">Quick Links & Exam</div>
-    
-    <div class="menu-list">
-        <a href="tally-goto-guide.html" class="menu-item quick-item">
-            <span><b>G</b>o To Feature (Alt+G)</span> ➔
-        </a>
-
-        <a href="tally-shortcuts-list.html" class="menu-item quick-item">
-            <span><b>5</b>0 Tally Shortcuts</span> ➔
-        </a>
-
-        <a href="tally-mock-test.html" class="menu-item quick-item">
-            <span>Online <b>M</b>ock Test</span> ➔
-        </a>
-    </div>
-</div>
     </div>
 </div>
 
