@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voucher Entry Guide - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --arrow-red: #dc2626;
+        --shortcut-bg: #1e293b;
+        --bg-gray: #f4f7f9;
+        --vouch-clr: #10b981; /* ভাউচারের জন্য সবুজ থিম */
+    }
+
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-gray); margin: 0; padding: 0; color: #334155; }
+    
+    .nav-bar { background: white; padding: 12px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+    .back-link { text-decoration: none; color: var(--tally-blue); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+    .header { background: var(--tally-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid #ffc412; }
+    
+    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+    
+    .module-card { 
+        background: white; border-radius: 15px; padding: 30px; 
+        margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 8px solid var(--vouch-clr);
+    }
+
+    h2 { color: var(--tally-blue); font-size: 24px; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    
+    .step-box { background: #f0fdf4; padding: 20px; border-radius: 10px; border-left: 5px solid var(--vouch-clr); margin: 20px 0; }
+    
+    .step-flow { line-height: 1.8; font-size: 17px; margin-bottom: 10px; }
+    .step { font-weight: 600; color: #1e293b; }
+    .arrow { color: var(--arrow-red); font-weight: bold; margin: 0 8px; }
+    
+    .vouch-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    .vouch-table th, .vouch-table td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
+    .vouch-table th { background: #f8fafc; color: var(--tally-blue); }
+
+    .shortcut { background: var(--shortcut-bg); color: #fbbf24; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 15px; }
+
+    .visual-box { text-align: center; margin: 25px 0; padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
+
+    .tip { background: #fff7ed; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 5px; margin-top: 15px; }
+    
+    .footer { text-align: center; padding: 40px; color: #64748b; background: white; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+    <a href="tally-gateway-index.html" class="back-link">⬅️ Gateway মেনুতে ফিরে যান</a>
+</div>
+
+<div class="header">
+    <h1>💸 Voucher Entry (লেনদেন রেকর্ড করা)</h1>
+    <p>সুপার সাকসেস কম্পিউটার এডুকেশন সেন্টার</p>
+</div>
+
+<div class="container">
+
+    <div class="module-card">
+        <h2>📑 ১. ভাউচার এন্ট্রি শুরু করা</h2>
+        <p>যেকোনো ট্রানজ্যাকশন করার জন্য প্রথমে ভাউচার স্ক্রিনে যেতে হবে:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Gateway of Tally</span> <span class="arrow">➤</span> 
+                <span class="step">Vouchers</span> <b>(অথবা কীবোর্ড থেকে <span class="shortcut">V</span> টিপুন)</b>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="module-card">
+        <h2>⌨️ ২. ভাউচার টাইপ ও ফাংশন কি (Function Keys)</h2>
+        <p>সঠিক লেনদেনের জন্য সঠিক ভাউচার মোড সিলেক্ট করা জরুরি:</p>
+        <table class="vouch-table">
+            <tr>
+                <th>Voucher Type</th>
+                <th>Shortcut</th>
+                <th>ব্যবহার (Usage)</th>
+            </tr>
+            <tr>
+                <td><b>Contra</b></td>
+                <td><span class="shortcut">F4</span></td>
+                <td>ব্যাংকে টাকা জমা বা তোলা।</td>
+            </tr>
+            <tr>
+                <td><b>Payment</b></td>
+                <td><span class="shortcut">F5</span></td>
+                <td>কাউকে টাকা পেমেন্ট করা।</td>
+            </tr>
+            <tr>
+                <td><b>Receipt</b></td>
+                <td><span class="shortcut">F6</span></td>
+                <td>টাকা রিসিভ করা।</td>
+            </tr>
+            <tr>
+                <td><b>Journal</b></td>
+                <td><span class="shortcut">F7</span></td>
+                <td>নন-ক্যাশ বা অ্যাডজাস্টমেন্ট এন্ট্রি।</td>
+            </tr>
+            <tr>
+                <td><b>Sales</b></td>
+                <td><span class="shortcut">F8</span></td>
+                <td>পণ্য বিক্রি করা।</td>
+            </tr>
+            <tr>
+                <td><b>Purchase</b></td>
+                <td><span class="shortcut">F9</span></td>
+                <td>পণ্য কেনা।</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="module-card">
+        <h2>🔄 ৩. ভাউচার মোড পরিবর্তন (Change Mode)</h2>
+        <p>সেলস বা পারচেজ এন্ট্রির সময় আপনি আইটেম অনুযায়ী নাকি লেজার অনুযায়ী এন্ট্রি করবেন তা এখান থেকে ঠিক করা যায়।</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">ভাউচার স্ক্রিন থেকে</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">Ctrl + H</span></span> <span class="arrow">➤</span> 
+                <span class="step">Select Item Invoice / As Voucher</span>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="module-card">
+        <h2>💾 ৪. এন্ট্রি সেভ এবং ন্যারেশন (Narration)</h2>
+        <p>প্রতিটি এন্ট্রির শেষে একটি ছোট ব্যাখ্যা (Narration) দেওয়া উচিত এবং তারপর সেটি সেভ করতে হয়।</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Type Transaction Details</span> <span class="arrow">➤</span> 
+                <span class="step">Go to Narration Field</span> <span class="arrow">➤</span> 
+                <span class="step">Type Details</span> <span class="arrow">➤</span> 
+                <span class="step">Accept (<span class="shortcut">Ctrl + A</span>)</span>
+            </div>
+        </div>
+        <div class="tip"><b>টিপস:</b> এন্ট্রি করার সময় তারিখ পরিবর্তন করতে <span class="shortcut">F2</span> টিপুন।</div>
+    </div>
+
+    <div class="module-card">
+        <h2>📖 ৫. করা এন্ট্রিগুলো দেখা (Day Book)</h2>
+        <p>সারাদিনে কতগুলো এন্ট্রি করলেন তা একসাথে দেখার জন্য:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Gateway of Tally</span> <span class="arrow">➤</span> 
+                <span class="step">Day Book</span> <b>(অথবা <span class="shortcut">K</span> টিপুন)</b>
+            </div>
+        </div>
+        
+        <div class="tip"><b>শর্টকাট:</b> কোনো ভুল এন্ট্রি ডিলিট করতে চাইলে ডে-বুকে গিয়ে সেটি সিলেক্ট করে <span class="shortcut">Alt + D</span> টিপুন।</div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 নিমতা, কলকাতা - ৭০০ ০৪৯ | 📞 ৮০১৭২৪৭২৯৮
+</div>
+
+</body>
+</html>

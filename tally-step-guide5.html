@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory Masters Guide - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --arrow-red: #dc2626;
+        --shortcut-bg: #1e293b;
+        --bg-gray: #f4f7f9;
+        --inv-clr: #f59e0b;
+    }
+
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-gray); margin: 0; padding: 0; color: #334155; }
+    
+    .nav-bar { background: white; padding: 12px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+    .back-link { text-decoration: none; color: var(--tally-blue); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+    .header { background: var(--tally-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid #ffc412; }
+    
+    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+    
+    .module-card { 
+        background: white; border-radius: 15px; padding: 30px; 
+        margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 8px solid var(--inv-clr);
+    }
+
+    h2 { color: var(--tally-blue); font-size: 24px; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    
+    .step-box { background: #fffcf0; padding: 20px; border-radius: 10px; border-left: 5px solid var(--inv-clr); margin: 20px 0; }
+    
+    .step-flow { line-height: 1.8; font-size: 17px; margin-bottom: 10px; }
+    .step { font-weight: 600; color: #1e293b; }
+    .arrow { color: var(--arrow-red); font-weight: bold; margin: 0 8px; }
+    
+    .inventory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+    .inv-item { background: #f1f5f9; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold; color: var(--tally-blue); border: 1px solid #cbd5e1; }
+
+    .visual-box { text-align: center; margin: 25px 0; padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
+
+    .tip { background: #fff7ed; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 5px; margin-top: 15px; }
+    
+    .footer { text-align: center; padding: 40px; color: #64748b; background: white; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+    <a href="tally-gateway-index.html" class="back-link">⬅️ Gateway মেনুতে ফিরে যান</a>
+</div>
+
+<div class="header">
+    <h1>📦 Inventory Masters (স্টক ম্যানেজমেন্ট)</h1>
+    <p>সুপার সাকসেস কম্পিউটার এডুকেশন সেন্টার</p>
+</div>
+
+<div class="container">
+
+    <div class="module-card">
+        <h2>📊 ১. ইনভেন্টরি মাস্টারের মূল উপাদান</h2>
+        <p>ট্যালিতে স্টক মেইনটেইন করার জন্য প্রধানত ৫টি বিষয় সেটআপ করতে হয়:</p>
+        <div class="inventory-grid">
+            <div class="inv-item">Stock Group</div>
+            <div class="inv-item">Stock Category</div>
+            <div class="inv-item">Stock Item</div>
+            <div class="inv-item">Unit</div>
+            <div class="inv-item">Godown</div>
+        </div>
+        <div class="visual-box">
+                    </div>
+    </div>
+
+    <div class="module-card">
+        <h2>📏 ২. ইউনিট তৈরি (Unit of Measure)</h2>
+        <p>যেকোনো স্টক আইটেম তৈরির আগে তার ইউনিট (যেমন: Pcs, Kg, Box) তৈরি করা বাধ্যতামূলক।</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Create</span> <span class="arrow">➤</span> 
+                <span class="step">Unit</span> <span class="arrow">➤</span> 
+                <span class="step">Type Symbol (Pcs)</span> <span class="arrow">➤</span> 
+                <span class="step">Formal Name (Pieces)</span>
+            </div>
+        </div>
+        <div class="tip"><b>টিপস:</b> GST রিপোর্টিংয়ের জন্য UQC (Unit Quantity Code) সঠিক দেওয়া জরুরি।</div>
+    </div>
+
+    <div class="module-card">
+        <h2>🛠️ ৩. স্টক গ্রুপ ও আইটেম তৈরি</h2>
+        <p>একই ধরণের পণ্যকে একটি গ্রুপের আন্ডারে রাখতে হয়। যেমন: 'Mobile' একটি গ্রুপ, আর 'iPhone 15' একটি আইটেম।</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Create</span> <span class="arrow">➤</span> 
+                <span class="step">Stock Item</span> <span class="arrow">➤</span> 
+                <span class="step">Name: iPhone 15</span> <span class="arrow">➤</span> 
+                <span class="step">Under: Mobile</span> <span class="arrow">➤</span> 
+                <span class="step">Unit: Pcs</span>
+            </div>
+        </div>
+        <div class="visual-box">
+                    </div>
+    </div>
+
+    <div class="module-card">
+        <h2>🏠 ৪. গোডাউন বা লোকেশন ম্যানেজমেন্ট</h2>
+        <p>আপনার মালপত্র কোথায় রাখা আছে তা ট্রাক করার জন্য গোডাউন ব্যবহার করা হয়।</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Create</span> <span class="arrow">➤</span> 
+                <span class="step">Godown</span> <span class="arrow">➤</span> 
+                <span class="step">Name: Kolkata Warehouse</span>
+            </div>
+        </div>
+        <div class="tip"><b>নোট:</b> যদি গোডাউন অপশন না দেখায়, তবে F11 ফিচারে গিয়ে 'Enable Godowns' অপশনটি Yes করুন।</div>
+    </div>
+
+    <div class="module-card">
+        <h2>📈 ৫. স্টক রিপোর্ট দেখা (Stock Summary)</h2>
+        <p>বর্তমানে আপনার কাছে কত টাকার এবং কতটা মাল আছে তা দেখার জন্য:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Gateway of Tally</span> <span class="arrow">➤</span> 
+                <span class="step">Stock Summary</span> <span class="arrow">➤</span> 
+                <span class="step">Alt + F1 (Detailed View)</span>
+            </div>
+        </div>
+        <div class="visual-box">
+                     </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 নিমতা, কলকাতা - ৭০০ ০৪৯ | 📞 ৮০১৭২৪৭২৯৮
+</div>
+
+</body>
+</html>

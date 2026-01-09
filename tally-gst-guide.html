@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Taxation Guide - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --arrow-red: #dc2626;
+        --shortcut-bg: #1e293b;
+        --bg-gray: #f4f7f9;
+        --gst-clr: #7c3aed; /* GST এর জন্য পার্পল থিম */
+    }
+
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-gray); margin: 0; padding: 0; color: #334155; }
+    
+    .nav-bar { background: white; padding: 12px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+    .back-link { text-decoration: none; color: var(--tally-blue); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+    .header { background: var(--tally-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid #ffc412; }
+    
+    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+    
+    .module-card { 
+        background: white; border-radius: 15px; padding: 30px; 
+        margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 8px solid var(--gst-clr);
+    }
+
+    h2 { color: var(--tally-blue); font-size: 24px; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    
+    .step-box { background: #f5f3ff; padding: 20px; border-radius: 10px; border-left: 5px solid var(--gst-clr); margin: 20px 0; }
+    
+    .step-flow { line-height: 1.8; font-size: 17px; margin-bottom: 10px; }
+    .step { font-weight: 600; color: #1e293b; }
+    .arrow { color: var(--arrow-red); font-weight: bold; margin: 0 8px; }
+    
+    .gst-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 15px; }
+    .gst-table th, .gst-table td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
+    .gst-table th { background: #ede9fe; color: var(--tally-blue); }
+
+    .visual-box { text-align: center; margin: 25px 0; padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
+    .shortcut { background: var(--shortcut-bg); color: #fbbf24; padding: 2px 8px; border-radius: 4px; font-family: monospace; }
+
+    .tip { background: #fff7ed; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 5px; margin-top: 15px; }
+    
+    .footer { text-align: center; padding: 40px; color: #64748b; background: white; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+    <a href="tally-gateway-index.html" class="back-link">⬅️ Gateway মেনুতে ফিরে যান</a>
+</div>
+
+<div class="header">
+    <h1>⚖️ GST Taxation (পণ্য ও পরিষেবা কর)</h1>
+    <p>সুপার সাকসেস কম্পিউটার এডুকেশন সেন্টার</p>
+</div>
+
+<div class="container">
+
+    <div class="module-card">
+        <h2>✅ ১. GST ফিচার এনাবেল করা</h2>
+        <p>ট্যালিতে ট্যাক্সের কাজ শুরু করার আগে কোম্পানি ফিচারে GST অপশনটি চালু করতে হয়:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Gateway of Tally</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">F11</span> (Features)</span> <span class="arrow">➤</span> 
+                <span class="step">Enable GST: <b>Yes</b></span> <span class="arrow">➤</span> 
+                <span class="step">Enter GSTIN Details</span>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="module-card">
+        <h2>📑 ২. GST ট্যাক্স লেজার তৈরি (CGST, SGST, IGST)</h2>
+        <p>ট্যাক্স ক্যালকুলেট করার জন্য ৩টি প্রধান লেজার তৈরি করতে হয় (আন্ডার: <b>Duties & Taxes</b>):</p>
+        <table class="gst-table">
+            <tr>
+                <th>Ledger Name</th>
+                <th>Under Group</th>
+                <th>Tax Type</th>
+            </tr>
+            <tr>
+                <td><b>CGST</b></td>
+                <td>Duties & Taxes</td>
+                <td>Central Tax</td>
+            </tr>
+            <tr>
+                <td><b>SGST</b></td>
+                <td>Duties & Taxes</td>
+                <td>State Tax</td>
+            </tr>
+            <tr>
+                <td><b>IGST</b></td>
+                <td>Duties & Taxes</td>
+                <td>Integrated Tax</td>
+            </tr>
+        </table>
+        <div class="tip"><b>সূত্র:</b> নিজের রাজ্যের ভেতরে লেনদেনে CGST+SGST লাগে, আর অন্য রাজ্যে IGST লাগে।</div>
+    </div>
+
+    <div class="module-card">
+        <h2>📦 ৩. স্টক আইটেমে GST রেট সেট করা</h2>
+        <p>পণ্যের ওপর কত শতাংশ ট্যাক্স বসবে তা আইটেম তৈরির সময় বলে দিতে হয়:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Stock Item Creation</span> <span class="arrow">➤</span> 
+                <span class="step">Set GST Details: <b>Yes</b></span> <span class="arrow">➤</span> 
+                <span class="step">Taxability: <b>Taxable</b></span> <span class="arrow">➤</span> 
+                <span class="step">GST Rate: <b>18%</b> (বা অন্য রেট)</span>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="module-card">
+        <h2>💰 ৪. GST সম্বলিত বিল তৈরি (Sales/Purchase)</h2>
+        <p>ভাউচার এন্ট্রি করার সময় ট্যাক্স লেজার সিলেক্ট করলে ট্যালি নিজে থেকেই ট্যাক্স হিসাব করে নেয়:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Voucher (F8/F9)</span> <span class="arrow">➤</span> 
+                <span class="step">Select Party & Items</span> <span class="arrow">➤</span> 
+                <span class="step">Select CGST & SGST Ledger</span> <span class="arrow">➤</span> 
+                <span class="step">Total Bill Value calculated</span>
+            </div>
+        </div>
+        <div class="tip"><b>চেক করুন:</b> ট্যাক্স ঠিকমতো না কাটলে <span class="shortcut">Alt + A</span> (Tax Analysis) টিপে কারণ দেখুন।</div>
+    </div>
+
+    <div class="module-card">
+        <h2>📊 ৫. রিটার্ন রিপোর্ট (GSTR-1, GSTR-3B)</h2>
+        <p>সরকারি পোর্টালে ডেটা আপলোড করার আগে ট্যালিতে রিপোর্ট চেক করুন:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Gateway of Tally</span> <span class="arrow">➤</span> 
+                <span class="step">Display More Reports</span> <span class="arrow">➤</span> 
+                <span class="step">Statutory Reports</span> <span class="arrow">➤</span> 
+                <span class="step">GST Reports</span>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 নিমতা, কলকাতা - ৭০০ ০৪৯ | 📞 ৮০১৭২৪৭২৯৮
+</div>
+
+</body>
+</html>

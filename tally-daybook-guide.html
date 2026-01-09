@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day Book Guide - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --arrow-red: #dc2626;
+        --shortcut-bg: #1e293b;
+        --bg-gray: #f4f7f9;
+        --daybook-clr: #0891b2; /* ডে-বুকের জন্য সায়ান থিম */
+    }
+
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-gray); margin: 0; padding: 0; color: #334155; }
+    
+    .nav-bar { background: white; padding: 12px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+    .back-link { text-decoration: none; color: var(--tally-blue); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+    .header { background: var(--tally-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid #ffc412; }
+    
+    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+    
+    .module-card { 
+        background: white; border-radius: 15px; padding: 30px; 
+        margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 8px solid var(--daybook-clr);
+    }
+
+    h2 { color: var(--tally-blue); font-size: 24px; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    
+    .step-box { background: #ecfeff; padding: 20px; border-radius: 10px; border-left: 5px solid var(--daybook-clr); margin: 20px 0; }
+    
+    .step-flow { line-height: 1.8; font-size: 17px; margin-bottom: 10px; }
+    .step { font-weight: 600; color: #1e293b; }
+    .arrow { color: var(--arrow-red); font-weight: bold; margin: 0 8px; }
+    
+    .visual-box { text-align: center; margin: 25px 0; padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
+    .shortcut { background: var(--shortcut-bg); color: #fbbf24; padding: 2px 8px; border-radius: 4px; font-family: monospace; }
+
+    .tip { background: #fff7ed; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 5px; margin-top: 15px; }
+    
+    .footer { text-align: center; padding: 40px; color: #64748b; background: white; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+    <a href="tally-gateway-index.html" class="back-link">⬅️ Gateway মেনুতে ফিরে যান</a>
+</div>
+
+<div class="header">
+    <h1>📖 Day Book (দৈনিক লেনদেনের খাতা)</h1>
+    <p>সুপার সাকসেস কম্পিউটার এডুকেশন সেন্টার</p>
+</div>
+
+<div class="container">
+
+    <div class="module-card">
+        <h2>🔍 ১. ডে-বুক দেখার পদ্ধতি</h2>
+        <p>ট্যালিতে করা প্রতিদিনের সব এন্ট্রি একসাথে দেখার জন্য নিচের ধাপটি অনুসরণ করুন:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Gateway of Tally</span> <span class="arrow">➤</span> 
+                <span class="step">Day Book</span> <b>(অথবা সরাসরি <span class="shortcut">K</span> টিপুন)</b>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="module-card">
+        <h2>📅 ২. নির্দিষ্ট তারিখের রিপোর্ট দেখা</h2>
+        <p>সাধারণত ডে-বুকে শুধু কারেন্ট ডেট-এর এন্ট্রি দেখায়। পুরো মাস বা বছরের রিপোর্ট দেখতে:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Press <span class="shortcut">F2</span></span> <span class="arrow">➤</span> <b>একটি নির্দিষ্ট দিন দেখতে।</b><br>
+                <span class="step">Press <span class="shortcut">Alt + F2</span></span> <span class="arrow">➤</span> <b>পুরো মাস বা সময়সীমা (Period) দেখতে।</b>
+            </div>
+        </div>
+        <div class="tip"><b>উদাহরণ:</b> ১-এপ্রিল থেকে ৩১-মে পর্যন্ত দেখতে চাইলে Alt+F2 দিয়ে 'From' এবং 'To' ডেট লিখুন।</div>
+    </div>
+
+    <div class="module-card">
+        <h2>📜 ৩. বিস্তারিত তথ্য দেখা (Detailed View)</h2>
+        <p>ডে-বুকে প্রতিটি লেনদেনের ভেতরে কোন কোন লেজার বা আইটেম আছে তা একবারে দেখার জন্য:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Day Book স্ক্রিন থেকে</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">Alt + F5</span></span> (অথবা Alt+F1)
+            </div>
+        </div>
+        <div class="visual-box">
+            
+        </div>
+    </div>
+
+    <div class="module-card">
+        <h2>🎯 ৪. নির্দিষ্ট ভাউচার খুঁজে বের করা (Filter)</h2>
+        <p>যদি অনেক এন্ট্রির মধ্যে থেকে শুধু 'Sales' বা শুধু 'Payment' এন্ট্রি দেখতে চান:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Day Book</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">F4</span> (Voucher Type)</span> <span class="arrow">➤</span> 
+                <span class="step">Select 'Sales' (বা অন্য কোনো টাইপ)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="module-card">
+        <h2>❌ ৫. ভুল এন্ট্রি ডিলিট বা পরিবর্তন</h2>
+        <p>ডে-বুক থেকে খুব সহজে যেকোনো ভুল সংশোধন করা যায়:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">এন্ট্রি সিলেক্ট করে <b>Enter</b> টিপুন</span> <span class="arrow">➤</span> <b>এডিট করতে।</b><br>
+                <span class="step">Select Entry</span> <span class="arrow">➤</span> <span class="shortcut">Alt + D</span> <span class="arrow">➤</span> <b>ডিলিট করতে।</b><br>
+                <span class="step">Select Entry</span> <span class="arrow">➤</span> <span class="shortcut">Alt + X</span> <span class="arrow">➤</span> <b>ক্যানসেল করতে।</b>
+            </div>
+        </div>
+        <div class="tip"><b>সাবধান:</b> ডিলিট করলে ডেটা মুছে যায়, কিন্তু ক্যানসেল করলে ভাউচার নম্বরটি থেকে যায় শুধু ভ্যালু শূন্য হয়ে যায়।</div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 নিমতা, কলকাতা - ৭০০ ০৪৯ | 📞 ৮০১৭২৪৭২৯৮
+</div>
+
+</body>
+</html>

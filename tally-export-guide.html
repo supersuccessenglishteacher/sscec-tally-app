@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Export Guide - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --arrow-red: #dc2626;
+        --shortcut-bg: #1e293b;
+        --bg-gray: #f4f7f9;
+        --export-clr: #0d9488; /* এক্সপোর্টের জন্য টিল (Teal) থিম */
+    }
+
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-gray); margin: 0; padding: 0; color: #334155; }
+    
+    .nav-bar { background: white; padding: 12px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+    .back-link { text-decoration: none; color: var(--tally-blue); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+    .header { background: var(--tally-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid #ffc412; }
+    
+    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+    
+    .module-card { 
+        background: white; border-radius: 15px; padding: 30px; 
+        margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 8px solid var(--export-clr);
+    }
+
+    h2 { color: var(--tally-blue); font-size: 24px; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    
+    .step-box { background: #f0fdfa; padding: 20px; border-radius: 10px; border-left: 5px solid var(--export-clr); margin: 20px 0; }
+    
+    .step-flow { line-height: 1.8; font-size: 17px; margin-bottom: 10px; }
+    .step { font-weight: 600; color: #1e293b; }
+    .arrow { color: var(--arrow-red); font-weight: bold; margin: 0 8px; }
+    
+    .visual-box { text-align: center; margin: 25px 0; padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
+    .shortcut { background: var(--shortcut-bg); color: #fbbf24; padding: 2px 8px; border-radius: 4px; font-family: monospace; }
+
+    .tip { background: #fff7ed; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 5px; margin-top: 15px; }
+    
+    .footer { text-align: center; padding: 40px; color: #64748b; background: white; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+    <a href="tally-gateway-index.html" class="back-link">⬅️ Gateway মেনুতে ফিরে যান</a>
+</div>
+
+<div class="header">
+    <h1>📤 Data Export (রিপোর্ট বাইরে পাঠানো)</h1>
+    <p>সুপার সাকসেস কম্পিউটার এডুকেশন সেন্টার</p>
+</div>
+
+<div class="container">
+
+    <div class="module-card">
+        <h2>📂 ১. Export অপশনটি কোথায় পাবেন?</h2>
+        <p>যেকোনো রিপোর্ট (যেমন: Balance Sheet বা Day Book) খোলা থাকা অবস্থায় ওপরের মেনু থেকে এক্সপোর্ট করা যায়।</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Open any Report</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">Alt + E</span> (Export)</span> <span class="arrow">➤</span> 
+                <span class="step">Select <b>Current</b></span> <b>(অথবা সরাসরি <span class="shortcut">Ctrl + E</span> টিপুন)</b>
+            </div>
+        </div>
+            </div>
+
+    <div class="module-card">
+        <h2>📄 ২. ফাইল ফরম্যাট সেট করা (PDF/Excel)</h2>
+        <p>রিপোর্টটি কোন ফরম্যাটে সেভ হবে (Excel, PDF, JPEG, XML), তা কনফিগারেশন থেকে ঠিক করতে হয়:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Export Screen</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">C</span> (Configure)</span> <span class="arrow">➤</span> 
+                <span class="step">File Format</span> <span class="arrow">➤</span> 
+                <span class="step">Select your desired format</span>
+            </div>
+        </div>
+        <div class="tip"><b>টিপস:</b> গাণিতিক বিশ্লেষণের জন্য <b>Excel</b> এবং কাউকে পাঠানোর জন্য <b>PDF</b> ফরম্যাট সবথেকে উপযোগী।</div>
+    </div>
+
+    <div class="module-card">
+        <h2>ভ ৩. ফাইল কোথায় সেভ হবে? (Folder Path)</h2>
+        <p>আপনার কম্পিউটারের কোন ফোল্ডারে ফাইলটি জমা হবে তা আপনি নিজে ঠিক করে দিতে পারেন:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Configure</span> <span class="arrow">➤</span> 
+                <span class="step">Export Settings</span> <span class="arrow">➤</span> 
+                <span class="step">Folder Path</span> <span class="arrow">➤</span> 
+                <span class="step">পছন্দমতো ফোল্ডার সিলেক্ট করুন</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="module-card">
+        <h2>🧱 ৪. Masters & Transactions এক্সপোর্ট</h2>
+        <p>আপনার কোম্পানির সমস্ত লেজার বা এন্ট্রি অন্য কোনো ট্যালিতে নিয়ে যাওয়ার জন্য XML ফরম্যাটে এক্সপোর্ট করা হয়:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Alt + E (Export)</span> <span class="arrow">➤</span> 
+                <span class="step">Others</span> <span class="arrow">➤</span> 
+                <span class="step">Select <b>Masters</b> or <b>Transactions</b></span>
+            </div>
+        </div>
+        <div class="visual-box">
+                     </div>
+    </div>
+
+    <div class="module-card">
+        <h2>🚀 ৫. ফাইনাল এক্সপোর্ট প্রসেস</h2>
+        <p>সব সেটিং ঠিক করার পর ফাইলটি জেনারেট করার শেষ ধাপ:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Check all settings</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">E</span> (Send)</span>
+            </div>
+        </div>
+        <div class="tip"><b>শর্টকাট:</b> এক্সপোর্ট হওয়ার সাথে সাথে ফাইলটি অটোমেটিক ওপেন করতে চাইলে "Open file after export" অপশনটি <b>Yes</b> রাখুন।</div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 নিমতা, কলকাতা - ৭০০ ০৪৯ | 📞 ৮০১৭২৪৭২৯৮
+</div>
+
+</body>
+</html>

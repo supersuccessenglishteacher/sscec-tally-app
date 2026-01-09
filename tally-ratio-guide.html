@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ratio Analysis Guide - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --arrow-red: #dc2626;
+        --shortcut-bg: #1e293b;
+        --bg-gray: #f4f7f9;
+        --ratio-clr: #8b5cf6; /* রেশিও অ্যানালাইসিসের জন্য পার্পল থিম */
+    }
+
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-gray); margin: 0; padding: 0; color: #334155; }
+    
+    .nav-bar { background: white; padding: 12px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+    .back-link { text-decoration: none; color: var(--tally-blue); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+    .header { background: var(--tally-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid #ffc412; }
+    
+    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+    
+    .module-card { 
+        background: white; border-radius: 15px; padding: 30px; 
+        margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 8px solid var(--ratio-clr);
+    }
+
+    h2 { color: var(--tally-blue); font-size: 24px; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    
+    .step-box { background: #f5f3ff; padding: 20px; border-radius: 10px; border-left: 5px solid var(--ratio-clr); margin: 20px 0; }
+    
+    .step-flow { line-height: 1.8; font-size: 17px; margin-bottom: 10px; }
+    .step { font-weight: 600; color: #1e293b; }
+    .arrow { color: var(--arrow-red); font-weight: bold; margin: 0 8px; }
+    
+    .ratio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0; }
+    .ratio-item { background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd; border-top: 4px solid var(--ratio-clr); }
+
+    .visual-box { text-align: center; margin: 25px 0; padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
+    .shortcut { background: var(--shortcut-bg); color: #fbbf24; padding: 2px 8px; border-radius: 4px; font-family: monospace; }
+
+    .tip { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 15px; border-radius: 5px; margin-top: 15px; }
+    
+    .footer { text-align: center; padding: 40px; color: #64748b; background: white; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+    <a href="tally-gateway-index.html" class="back-link">⬅️ Gateway মেনুতে ফিরে যান</a>
+</div>
+
+<div class="header">
+    <h1>📊 Ratio Analysis (আর্থিক বিশ্লেষণ)</h1>
+    <p>সুপার সাকসেস কম্পিউটার এডুকেশন সেন্টার</p>
+</div>
+
+<div class="container">
+
+    <div class="module-card">
+        <h2>🔍 ১. কিভাবে Ratio Analysis রিপোর্ট খুলবেন?</h2>
+        <p>ব্যালেন্স শিট এবং পি-অ্যান্ড-এল অ্যাকাউন্টের তথ্যের ওপর ভিত্তি করে ট্যালি এই রিপোর্ট তৈরি করে। এটি দেখতে:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Gateway of Tally</span> <span class="arrow">➤</span> 
+                <span class="step">Ratio Analysis</span> <b>(অথবা কীবোর্ড থেকে <span class="shortcut">R</span> টিপুন)</b>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="module-card">
+        <h2>📑 ২. গুরুত্বপূর্ণ রেশিও এবং তাদের অর্থ</h2>
+        <p>রিপোর্ট স্ক্রিনটি দুটি ভাগে বিভক্ত। বাম দিকে থাকে প্রধান অ্যাকাউন্টিং গ্রুপ এবং ডান দিকে থাকে মূল রেশিওগুলো।</p>
+        <div class="ratio-grid">
+            <div class="ratio-item">
+                <b>Current Ratio:</b> আপনার কোম্পানি ছোট মেয়াদের ঋণ মেটাতে কতটা সক্ষম (আদর্শ মান ২:১)।
+            </div>
+            <div class="ratio-item">
+                <b>Quick Ratio:</b> তাৎক্ষণিক নগদ টাকা দিয়ে ঋণ মেটানোর ক্ষমতা (আদর্শ মান ১:১)।
+            </div>
+            <div class="ratio-item">
+                <b>Debt-Equity Ratio:</b> নিজের পুঁজি বনাম বাইরের ঋণের অনুপাত।
+            </div>
+        </div>
+    </div>
+
+    <div class="module-card">
+        <h2>🔄 ৩. টার্নওভার এবং পেমেন্ট পারফরম্যান্স</h2>
+        <p>ব্যবসায়িক দক্ষতা মাপার জন্য নিচের রেশিওগুলো চেক করুন:</p>
+        <div class="step-box">
+            <ul>
+                <li><b>Stock Turnover:</b> কত দ্রুত আপনার মাল বিক্রি হচ্ছে।</li>
+                <li><b>Receivable Turnover:</b> কত দ্রুত কাস্টমারের কাছ থেকে টাকা আদায় হচ্ছে (দিন হিসেবে দেখায়)।</li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <div class="module-card">
+        <h2>📉 ৪. গ্রাফের মাধ্যমে বিশ্লেষণ</h2>
+        <p>শুধুমাত্র সংখ্যা না দেখে গ্রাফের মাধ্যমে ট্রেন্ড বুঝতে চাইলে:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Ratio Analysis স্ক্রিনে থাকাকালীন</span> <span class="arrow">➤</span> 
+                <span class="step">Press <b>Enter</b> on any Ratio</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">Ctrl + G</span></span> (যদি চার্ট সক্রিয় থাকে)
+            </div>
+        </div>
+    </div>
+
+    <div class="module-card">
+        <h2>⚙️ ৫. অ্যাডভান্সড সেটিংস</h2>
+        <p>রিপোর্টে আরও তথ্য যোগ করতে বা নির্দিষ্ট পিরিয়ড সেট করতে:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">পিরিয়ড পরিবর্তন:</span> <span class="shortcut">Alt + F2</span> টিপুন।<br><br>
+                <span class="step">বিস্তারিত দেখতে:</span> <span class="shortcut">Alt + F5</span> (Detailed) টিপুন।
+            </div>
+        </div>
+        <div class="tip"><b>প্রো টিপ:</b> ব্যাংকের কাছে ঋণের আবেদন করার সময় এই Ratio Analysis রিপোর্টটি সবথেকে বেশি কাজে লাগে।</div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 নিমতা, কলকাতা - ৭০০ ০৪৯ | 📞 ৮০১৭২৪৭২৯৮
+</div>
+
+</body>
+</html>

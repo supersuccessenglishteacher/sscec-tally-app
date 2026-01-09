@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical Lab - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --vouch-green: #10b981;
+        --bg-gray: #f1f5f9;
+        --border-clr: #cbd5e1;
+    }
+
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg-gray); margin: 0; padding: 0; }
+    
+    .header { background: var(--tally-blue); color: white; padding: 30px; text-align: center; border-bottom: 5px solid #ffc412; }
+    
+    .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+    
+    .lab-card { 
+        background: white; border-radius: 12px; padding: 25px; margin-bottom: 30px; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-left: 10px solid var(--tally-blue);
+    }
+
+    .project-title { color: var(--tally-blue); font-size: 22px; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; }
+    th, td { border: 1px solid var(--border-clr); padding: 12px; text-align: left; vertical-align: top; }
+    th { background: #f8fafc; color: var(--tally-blue); font-weight: 700; font-size: 14px; }
+
+    .eng-q { color: #1e293b; font-weight: bold; margin-bottom: 5px; display: block; }
+    .bng-q { color: #475569; font-style: italic; font-size: 14px; }
+    
+    .sol-badge { background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
+    .reason { font-size: 13px; color: #64748b; margin-top: 5px; }
+    .narration { color: #7c3aed; font-family: monospace; font-size: 13px; }
+    .shortcut-key { background: #1e293b; color: #fbbf24; padding: 1px 5px; border-radius: 3px; font-size: 11px; }
+
+    .footer { text-align: center; padding: 40px; background: white; margin-top: 50px; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>👨‍💻 TallyPrime Practical Lab (25 Projects)</h1>
+    <p>সুপার সাকসেস কম্পিউটার এডুকেশন সেন্টার - আপনার ক্যারিয়ার আমাদের লক্ষ্য</p>
+</div>
+
+<div class="container">
+
+    <div class="lab-card">
+        <div class="project-title">Project Section: Basic to Advanced Transactions</div>
+        <p>নিচের ২৫টি এন্ট্রি ক্রমানুসারে ট্যালিতে প্র্যাকটিস করুন। প্রতিটি এন্ট্রির সঠিক ভাউচার এবং কারণ দেওয়া হলো।</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">No.</th>
+                    <th width="35%">Transaction (Question)</th>
+                    <th width="20%">Voucher & Ledger</th>
+                    <th width="20%">Reason (কারণ)</th>
+                    <th width="20%">Narration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><span class="eng-q">Started business with cash ₹5,00,000.</span>
+                        <span class="bng-q">৫,০০,০০০ টাকা নগদ নিয়ে ব্যবসা শুরু করা হলো।</span></td>
+                    <td><span class="sol-badge">Receipt (F6)</span><br>Cr: Capital A/c<br>Dr: Cash A/c</td>
+                    <td class="reason">ব্যবসায় টাকা আসায় ক্যাশ ডেবিট এবং মালিকের মূলধন ক্রেডিট।</td>
+                    <td class="narration">Being cash introduced as capital.</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td><span class="eng-q">Deposited cash into SBI Bank ₹2,00,000.</span>
+                        <span class="bng-q">এসবিআই ব্যাংকে ২,০০,০০০ টাকা জমা দেওয়া হলো।</span></td>
+                    <td><span class="sol-badge">Contra (F4)</span><br>Cr: Cash A/c<br>Dr: SBI Bank A/c</td>
+                    <td class="reason">ক্যাশ এবং ব্যাংক উভয়ই নিজের সম্পদ, তাই কন্ট্রা এন্ট্রি।</td>
+                    <td class="narration">Being cash deposited into SBI.</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td><span class="eng-q">Purchased Office Furniture for cash ₹20,000.</span>
+                        <span class="bng-q">অফিসের জন্য ২০,০০০ টাকার ফার্নিচার কেনা হলো।</span></td>
+                    <td><span class="sol-badge">Payment (F5)</span><br>Dr: Furniture A/c<br>Cr: Cash A/c</td>
+                    <td class="reason">ফার্নিচার একটি স্থায়ী সম্পদ (Fixed Asset), তাই সরাসরি পেমেন্ট।</td>
+                    <td class="narration">Being furniture purchased by cash.</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td><span class="eng-q">Bought goods from Rahul Traders on credit ₹50,000.</span>
+                        <span class="bng-q">রাহুল ট্রেডার্সের কাছ থেকে ধারে ৫০,০০০ টাকার পণ্য কেনা হলো।</span></td>
+                    <td><span class="sol-badge">Purchase (F9)</span><br>Cr: Rahul Traders<br>Dr: Purchase A/c</td>
+                    <td class="reason">ধারে পণ্য কেনা হয়েছে, তাই পারচেজ ভাউচারে পার্টির নাম হবে।</td>
+                    <td class="narration">Being goods purchased on credit.</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td><span class="eng-q">Sold goods to Sumit for cash ₹15,000.</span>
+                        <span class="bng-q">সুমিতকে নগদে ১৫,০০০ টাকার পণ্য বিক্রি করা হলো।</span></td>
+                    <td><span class="sol-badge">Sales (F8)</span><br>Dr: Cash A/c<br>Cr: Sales A/c</td>
+                    <td class="reason">নগদে বিক্রি করা হয়েছে, তাই ক্যাশ ডেবিট হবে।</td>
+                    <td class="narration">Being goods sold for cash.</td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td><span class="eng-q">Purchased Computer with 18% GST ₹40,000 by cheque.</span>
+                        <span class="bng-q">১৮% জিএসটি সহ একটি কম্পিউটার চেকে কেনা হলো।</span></td>
+                    <td><span class="sol-badge">Payment (F5)</span><br>Dr: Computer A/c<br>Dr: CGST & SGST<br>Cr: Bank A/c</td>
+                    <td class="reason">সম্পদ কেনার সময় ইনপুট ট্যাক্স ডেবিট করা হয়।</td>
+                    <td class="narration">Being computer bought with GST.</td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td><span class="eng-q">Paid Rent to landlord ₹10,000 by SBI Bank.</span>
+                        <span class="bng-q">ব্যাংকের মাধ্যমে ১০,০০০ টাকা ঘর ভাড়া দেওয়া হলো।</span></td>
+                    <td><span class="sol-badge">Payment (F5)</span><br>Dr: Rent A/c<br>Cr: SBI Bank A/c</td>
+                    <td class="reason">ভাড়া একটি খরচ (Indirect Expense), তাই ডেবিট।</td>
+                    <td class="narration">Being rent paid via bank.</td>
+                </tr>
+
+                <tr>
+                    <td>8</td>
+                    <td><span class="eng-q">Cash withdrawn from Bank for personal use ₹5,000.</span>
+                        <span class="bng-q">ব্যক্তিগত প্রয়োজনে ব্যাংক থেকে ৫,০০০ টাকা তোলা হলো।</span></td>
+                    <td><span class="sol-badge">Payment (F5)</span><br>Dr: Drawings A/c<br>Cr: Bank A/c</td>
+                    <td class="reason">ব্যক্তিগত খরচকে ট্যালিতে Drawings বলা হয়।</td>
+                    <td class="narration">Being cash withdrawn for personal use.</td>
+                </tr>
+
+                <tr>
+                    <td>9</td>
+                    <td><span class="eng-q">Received Commission in cash ₹2,500.</span>
+                        <span class="bng-q">নগদে ২,৫০০ টাকা কমিশন পাওয়া গেল।</span></td>
+                    <td><span class="sol-badge">Receipt (F6)</span><br>Cr: Commission Recd.<br>Dr: Cash A/c</td>
+                    <td class="reason">কমিশন পাওয়া একটি আয় (Indirect Income), তাই ক্রেডিট।</td>
+                    <td class="narration">Being commission received.</td>
+                </tr>
+
+                <tr>
+                    <td>10</td>
+                    <td><span class="eng-q">Goods returned to Rahul Traders ₹2,000.</span>
+                        <span class="bng-q">রাহুল ট্রেডার্সকে ২,০০০ টাকার পণ্য ফেরত দেওয়া হলো।</span></td>
+                    <td><span class="sol-badge">Debit Note (Alt+F5)</span><br>Dr: Rahul Traders<br>Cr: Purchase Return</td>
+                    <td class="reason">কেনা পণ্য ফেরত দিলে ডেবিট নোট ব্যবহার হয়।</td>
+                    <td class="narration">Being goods returned.</td>
+                </tr>
+
+                <tr><td>11</td><td>Paid Electric Bill ₹1,200. (ইলেকট্রিক বিল দেওয়া হলো)</td><td>Payment (F5)</td><td>খরচ পরিশোধ।</td><td class="narration">Being electricity bill paid.</td></tr>
+                <tr><td>12</td><td>Withdrawn from SBI for Office Use ₹8,000. (অফিসের জন্য ব্যাংক থেকে তোলা হলো)</td><td>Contra (F4)</td><td>ক্যাশ বৃদ্ধি পেল।</td><td class="narration">Being cash withdrawn.</td></tr>
+                <tr><td>13</td><td>Sold goods to Amit on credit ₹25,000. (অমিতকে ধারে পণ্য বিক্রি করা হলো)</td><td>Sales (F8)</td><td>ধারে বিক্রয়।</td><td class="narration">Being goods sold to Amit.</td></tr>
+                <tr><td>14</td><td>Paid to Rahul Traders ₹45,000 after 10% discount. (ডিসকাউন্ট পাওয়ার পর রাহুলকে টাকা দেওয়া হলো)</td><td>Payment (F5)</td><td>ডিসকাউন্ট পাওয়া গেল।</td><td class="narration">Being payment made with discount.</td></tr>
+                <tr><td>15</td><td>Interest received from bank ₹450. (ব্যাংক থেকে সুদ পাওয়া গেল)</td><td>Receipt (F6)</td><td>পরোক্ষ আয়।</td><td class="narration">Being interest received.</td></tr>
+                <tr><td>16</td><td>Paid Staff Salary ₹1,50,000 by Cheque. (চেকে স্টাফদের স্যালারি দেওয়া হলো)</td><td>Payment (F5)</td><td>অফিস খরচ।</td><td class="narration">Being salary paid.</td></tr>
+                <tr><td>17</td><td>Goods destroyed by fire ₹3,000. (আগুনে ৩,০০০ টাকার পণ্য নষ্ট হলো)</td><td>Journal (F7)</td><td>অস্বাভাবিক ক্ষতি।</td><td class="narration">Being loss by fire recorded.</td></tr>
+                <tr><td>18</td><td>Invested in Fixed Deposit ₹50,000. (ফিক্সড ডিপোজিটে বিনিয়োগ করা হলো)</td><td>Payment (F5)</td><td>বিনিয়োগ (Investment)।</td><td class="narration">Being FD opened.</td></tr>
+                <tr><td>19</td><td>Purchased Stationary for cash ₹500. (নগদে পেন-খাতা কেনা হলো)</td><td>Payment (F5)</td><td>অফিস খরচ।</td><td class="narration">Being stationary purchased.</td></tr>
+                <tr><td>20</td><td>Cash received from Amit ₹20,000. (অমিতের কাছ থেকে ২০,০০০ টাকা পাওয়া গেল)</td><td>Receipt (F6)</td><td>টাকা রিসিভ।</td><td class="narration">Being cash received from Amit.</td></tr>
+                <tr><td>21</td><td>Paid Advertisement Expenses ₹2,000. (বিজ্ঞাপন বাবদ খরচ দেওয়া হলো)</td><td>Payment (F5)</td><td>পরোক্ষ খরচ।</td><td class="narration">Being ad expenses paid.</td></tr>
+                <tr><td>22</td><td>Sold old Newspaper for cash ₹150. (পুরানো খবরের কাগজ বিক্রি করা হলো)</td><td>Receipt (F6)</td><td>বিবিধ আয় (Misc Income)।</td><td class="narration">Being old news paper sold.</td></tr>
+                <tr><td>23</td><td>Paid Bank Charges ₹200. (ব্যাংক চার্জ বাবদ ২০০ টাকা কাটা হলো)</td><td>Payment (F5)</td><td>ব্যাংক খরচ।</td><td class="narration">Being bank charges debited.</td></tr>
+                <tr><td>24</td><td>Charity given in cash ₹500. (৫০০ টাকা দান করা হলো)</td><td>Payment (F5)</td><td>দান (Expense)।</td><td class="narration">Being charity given.</td></tr>
+                <tr><td>25</td><td>Computer maintenance cost paid ₹1,500. (কম্পিউটার মেরামতির টাকা দেওয়া হলো)</td><td>Payment (F5)</td><td>মেরামতি খরচ।</td><td class="narration">Being repair cost paid.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 নিমতা, কলকাতা - ৭০০ ০৪৯ | 📞 ৮০১৭২৪৭২৯৮
+</div>
+
+</body>
+</html>

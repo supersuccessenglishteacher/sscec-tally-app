@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tally Vault Guide - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --arrow-red: #dc2626;
+        --shortcut-bg: #1e293b;
+        --bg-gray: #f4f7f9;
+        --vault-clr: #701a75; /* ভল্টের জন্য রয়্যাল পার্পল থিম */
+    }
+
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-gray); margin: 0; padding: 0; color: #334155; }
+    
+    .nav-bar { background: white; padding: 12px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+    .back-link { text-decoration: none; color: var(--tally-blue); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+    .header { background: var(--tally-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid #ffc412; }
+    
+    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+    
+    .module-card { 
+        background: white; border-radius: 15px; padding: 30px; 
+        margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 8px solid var(--vault-clr);
+    }
+
+    h2 { color: var(--tally-blue); font-size: 24px; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    
+    .step-box { background: #fae8ff; padding: 20px; border-radius: 10px; border-left: 5px solid var(--vault-clr); margin: 20px 0; }
+    
+    .step-flow { line-height: 1.8; font-size: 17px; margin-bottom: 10px; }
+    .step { font-weight: 600; color: #1e293b; }
+    .arrow { color: var(--arrow-red); font-weight: bold; margin: 0 8px; }
+    
+    .visual-box { text-align: center; margin: 25px 0; padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
+    .shortcut { background: var(--shortcut-bg); color: #fbbf24; padding: 2px 8px; border-radius: 4px; font-family: monospace; }
+
+    .warning-box { background: #fef2f2; border-left: 4px solid #ef4444; padding: 15px; border-radius: 5px; margin-top: 15px; color: #991b1b; }
+    
+    .footer { text-align: center; padding: 40px; color: #64748b; background: white; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+    <a href="tally-gateway-index.html" class="back-link">⬅️ Gateway মেনুতে ফিরে যান</a>
+</div>
+
+<div class="header">
+    <h1>🔐 Tally Vault (কোম্পানি ডেটা এনক্রিপশন)</h1>
+    <p>সুপার সাকসেস কম্পিউটার এডুকেশন সেন্টার</p>
+</div>
+
+<div class="container">
+
+    <div class="module-card">
+        <h2>🛡️ ১. Tally Vault এর কাজ</h2>
+        <p>এটি সাধারণ পাসওয়ার্ডের চেয়ে অনেক শক্তিশালী। এটি ব্যবহার করলে কোম্পানির নাম "Select Company" লিস্টে দেখা যায় না, পরিবর্তে সেখানে স্টার (******) চিহ্ন দেখায়। এটি ডেটাকে এমনভাবে লক করে যা পাসওয়ার্ড ছাড়া উদ্ধার করা অসম্ভব।</p>
+        
+    </div>
+
+    <div class="module-card">
+        <h2>🔑 ২. Tally Vault সেট করার ধাপসমূহ</h2>
+        <p>একটি নতুন বা পুরনো কোম্পানিতে ভল্ট লক লাগানোর নিয়ম:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Gateway of Tally</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">Alt + K</span> (Company)</span> <span class="arrow">➤</span> 
+                <span class="step">Select <b>TallyVault</b></span> <span class="arrow">➤</span> 
+                <span class="step">Enter New Password</span> <span class="arrow">➤</span> 
+                <span class="step">Confirm Password</span>
+            </div>
+        </div>
+        <div class="warning-box">
+            <b>বিঃদ্রঃ:</b> যদি আপনি এই পাসওয়ার্ড ভুলে যান, তবে ট্যালির ডেটা কোনোভাবেই আর ফিরে পাওয়া যাবে না।
+        </div>
+    </div>
+
+    <div class="module-card">
+        <h2>📂 ৩. ভল্ট কোম্পানি চেনার উপায়</h2>
+        <p>ভল্ট সেট করার পর যখন আপনি কোম্পানি সিলেক্ট করতে যাবেন, তখন লক্ষ্য করবেন:</p>
+        <div class="step-box">
+            <ul>
+                <li>কোম্পানির নামের জায়গায় <b>*******</b> লেখা থাকবে।</li>
+                <li>আপনাকে কোম্পানির <b>Number</b> (যেমন: 10001) দেখে কোম্পানি চিনতে হবে।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="module-card">
+        <h2>🔄 ৪. Vault পাসওয়ার্ড পরিবর্তন</h2>
+        <p>নিরাপত্তার খাতিরে মাঝে মাঝে পাসওয়ার্ড পরিবর্তন করা উচিত:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Alt + K</span> <span class="arrow">➤</span> 
+                <span class="step">TallyVault</span> <span class="arrow">➤</span> 
+                <span class="step">Enter Old Password</span> <span class="arrow">➤</span> 
+                <span class="step">Enter New Password</span>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="module-card">
+        <h2>⚖️ ৫. সাধারণ পাসওয়ার্ড বনাম Tally Vault</h2>
+        <p>ছাত্রদের এই পার্থক্যটি জানা খুব জরুরি:</p>
+        <div class="step-box">
+            <table style="width:100%; border-collapse: collapse;">
+                <tr style="background:#f0abfc;">
+                    <th style="padding:10px; border:1px solid #ddd;">ফিচার</th>
+                    <th style="padding:10px; border:1px solid #ddd;">সাধারণ পাসওয়ার্ড</th>
+                    <th style="padding:10px; border:1px solid #ddd;">Tally Vault</th>
+                </tr>
+                <tr>
+                    <td style="padding:10px; border:1px solid #ddd;">কোম্পানি নাম</td>
+                    <td style="padding:10px; border:1px solid #ddd;">দেখা যায়</td>
+                    <td style="padding:10px; border:1px solid #ddd;">লুকানো থাকে (******)</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px; border:1px solid #ddd;">সুরক্ষা স্তর</td>
+                    <td style="padding:10px; border:1px solid #ddd;">মাঝারি</td>
+                    <td style="padding:10px; border:1px solid #ddd;">অত্যন্ত উচ্চ (এনক্রিপ্টেড)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <b>SUPER SUCCESS COMPUTER EDUCATION CENTER</b><br>
+    📍 নিমতা, কলকাতা - ৭০০ ০৪৯ | 📞 ৮০১৭২৪৭২৯৮
+</div>
+
+</body>
+</html>

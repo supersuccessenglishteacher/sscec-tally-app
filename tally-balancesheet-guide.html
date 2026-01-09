@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balance Sheet Guide - SSCEC</title>
+<style>
+    :root {
+        --tally-blue: #00428a;
+        --arrow-red: #dc2626;
+        --shortcut-bg: #1e293b;
+        --bg-gray: #f4f7f9;
+        --bs-clr: #2563eb; /* ব্যালেন্স শিটের জন্য রয়্যাল ব্লু থিম */
+    }
+
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-gray); margin: 0; padding: 0; color: #334155; }
+    
+    .nav-bar { background: white; padding: 12px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+    .back-link { text-decoration: none; color: var(--tally-blue); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+    .header { background: var(--tally-blue); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid #ffc412; }
+    
+    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+    
+    .module-card { 
+        background: white; border-radius: 15px; padding: 30px; 
+        margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 8px solid var(--bs-clr);
+    }
+
+    h2 { color: var(--tally-blue); font-size: 24px; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    
+    .step-box { background: #eff6ff; padding: 20px; border-radius: 10px; border-left: 5px solid var(--bs-clr); margin: 20px 0; }
+    
+    .step-flow { line-height: 1.8; font-size: 17px; margin-bottom: 10px; }
+    .step { font-weight: 600; color: #1e293b; }
+    .arrow { color: var(--arrow-red); font-weight: bold; margin: 0 8px; }
+    
+    .visual-box { text-align: center; margin: 25px 0; padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
+    .shortcut { background: var(--shortcut-bg); color: #fbbf24; padding: 2px 8px; border-radius: 4px; font-family: monospace; }
+
+    .formula-box { background: #f8fafc; border: 1px dashed #3b82f6; padding: 15px; border-radius: 8px; text-align: center; font-size: 18px; color: #1e3a8a; font-weight: bold; }
+
+    .tip { background: #fff7ed; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 5px; margin-top: 15px; }
+    
+    .footer { text-align: center; padding: 40px; color: #64748b; background: white; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+    <a href="tally-gateway-index.html" class="back-link">⬅️ Gateway মেনুতে ফিরে যান</a>
+</div>
+
+<div class="header">
+    <h1>📊 Balance Sheet (আর্থিক স্থিতিবিবরণী)</h1>
+    <p>সুপার সাকসেস কম্পিউটার এডুকেশন সেন্টার</p>
+</div>
+
+<div class="container">
+
+    <div class="module-card">
+        <h2>🔍 ১. রিপোর্টটি কীভাবে দেখবেন?</h2>
+        <p>ট্যালিতে লেনদেন করার পর অটোমেটিক ব্যালেন্স শিট তৈরি হয়ে যায়। এটি দেখতে:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Gateway of Tally</span> <span class="arrow">➤</span> 
+                <span class="step">Balance Sheet</span> <b>(অথবা সরাসরি <span class="shortcut">B</span> টিপুন)</b>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="module-card">
+        <h2>🧮 ২. ব্যালেন্স শিটের মূল মন্ত্র</h2>
+        <p>ব্যালেন্স শিটের দুই দিক অর্থাৎ Liabilities (দায়) এবং Assets (সম্পদ) সবসময় সমান হবে।</p>
+        <div class="formula-box">
+            Capital + Liabilities = Assets
+        </div>
+        <div class="tip"><b>নোট:</b> যদি দুই দিক না মেলে, তবে বুঝতে হবে "Difference in Opening Balances" বা অন্য কোনো ভুল আছে।</div>
+    </div>
+
+    <div class="module-card">
+        <h2>📜 ৩. বিস্তারিত রিপোর্ট দেখা</h2>
+        <p>প্রাথমিক রিপোর্টে শুধু মেইন গ্রুপগুলো দেখায়। প্রতিটি গ্রুপের আন্ডারে থাকা লেজারগুলো একবারে দেখার জন্য:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Balance Sheet স্ক্রিনে থাকা অবস্থায়</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">Alt + F5</span> (বা Alt + F1)</span>
+            </div>
+        </div>
+        <div class="visual-box">
+            
+        </div>
+    </div>
+
+    <div class="module-card">
+        <h2>📋 ৪. রিপোর্ট ফরম্যাট পরিবর্তন</h2>
+        <p>ট্যালিতে ব্যালেন্স শিট সাধারণত পাশাপাশি (Horizontal) থাকে। কিন্তু কোম্পানি আইনের প্রয়োজনে এটি উপর-নিচ (Vertical) করা যায়:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">Balance Sheet</span> <span class="arrow">➤</span> 
+                <span class="step">Press <span class="shortcut">Ctrl + H</span> (Change View)</span> <span class="arrow">➤</span> 
+                <span class="step">Select <b>Vertical</b></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="module-card">
+        <h2>🖨️ ৫. সময় পরিবর্তন ও প্রিন্টিং</h2>
+        <p>নির্দিষ্ট আর্থিক বছরের ব্যালেন্স শিট দেখা এবং সেটি প্রিন্ট করার নিয়ম:</p>
+        <div class="step-box">
+            <div class="step-flow">
+                <span class="step">পিরিয়ড পরিবর্তন:</span> <span class="shortcut">Alt + F2</span> (যেমন ১-এপ্রিল থেকে ৩১-মার্চ)।<br><br>
+                <span class="step">প্রিন্ট করা:</span> <span class="shortcut">Ctrl + P</span> <span class="arrow">➤</span> <b>Preview / Print</b>
+            </div>
+        </div>
+        <div class="tip"><b>টিপস:</b> ব্যালেন্স শি
