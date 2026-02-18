@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Accounting Groups - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --asset: #27ae60;
+            --liability: #e67e22;
+            --income: #2980b9;
+            --expense: #c0392b;
+            --suspense: #8e44ad;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0; padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), #34495e);
+            color: white; padding: 50px 20px; text-align: center;
+        }
+        .container {
+            max-width: 1200px; margin: -40px auto 50px; padding: 0 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white; border-radius: 15px; padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 6px solid #ccc;
+            display: flex; flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .asset-card { border-top-color: var(--asset); }
+        .liability-card { border-top-color: var(--liability); }
+        .income-card { border-top-color: var(--income); }
+        .expense-card { border-top-color: var(--expense); }
+        .misc-card { border-top-color: var(--suspense); }
+
+        h2 { margin-top: 0; font-size: 1.25rem; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        ul { list-style: none; padding: 0; margin: 15px 0; flex-grow: 1; }
+        ul li { background: #f9f9f9; margin-bottom: 6px; padding: 8px 12px; border-radius: 6px; font-size: 0.95rem; border-left: 3px solid #ddd; }
+
+        .reason-box {
+            background: #fff9db; border-radius: 8px; padding: 12px;
+            font-size: 0.9rem; margin-top: 10px; border: 1px solid #ffe082;
+        }
+        .reason-box strong { color: #d4a017; display: block; margin-bottom: 4px; }
+
+        .btn-container { text-align: center; margin-top: 40px; }
+        .btn-pdf {
+            background: #e74c3c; color: white; border: none;
+            padding: 15px 30px; border-radius: 50px; font-size: 1.1rem;
+            font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+            transition: 0.3s;
+        }
+        .btn-pdf:hover { background: #c0392b; transform: scale(1.05); }
+
+        /* প্রিন্ট করার সময় বাটন এবং অপ্রয়োজনীয় অংশ লুকানোর জন্য */
+        @media print {
+            .btn-container, header p { display: none !important; }
+            body { background: white; }
+            .container { margin: 0; width: 100%; max-width: 100%; }
+            .grid { display: block; } /* প্রিন্টে গ্রিড ভেঙে দিলে পেজ সেটিং ভালো হয় */
+            .card { 
+                margin-bottom: 20px; 
+                break-inside: avoid; 
+                border: 1px solid #eee; 
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📚 পূর্ণাঙ্গ অ্যাকাউন্টিং গ্রুপ গাইড</h1>
+    <p>বিপুল সরকার পরিচালিত - ১ থেকে ১৬ নম্বর পর্যন্ত সব গ্রুপ ও লেজার</p>
+</header>
+
+<div class="container">
+    <div class="grid">
+        
+        <div class="card liability-card">
+            <h2>1. Capital Account</h2>
+            <ul>
+                <li>Proprietor Capital</li>
+                <li>Partner Capital</li>
+                <li>Drawings</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> মালিকের বিনিয়োগ ও উত্তোলন। ব্যবসার উপর মালিকের দাবি (Owner’s Claim)।</div>
+        </div>
+
+        <div class="card liability-card">
+            <h2>2. Reserves & Surplus</h2>
+            <ul>
+                <li>General Reserve</li>
+                <li>Capital Reserve</li>
+                <li>Retained Earnings</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> লাভ থেকে ভবিষ্যৎ ক্ষতি বা Expansion-এর জন্য জমানো টাকা।</div>
+        </div>
+
+        <div class="card liability-card">
+            <h2>3. Loans (Liability)</h2>
+            <ul>
+                <li>Secured (Bank/Vehicle Loan)</li>
+                <li>Unsecured (Friends/Director Loan)</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> সম্পদ বন্ধক রেখে বা ছাড়া নেওয়া ঋণ, যা ফেরত দিতে হবে।</div>
+        </div>
+
+        <div class="card liability-card">
+            <h2>4. Current Liabilities</h2>
+            <ul>
+                <li>Sundry Creditors</li>
+                <li>Outstanding Expenses</li>
+                <li>Duties & Taxes (GST)</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> ১ বছরের মধ্যে পরিশোধযোগ্য দায়।</div>
+        </div>
+
+        <div class="card asset-card">
+            <h2>5. Current Assets</h2>
+            <ul>
+                <li>Sundry Debtors</li>
+                <li>Cash-in-Hand / Bank Accounts</li>
+                <li>Stock-in-Hand / Prepaid Exp.</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> ১ বছরের মধ্যে নগদে রূপান্তরযোগ্য সম্পদ।</div>
+        </div>
+
+        <div class="card asset-card">
+            <h2>6. Fixed Assets</h2>
+            <ul>
+                <li>Building / Machinery</li>
+                <li>Computer / Furniture / Land</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> দীর্ঘমেয়াদে ব্যবহারের জন্য কেনা সম্পদ।</div>
+        </div>
+
+        <div class="card asset-card">
+            <h2>7. Investments</h2>
+            <ul>
+                <li>Shares</li>
+                <li>Mutual Fund</li>
+                <li>Fixed Deposit (FD)</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> অতিরিক্ত টাকা বিনিয়োগ করে আয় করার উদ্দেশ্যে। এটি একটি সম্পদ।</div>
+        </div>
+
+        <div class="card income-card">
+            <h2>8 & 9. Sales & Purchase Accounts</h2>
+            <ul>
+                <li>Sales (Local/Export)</li>
+                <li>Purchase (Local/Import)</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> ব্যবসার প্রধান আয় এবং পণ্য কেনা। Trading Account-এ যায়।</div>
+        </div>
+
+        <div class="card income-card">
+            <h2>10. Direct Income</h2>
+            <ul>
+                <li>Commission Received</li>
+                <li>Job Work Income</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> মূল ব্যবসার সাথে সরাসরি সম্পর্কিত আয়। Trading Account-এ যায়।</div>
+        </div>
+
+        <div class="card income-card">
+            <h2>11. Indirect Income</h2>
+            <ul>
+                <li>Interest / Rent Received</li>
+                <li>Discount Received</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> মূল ব্যবসার বাইরে থেকে আসা আয়। P&L Credit-এ যায়।</div>
+        </div>
+
+        <div class="card expense-card">
+            <h2>12. Direct Expenses</h2>
+            <ul>
+                <li>Freight Inward / Wages</li>
+                <li>Carriage Inward / Power & Fuel</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> পণ্য উৎপাদন বা কেনার সাথে সরাসরি যুক্ত খরচ।</div>
+        </div>
+
+        <div class="card expense-card">
+            <h2>13. Indirect Expenses</h2>
+            <ul>
+                <li>Salary / Rent / Electricity</li>
+                <li>Depreciation / Advertisement</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> ব্যবসা চালানোর খরচ কিন্তু সরাসরি উৎপাদনের নয়।</div>
+        </div>
+
+        <div class="card liability-card">
+            <h2>14. Duties & Taxes</h2>
+            <ul>
+                <li>GST (Input/Output)</li>
+                <li>TDS / VAT / Excise</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> সরকারকে পরিশোধযোগ্য কর। পরিশোধ না করা পর্যন্ত এটি দায়।</div>
+        </div>
+
+        <div class="card misc-card">
+            <h2>15. Suspense Account</h2>
+            <ul>
+                <li>Temporary Adjustment Entry</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> হিসাব না মিললে বা অস্থায়ীভাবে রাখার জন্য। পরে অ্যাডজাস্ট করা হয়।</div>
+        </div>
+
+        <div class="card misc-card">
+            <h2>16. Branch / Divisions</h2>
+            <ul>
+                <li>Branch Accounts</li>
+            </ul>
+            <div class="reason-box"><strong>📌 কারণ:</strong> আলাদা শাখার হিসাব আলাদাভাবে ট্র্যাক করার জন্য।</div>
+        </div>
+
+    </div>
+
+    <div class="btn-container">
+    <a href="https://drive.google.com/uc?export=download&id=1d94EuLMMyft4tZEicdkEq28v3BD9OqfL" class="btn-pdf" style="text-decoration: none;">
+        <i class="fas fa-file-pdf"></i> সম্পূর্ণ গাইডটি PDF হিসেবে ডাউনলোড করুন
+    </a>
+</div>
+</div>
+
+<footer style="text-align: center; padding: 30px; background: var(--primary); color: white; margin-top: 50px;">
+    <p>Super Success Computer Education Center | বিপুল সরকার</p>
+</footer>
+
+</body>
+</html>
