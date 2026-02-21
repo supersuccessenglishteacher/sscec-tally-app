@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income & Exp Mock Test - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg: #f1f5f9;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+        .quiz-card { max-width: 700px; margin: 20px auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+        
+        /* Progress & Timer */
+        .header-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .timer-box { background: #fee2e2; color: #dc2626; padding: 8px 15px; border-radius: 10px; font-weight: bold; min-width: 80px; text-align: center; border: 1px solid #fecaca; }
+        
+        .question-text { font-size: 20px; font-weight: bold; color: var(--primary); margin-bottom: 25px; display: block; }
+        
+        .options-list { display: grid; gap: 12px; }
+        .opt-btn { padding: 15px; border: 2px solid #e2e8f0; border-radius: 12px; background: white; cursor: pointer; transition: 0.3s; font-size: 16px; text-align: left; }
+        .opt-btn:hover { border-color: var(--accent); background: #f5f3ff; }
+        
+        .correct { background: var(--success) !important; color: white !important; border-color: var(--success) !important; }
+        .wrong { background: var(--danger) !important; color: white !important; border-color: var(--danger) !important; }
+
+        .result-screen { display: none; text-align: center; padding: 30px; }
+        .wa-btn { background: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-weight: bold; margin-top: 20px; }
+        
+        #progress-bar { height: 6px; background: #e2e8f0; width: 100%; border-radius: 10px; margin-bottom: 20px; }
+        #progress-fill { height: 100%; background: var(--accent); width: 0%; transition: 0.3s; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-card">
+    <div id="quiz-ui">
+        <div class="header-info">
+            <div style="font-weight: bold; color: var(--accent);">প্রশ্ন: <span id="q-count">1</span>/15</div>
+            <div class="timer-box"><i class="fas fa-clock"></i> <span id="timer">15</span>s</div>
+        </div>
+        <div id="progress-bar"><div id="progress-fill"></div></div>
+        
+        <span class="question-text" id="question">Loading...</span>
+        <div class="options-list" id="options"></div>
+    </div>
+
+    <div id="result-ui" class="result-screen">
+        <div style="font-size: 50px; color: #f59e0b;"><i class="fas fa-award"></i></div>
+        <h2>টেস্ট সম্পন্ন হয়েছে!</h2>
+        <h1 style="font-size: 40px; margin: 10px 0;">স্কোর: <span id="final-score">0</span> / 15</h1>
+        <p id="feedback">অসাধারণ প্রচেষ্টা!</p>
+        <a href="#" id="wa-link" class="wa-btn"><i class="fab fa-whatsapp"></i> বিপুল স্যারকে ফলাফল জানাও</a>
+    </div>
+</div>
+
+<audio id="s-correct" src="https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3"></audio>
+<audio id="s-wrong" src="https://assets.mixkit.co/active_storage/sfx/2017/2017-preview.mp3"></audio>
+
+<script>
+    const questions = [
+        { q: "নতুন মেশিন কেনার পর সংস্থাপন খরচ (Installation Cost) কোন ধরনের ব্যয়?", a: "Capital Expenditure", opt: ["Revenue Expenditure", "Capital Expenditure", "Deferred Revenue", "Direct Expense"] },
+        { q: "পুরাতন আসবাবপত্র মেরামতের খরচ কোনটির আওতায় পড়ে?", a: "Revenue Expenditure", opt: ["Capital Expenditure", "Revenue Expenditure", "Fixed Asset", "Liability"] },
+        { q: "বিজ্ঞাপনে বিশাল অংকের খরচ (৩-৫ বছর সুফল) কোন ধরণের ব্যয়?", a: "Deferred Revenue Expenditure", opt: ["Direct Expense", "Capital Expenditure", "Deferred Revenue Expenditure", "Operating Income"] },
+        { q: "কারখানার শ্রমিকদের দেওয়া মজুরি (Wages) কী ধরণের ব্যয়?", a: "Direct Revenue Expenditure", opt: ["Indirect Expense", "Direct Revenue Expenditure", "Capital Expenditure", "Non-operating Income"] },
+        { q: "অফিসের স্টাফদের দেওয়া বেতন (Salary) কোন ক্যাটাগরিতে পড়ে?", a: "Indirect Revenue Expenditure", opt: ["Direct Expense", "Capital Expenditure", "Indirect Revenue Expenditure", "Deferred Revenue"] },
+        { q: "পণ্য বিক্রির ফলে অর্জিত আয়কে কী বলা হয়?", a: "Revenue Income", opt: ["Capital Income", "Revenue Income", "Non-operating Income", "Deferred Income"] },
+        { q: "স্থায়ী সম্পদ (জমি বা বাড়ি) বিক্রি করে প্রাপ্ত লাভ কী?", a: "Capital Gain", opt: ["Revenue Income", "Capital Gain", "Administrative Expense", "Bank Interest"] },
+        { q: "ব্যাংকে জমা টাকার ওপর প্রাপ্ত সুদ কোন ধরনের আয়?", a: "Non-operating Income", opt: ["Revenue Income", "Capital Income", "Non-operating Income", "Direct Income"] },
+        { q: "বকেয়া আয় (Accrued Income) ব্যবসায়ের জন্য কী?", a: "Asset", opt: ["Liability", "Asset", "Expense", "Capital"] },
+        { q: "অগ্রিম আয় (Unearned Income) ব্যবসায়ের জন্য কী?", a: "Liability", opt: ["Asset", "Income", "Liability", "Capital Gain"] },
+        { q: "ডেপ্রিসিয়েশন বা অবচয় কোন ধরনের ব্যয়?", a: "Indirect Revenue Expenditure", opt: ["Direct Expense", "Indirect Revenue Expenditure", "Capital Expenditure", "Deferred Revenue"] },
+        { q: "সফটওয়্যার কেনা কোন ধরনের ব্যয়?", a: "Capital Expenditure", opt: ["Revenue Expenditure", "Capital Expenditure", "Operating Expense", "Direct Cost"] },
+        { q: "পণ্য কিনে আনার ভাড়া (Carriage Inward) কী?", a: "Direct Revenue Expenditure", opt: ["Direct Revenue Expenditure", "Indirect Revenue Expenditure", "Capital Expenditure", "Non-operating Income"] },
+        { q: "বিক্রয় বাট্টা (Sales Discount) আয়ের ওপর কী প্রভাব ফেলে?", a: "আয় কমিয়ে দেয়", opt: ["আয় বৃদ্ধি করে", "আয় কমিয়ে দেয়", "কোনো প্রভাব নেই", "সম্পদ বৃদ্ধি করে"] },
+        { q: "অনাদায়ী পাওনা (Bad Debts) কোন ধরনের ব্যয়?", a: "Indirect Revenue Expenditure", opt: ["Direct Expense", "Indirect Revenue Expenditure", "Capital Expenditure", "Liability"] }
+    ];
+
+    let currentIdx = 0;
+    let score = 0;
+    let timerVal = 15;
+    let timerInt;
+
+    function startTimer() {
+        timerVal = 15;
+        document.getElementById('timer').innerText = timerVal;
+        clearInterval(timerInt);
+        timerInt = setInterval(() => {
+            timerVal--;
+            document.getElementById('timer').innerText = timerVal;
+            if(timerVal <= 0) {
+                clearInterval(timerInt);
+                checkAnswer(null, ""); 
+            }
+        }, 1000);
+    }
+
+    function loadQuestion() {
+        const q = questions[currentIdx];
+        document.getElementById('question').innerText = q.q;
+        const optDiv = document.getElementById('options');
+        optDiv.innerHTML = '';
+        
+        q.opt.forEach(o => {
+            const btn = document.createElement('button');
+            btn.className = 'opt-btn';
+            btn.innerText = o;
+            btn.onclick = () => checkAnswer(btn, o);
+            optDiv.appendChild(btn);
+        });
+        
+        document.getElementById('q-count').innerText = currentIdx + 1;
+        document.getElementById('progress-fill').style.width = ((currentIdx + 1) / 15 * 100) + "%";
+        startTimer();
+    }
+
+    function checkAnswer(btn, selected) {
+        clearInterval(timerInt);
+        const correct = questions[currentIdx].a;
+        const allBtns = document.querySelectorAll('.opt-btn');
+        allBtns.forEach(b => b.disabled = true);
+
+        if (selected === correct) {
+            btn.classList.add('correct');
+            score++;
+            document.getElementById('s-correct').play();
+        } else {
+            if(btn) btn.classList.add('wrong');
+            allBtns.forEach(b => { if(b.innerText === correct) b.classList.add('correct'); });
+            document.getElementById('s-wrong').play();
+        }
+
+        setTimeout(() => {
+            currentIdx++;
+            if (currentIdx < 15) loadQuestion();
+            else showResult();
+        }, 1500);
+    }
+
+    function showResult() {
+        document.getElementById('quiz-ui').style.display = 'none';
+        document.getElementById('result-ui').style.display = 'block';
+        document.getElementById('final-score').innerText = score;
+        
+        const myNumber = "91XXXXXXXXXX"; // আপনার নম্বর দিন
+        const msg = `স্যার, আমি Income & Expenditure মক টেস্ট সম্পন্ন করেছি। আমার স্কোর: ${score}/15।`;
+        document.getElementById('wa-link').href = `https://wa.me/${myNumber}?text=${encodeURIComponent(msg)}`;
+    }
+
+    loadQuestion();
+</script>
+</body>
+</html>

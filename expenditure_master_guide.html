@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenditure Guide - SSCEC Mastery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --exp-color: #f97316; /* ব্যয়ের জন্য থিম কালার: অরেঞ্জ */
+            --bg: #fff7ed;
+            --white: #ffffff;
+            --text: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            margin: 0; padding: 0;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--exp-color));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .container { max-width: 900px; margin: -40px auto 60px; padding: 0 20px; }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        h2 { 
+            color: var(--exp-color); 
+            border-bottom: 2px solid #ffedd5; 
+            padding-bottom: 10px; 
+            margin-top: 35px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h3 { color: var(--primary); margin-top: 25px; border-left: 4px solid var(--exp-color); padding-left: 10px; }
+
+        .logic-box {
+            background: #fdf2f2;
+            border-left: 5px solid #ef4444;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        th { background-color: var(--exp-color); color: white; padding: 15px; text-align: left; }
+        td { padding: 15px; border: 1px solid #fed7aa; }
+        tr:nth-child(even) { background-color: #fffaf5; }
+
+        .pro-tip {
+            background: #f0fdf4;
+            border: 1px solid #10b981;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .category-box {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            margin-top: 15px;
+        }
+
+        .icon-small { color: var(--exp-color); margin-right: 8px; }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; }
+        
+        strong { color: var(--primary); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📑 Expenditure (ব্যয়) এর বিস্তারিত গাইড</h1>
+    <p>বিপুল সরকার পরিচালিত - SSCEC ডিজিটাল কমার্স লার্নিং</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <p>সহজ ভাষায় বলতে গেলে, <strong>Expenditure</strong> বা ব্যয় হলো এমন একটি আর্থিক লেনদেন যেখানে কোনো সম্পদ, পণ্য বা সেবা পাওয়ার বিনিময়ে টাকা খরচ করা হয়। ব্যবসায়িক দৃষ্টিকোণ থেকে এই ব্যয়কে মূলত ৩টি ভাগে ভাগ করা যায়।</p>
+
+        <h2><i class="fas fa-tools"></i> ১. মূলধনী ব্যয় (Capital Expenditure - CapEx)</h2>
+        <p>এটি হলো বড় ধরনের বিনিয়োগ। যখন কোনো ব্যবসা এমন কিছু কেনে যা থেকে অনেক বছর ধরে সুবিধা পাওয়া যাবে, তখন তাকে মূলধনী ব্যয় বলে। এটি ব্যবসার স্থায়ী সম্পদ (Fixed Assets) বৃদ্ধি করে।</p>
+        <div class="logic-box">
+            <strong><i class="fas fa-brain"></i> Simple Logic:</strong> টাকা একবার খরচ হবে, কিন্তু সুবিধা পাওয়া যাবে বছরের পর বছর।
+        </div>
+        <p><strong>উদাহরণ (Examples):</strong></p>
+        <ul>
+            <li><strong>Land & Building:</strong> জমি কেনা বা দালানকোঠা নির্মাণ।</li>
+            <li><strong>Machinery:</strong> কারখানার জন্য বড় মেশিনারি কেনা।</li>
+            <li><strong>Vehicle:</strong> ব্যবসার জন্য ডেলিভারি ভ্যান বা গাড়ি কেনা।</li>
+        </ul>
+
+        <h2><i class="fas fa-receipt"></i> ২. রাজস্ব ব্যয় (Revenue Expenditure - OpEx)</h2>
+        <p>ব্যবসাকে সচল রাখার জন্য প্রতিদিনের যে ছোটখাটো খরচগুলো করা হয়, তাকে রাজস্ব ব্যয় বলে। এর সুবিধা সাধারণত ১ বছরের কম সময়ের মধ্যে শেষ হয়ে যায়। অ্যাকাউন্টিং অনুযায়ী, এই ব্যয়কে ২টি প্রধান ক্যাটাগরিতে ভাগ করা হয়:</p>
+
+        <div class="category-box">
+            <h3>A. প্রত্যক্ষ রাজস্ব ব্যয় (Direct Revenue Expenditure)</h3>
+            <p>এই খরচগুলো সরাসরি Production (উৎপাদন) বা Trading (ক্রয়-বিক্রয়) এর সাথে যুক্ত। এই খরচ না করলে পণ্য তৈরি হবে না।</p>
+            <p><strong>উদাহরণ:</strong> Wages (মজুরি), Raw Materials (কাঁচামাল), Carriage Inward (আন্তঃপরিবহন), Import Duty (আমদানি শুল্ক)।</p>
+        </div>
+
+        <div class="category-box">
+            <h3>B. পরোক্ষ রাজস্ব ব্যয় (Indirect Revenue Expenditure)</h3>
+            <p>পণ্য তৈরি হওয়ার পর Office পরিচালনা এবং Sales বাড়ানোর জন্য যে খরচগুলো হয়। একে আবার ৩টি ভাগে ভাগ করা যায়:</p>
+            <ul>
+                <li><strong>Administrative Expenses:</strong> অফিস সচল রাখা (যেমন: Salary, Office Rent, Electricity Bill, Stationery)।</li>
+                <li><strong>Selling & Distribution:</strong> বিক্রি বাড়ানো (যেমন: Advertisement, Salesman Commission, Delivery Van cost)।</li>
+                <li><strong>Financial Expenses:</strong> আর্থিক ব্যবস্থাপনা (যেমন: Interest on Loan, Bank Charges, Depreciation)।</li>
+            </ul>
+        </div>
+
+        <h2><i class="fas fa-hourglass-half"></i> ৩. স্থগিত রাজস্ব ব্যয় (Deferred Revenue Expenditure)</h2>
+        <p>এটি দেখতে রাজস্ব ব্যয়ের মতো হলেও এর সুবিধা ৩ থেকে ৫ বছর পর্যন্ত পাওয়া যায়। খরচটা একবারেই করা হয়, কিন্তু এর সুফল দীর্ঘস্থায়ী হয়।</p>
+        <div class="logic-box" style="border-left-color: var(--exp-color);">
+            <strong><i class="fas fa-brain"></i> Simple Logic:</strong> খরচটা বড় অংকের হয় এবং এর প্রভাব দীর্ঘমেয়াদী হয়।
+        </div>
+        <p><strong>উদাহরণ (Examples):</strong></p>
+        <ul>
+            <li><strong>Heavy Advertisement:</strong> নতুন ব্র্যান্ড লঞ্চের জন্য বড় প্রচারণা।</li>
+            <li><strong>Research & Development:</strong> নতুন পণ্য আবিষ্কারের গবেষণা খরচ।</li>
+            <li><strong>Preliminary Expenses:</strong> কোম্পানি শুরু করার প্রাথমিক আইনি খরচ।</li>
+        </ul>
+
+        <h2><i class="fas fa-chart-bar"></i> একনজরে ব্যয়ের তুলনামূলক ছক</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ব্যয়ের নাম</th>
+                    <th>স্থায়িত্বকাল (Benefit)</th>
+                    <th>লক্ষ্য (Objective)</th>
+                    <th>মূল উদাহরণ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Capital (মূলধনী)</strong></td>
+                    <td>দীর্ঘমেয়াদী (Many Years)</td>
+                    <td>স্থায়ী সম্পদ তৈরি করা</td>
+                    <td>জমি, মেশিনারি কেনা</td>
+                </tr>
+                <tr>
+                    <td><strong>Revenue (রাজস্ব)</strong></td>
+                    <td>স্বল্পমেয়াদী (Within 1 Year)</td>
+                    <td>প্রতিদিনের কাজ চালানো</td>
+                    <td>বেতন, ভাড়া, বিদ্যুৎ বিল</td>
+                </tr>
+                <tr>
+                    <td><strong>Deferred (স্থগিত)</strong></td>
+                    <td>মধ্যমেয়াদী (3-5 Years)</td>
+                    <td>বড় খরচে দীর্ঘ সুফল</td>
+                    <td>নতুন পণ্যের বড় বিজ্ঞাপন</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="pro-tip">
+            <h3 style="margin-top: 0; border: none; color: #065f46;"><i class="fas fa-lightbulb"></i> সহজে মনে রাখার প্রো-টিপ (Pro-Tip)</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><i class="fas fa-check-circle icon-small" style="color: #10b981;"></i> <strong>Factory-র ভেতরের খরচ:</strong> Direct Revenue Expenditure.</li>
+                <li><i class="fas fa-check-circle icon-small" style="color: #10b981;"></i> <strong>Office-র ভেতরের খরচ:</strong> Indirect Revenue Expenditure (Administrative).</li>
+                <li><i class="fas fa-check-circle icon-small" style="color: #10b981;"></i> <strong>পণ্য বিক্রির খরচ:</strong> Indirect Revenue Expenditure (Selling).</li>
+                <li><i class="fas fa-check-circle icon-small" style="color: #10b981;"></i> <strong>স্থায়ী সম্পদের পেছনে খরচ:</strong> Capital Expenditure.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 SSCEC | বিপুল সরকার পরিচালিত - Digital Commerce Academy</p>
+</footer>
+
+</body>
+</html>

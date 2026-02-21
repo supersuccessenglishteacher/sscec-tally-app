@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally Course Dashboard - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #2563eb;
+            --accent: #10b981;
+            --orange: #f97316;
+            --bg: #f1f5f9;
+            --gold: #f59e0b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0; padding: 0;
+            color: #334155;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #1e293b);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .container { max-width: 1100px; margin: -40px auto 50px; padding: 0 20px; }
+
+        .welcome-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            margin: 40px 0 20px;
+            color: var(--primary);
+            border-left: 5px solid var(--secondary);
+            padding-left: 15px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .icon-circle {
+            width: 70px; height: 70px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px;
+        }
+
+        /* Color Themes */
+        .theme-exp { background: #fff7ed; color: var(--orange); }
+        .theme-inc { background: #f0fdf4; color: var(--accent); }
+        .theme-test { background: #fffbeb; color: var(--gold); border: 2px solid var(--gold); }
+
+        .btn-link {
+            text-decoration: none; padding: 12px;
+            border-radius: 8px; font-weight: bold;
+            display: block; transition: 0.3s;
+            color: white;
+        }
+
+        .btn-exp { background: var(--orange); }
+        .btn-inc { background: var(--accent); }
+        .btn-test { background: var(--gold); }
+
+        footer { text-align: center; padding: 50px; color: #94a3b8; }
+        hr { border: 0; border-top: 2px dashed #cbd5e1; margin: 40px 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Super Success Computer Education Center</h1>
+    <p><i class="fas fa-university"></i> Tally Prime Mastery - Advanced Modules</p>
+</header>
+
+<div class="container">
+    
+    <div class="welcome-card">
+        <h2 style="margin:0; color: var(--primary);">ব্যয় ও আয় ম্যানেজমেন্ট ড্যাশবোর্ড</h2>
+        <p>বিপুল সরকার পরিচালিত - আপনার ডিজিটাল কমার্স লার্নিং পার্টনার</p>
+    </div>
+
+    <h3 class="section-title"><i class="fas fa-book-reader"></i> লার্নিং মডিউলস (Learning Guides)</h3>
+    <div class="module-grid">
+        
+        <div class="module-card">
+            <div>
+                <div class="icon-circle theme-exp"><i class="fas fa-file-invoice-dollar"></i></div>
+                <h3>Expenditure Guide</h3>
+                <p>ব্যয় বা খরচের ৩টি গুরুত্বপূর্ণ ভাগের বিস্তারিত নোট।</p>
+            </div>
+            <a href="expenditure_master_guide.html" class="btn-link btn-exp">পড়াশোনা শুরু করো</a>
+        </div>
+
+        <div class="module-card">
+            <div>
+                <div class="icon-circle theme-inc"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3>Income Guide</h3>
+                <p>আয়ের বিভিন্ন উৎস এবং প্রকারভেদ নিয়ে গাইড।</p>
+            </div>
+            <a href="income_master_guide.html" class="btn-link btn-inc">পড়াশোনা শুরু করো</a>
+        </div>
+
+        <div class="module-card">
+            <div>
+                <div class="icon-circle" style="background: #eff6ff; color: #2563eb;"><i class="fas fa-question-circle"></i></div>
+                <h3>Q&A Repository</h3>
+                <p>ব্যয় ও আয় নিয়ে ২০টি গুরুত্বপূর্ণ ইন্টারভিউ প্রশ্ন ও উত্তর।</p>
+            </div>
+            <a href="income_expenditure_qna.html" class="btn-link" style="background: #2563eb;">প্রশ্নোত্তর দেখুন</a>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <h3 class="section-title"><i class="fas fa-user-check"></i> টেস্ট সেকশন (Assessment)</h3>
+    <div class="module-card theme-test" style="text-align: left; padding: 40px; flex-direction: row; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 30px;">
+            <div class="icon-circle" style="background: var(--gold); color: white; margin: 0; min-width: 70px;">
+                <i class="fas fa-stopwatch"></i>
+            </div>
+            <div>
+                <h2 style="margin: 0; color: #92400e;">ব্যয় ও আয়: মক টেস্ট</h2>
+                <p style="margin: 5px 0 0;">টাইমার এবং স্কোরসহ ১৫টি প্রশ্নের মাধ্যমে দক্ষতা যাচাই করো।</p>
+            </div>
+        </div>
+        <a href="income_exp_mock_test.html" class="btn-link btn-test" style="min-width: 180px; text-align: center;">টেস্ট শুরু করো</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 SSCEC | Managed by Bipul Sarkar</p>
+</footer>
+
+</body>
+</html>

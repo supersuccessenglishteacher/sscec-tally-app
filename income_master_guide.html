@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Guide - SSCEC Mastery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --income-color: #10b981; /* আয়ের জন্য সবুজ থিম */
+            --bg: #f0fdf4;
+            --white: #ffffff;
+            --text: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            margin: 0; padding: 0;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--income-color));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .container { max-width: 900px; margin: -40px auto 60px; padding: 0 20px; }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        h2 { 
+            color: var(--income-color); 
+            border-bottom: 2px solid #dcfce7; 
+            padding-bottom: 10px; 
+            margin-top: 35px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h3 { color: var(--primary); margin-top: 25px; border-left: 4px solid var(--income-color); padding-left: 10px; }
+
+        .logic-box {
+            background: #f0fdf4;
+            border-left: 5px solid var(--income-color);
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        th { background-color: var(--income-color); color: white; padding: 15px; text-align: left; }
+        td { padding: 15px; border: 1px solid #bcf0da; }
+        tr:nth-child(even) { background-color: #f7fee7; }
+
+        .quiz-section {
+            background: #fffbeb;
+            border: 2px dashed #f59e0b;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .super-tip {
+            background: #eff6ff;
+            border: 1px solid #3b82f6;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .ans-btn {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .ans-text { display: none; font-weight: bold; color: #b45309; }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; }
+        
+        strong { color: var(--primary); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>💰 Income (আয়) কী? আয়ের বিস্তারিত আলোচনা</h1>
+    <p>বিপুল সরকার পরিচালিত - SSCEC ডিজিটাল লার্নিং প্ল্যাটফর্ম</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <p>সহজকথায়, কোনো পণ্য (Product) বিক্রি করে বা সেবা (Service) দেওয়ার বিনিময়ে ব্যবসায় যে টাকা আসে, তাকেই <strong>Income</strong> বা আয় বলে। অ্যাকাউন্টিং-এর ভাষায়, আয়ের ফলে ব্যবসায়ের মালিকানা স্বত্ব (Equity) বৃদ্ধি পায়।</p>
+
+        <h2><i class="fas fa-chart-line"></i> ১. রাজস্ব আয় (Revenue Income)</h2>
+        <p>একটি ব্যবসা যে কাজের জন্য তৈরি হয়েছে, সেই মূল কাজ (Main Activity) থেকে নিয়মিত যে টাকা আসে, তাকে রাজস্ব আয় বলে। এটি ব্যবসার রক্ত সঞ্চালনের মতো, যা প্রতিদিন বা নিয়মিত ঘটে।</p>
+        <div class="logic-box">
+            <strong><i class="fas fa-lightbulb"></i> Simple Logic:</strong> এটি ব্যবসার Daily বা Regular আয়ের উৎস।
+        </div>
+        <p><strong>উদাহরণ (Examples):</strong></p>
+        <ul>
+            <li><strong>Sales (বিক্রয়):</strong> কাপড়ের দোকানদারের কাপড় বিক্রি করে আয়।</li>
+            <li><strong>Service Fees:</strong> একজন ডাক্তারের রোগী দেখে অর্জিত ফি।</li>
+            <li><strong>Commission Received:</strong> পণ্য বিক্রিতে সহায়তা করে পাওয়া কমিশন।</li>
+        </ul>
+
+        <h2><i class="fas fa-hand-holding-usd"></i> ২. মূলধনী আয় (Capital Income)</h2>
+        <p>ব্যবসায়ের কোনো স্থায়ী সম্পদ (Fixed Asset) বিক্রি করে যখন সাধারণ মূল্যের চেয়ে বেশি টাকা পাওয়া যায়, তখন তাকে মূলধনী আয় বলে। এটি নিয়মিত ঘটে না, হুটহাট বা অনেক বছর পর পর ঘটে।</p>
+        <div class="logic-box" style="border-left-color: #3b82f6; background-color: #eff6ff;">
+            <strong><i class="fas fa-lightbulb"></i> Simple Logic:</strong> সম্পদ বিক্রি করে প্রাপ্ত বড় অংকের আয় যা প্রতিদিন হয় না।
+        </div>
+        <p><strong>উদাহরণ (Examples):</strong></p>
+        <ul>
+            <li><strong>Profit on Sale of Land:</strong> ব্যবসার জমি বিক্রি করে প্রাপ্ত অতিরিক্ত টাকা।</li>
+            <li><strong>Old Machinery Sale:</strong> পুরোনো নষ্ট মেশিন বিক্রি করে পাওয়া টাকা।</li>
+        </ul>
+
+        <h2><i class="fas fa-coins"></i> ৩. অ-পরিচালন আয় (Non-operating Income)</h2>
+        <p>ব্যবসার মূল উদ্দেশ্যের বাইরে অন্যান্য ছোটখাটো উৎস থেকে যে আয় হয়, তাকে অ-পরিচালন আয় বলে। এটি ব্যবসার মূল কাজ (যেমন পণ্য কেনাবেচা) থেকে আসে না।</p>
+        <div class="logic-box" style="border-left-color: #f59e0b; background-color: #fffbeb;">
+            <strong><i class="fas fa-lightbulb"></i> Simple Logic:</strong> সাইড ইনকাম বা অতিরিক্ত উৎস থেকে আসা টাকা।
+        </div>
+        <p><strong>উদাহরণ (Examples):</strong></p>
+        <ul>
+            <li><strong>Bank Interest:</strong> ব্যাংকে জমা টাকার ওপর পাওয়া সুদ।</li>
+            <li><strong>Rent Received:</strong> অফিসের অতিরিক্ত রুম ভাড়া দিয়ে পাওয়া টাকা।</li>
+            <li><strong>Investment Dividend:</strong> শেয়ার থেকে পাওয়া লভ্যাংশ।</li>
+        </ul>
+
+        <h2><i class="fas fa-exchange-alt"></i> একনজরে পার্থক্য: Revenue vs Capital</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>বিষয় (Topic)</th>
+                    <th>Revenue Income (রাজস্ব আয়)</th>
+                    <th>Capital Gain (মূলধনী লাভ)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>উৎস (Source)</strong></td>
+                    <td>ব্যবসা বা পণ্য বিক্রয় থেকে আসে।</td>
+                    <td>স্থায়ী সম্পদ বিক্রি থেকে আসে।</td>
+                </tr>
+                <tr>
+                    <td><strong>প্রকৃতি (Nature)</strong></td>
+                    <td>এটি নিয়মিত (Regular) আয়।</td>
+                    <td>এটি অনিয়মিত (Irregular) আয়।</td>
+                </tr>
+                <tr>
+                    <td><strong>উদ্দেশ্য (Goal)</strong></td>
+                    <td>লাভ করা ও ব্যবসা চালানো।</td>
+                    <td>সম্পদ থেকে অতিরিক্ত মূল্য পাওয়া।</td>
+                </tr>
+                <tr>
+                    <td><strong>উদাহরণ</strong></td>
+                    <td>প্রতিদিনের চাল বা ডাল বিক্রি।</td>
+                    <td>৫ বছর পর দোকানের ফ্রিজ বিক্রি।</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="super-tip">
+            <h3 style="margin-top: 0; border: none; color: #1e40af;"><i class="fas fa-star"></i> সহজে মনে রাখার সুপার টিপস (Super Tips)</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li>✅ <strong>Business Activity</strong> থেকে আসলে সেটি ➔ <strong>Revenue Income</strong></li>
+                <li>✅ <strong>Asset Sale</strong> (সম্পদ বিক্রি) থেকে আসলে সেটি ➔ <strong>Capital Income</strong></li>
+                <li>✅ <strong>Side Source</strong> (সুদ, ভাড়া) থেকে আসলে সেটি ➔ <strong>Non-operating Income</strong></li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h3 style="margin-top: 0; border: none; color: #92400e;"><i class="fas fa-question-circle"></i> আয়ের ওপর ছোট কুইজ (Quiz)</h3>
+            <p><strong>প্রশ্ন: ধরুন আপনার একটি স্মার্টফোনের শোরুম আছে।</strong></p>
+            <p>১. প্রতিদিন মোবাইল বিক্রি করে যে টাকা পান সেটি কোন আয়?</p>
+            <p>২. শোরুমের পুরোনো একটি টেবিল বিক্রি করে ৫০০ টাকা লাভ করলেন, সেটি কোন আয়?</p>
+            
+            <button class="ans-btn" onclick="showAns()">উত্তর দেখুন</button>
+            <p id="quiz-ans" class="ans-text">উত্তর: ১. রাজস্ব আয়, ২. মূলধনী আয়</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 SSCEC | বিপুল সরকার পরিচালিত - Digital Commerce Academy</p>
+</footer>
+
+<script>
+    function showAns() {
+        var x = document.getElementById("quiz-ans");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>

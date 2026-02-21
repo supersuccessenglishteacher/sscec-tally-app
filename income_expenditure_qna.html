@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A: Income & Expenditure - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --blue: #2563eb;
+            --green: #10b981;
+            --orange: #f97316;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg);
+            margin: 0; padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #334155);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .container { max-width: 1000px; margin: -30px auto 60px; padding: 0 20px; }
+
+        /* Search Box */
+        .search-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        #searchBar {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        #searchBar:focus { border-color: var(--blue); }
+
+        /* Q&A Sections */
+        .qa-section { margin-bottom: 40px; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #cbd5e1;
+        }
+
+        .qa-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 6px solid #ccc;
+            transition: 0.3s;
+        }
+
+        .qa-card:hover { transform: scale(1.01); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        .question { font-weight: bold; color: var(--primary); font-size: 17px; margin-bottom: 10px; display: block; }
+        .answer { color: #475569; text-align: justify; }
+
+        /* Theme Colors */
+        .exp-theme { border-left-color: var(--orange); }
+        .inc-theme { border-left-color: var(--green); }
+
+        .tag {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        .exp-tag { background: #fff7ed; color: #c2410c; }
+        .inc-tag { background: #ecfdf5; color: #047857; }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>❓ ব্যয় ও আয় সংক্রান্ত প্রশ্নোত্তর</h1>
+    <p>বিপুল সরকার পরিচালিত - SSCEC অ্যাকাউন্টিং সেশন ২০২৬</p>
+</header>
+
+<div class="container">
+    
+    <div class="search-container">
+        <input type="text" id="searchBar" onkeyup="searchFunction()" placeholder="প্রশ্ন বা কি-ওয়ার্ড দিয়ে খুঁজুন (যেমন: Depreciation, Salary, লোন...)">
+    </div>
+
+    <div class="qa-section" id="expSection">
+        <div class="section-header">
+            <i class="fas fa-file-invoice-dollar fa-2x" style="color: var(--orange);"></i>
+            <h2 style="margin:0;">ব্যয় (Expenditure) সংক্রান্ত প্রশ্নোত্তর</h2>
+        </div>
+
+        <div class="qa-card exp-theme">
+            <span class="tag exp-tag">Expenditure vs Expense</span>
+            <span class="question">প্রশ্ন ১: Expenditure এবং Expense-এর মধ্যে পার্থক্য কী?</span>
+            <p class="answer"><strong>উত্তর:</strong> Expenditure একটি বড় শব্দ, যার মাধ্যমে সম্পদ কেনা বা দায় পরিশোধ করা বোঝায় (যেমন: ১টি ট্রাক কেনা)। আর Expense হলো ওই ব্যয়ের সেই অংশ যা বর্তমান বছরের সুবিধা পাওয়ার জন্য খরচ হয়ে গেছে (যেমন: ১ মাসের ট্রাকের তেল খরচ)।</p>
+        </div>
+
+        <div class="qa-card exp-theme">
+            <span class="tag exp-tag">Installation</span>
+            <span class="question">প্রশ্ন ২: নতুন কেনা মেশিনের সংস্থাপন খরচ (Installation Cost) কোন ধরনের ব্যয়?</span>
+            <p class="answer"><strong>উত্তর:</strong> এটি একটি Capital Expenditure (মূলধনী ব্যয়)। কারণ নতুন মেশিনটি চালু করার জন্য যে খরচ হয়, তা মেশিনের মূল্যের সাথেই যুক্ত হয় এবং এটি দীর্ঘমেয়াদী সুবিধা দেয়।</p>
+        </div>
+
+        <div class="qa-card exp-theme">
+            <span class="tag exp-tag">Repairs</span>
+            <span class="question">প্রশ্ন ৩: পুরাতন মেশিন মেরামতের (Repairs) খরচ কোন ব্যয়ের আওতায় পড়ে?</span>
+            <p class="answer"><strong>উত্তর:</strong> এটি Revenue Expenditure (রাজস্ব ব্যয়)। কারণ মেরামত করলে মেশিনটি কেবল সচল থাকে, কিন্তু এর আয়ু বা ক্ষমতা নতুন করে বাড়ে না।</p>
+        </div>
+
+        <div class="qa-card exp-theme">
+            <span class="tag exp-tag">Advertisement</span>
+            <span class="question">প্রশ্ন ৪: বিজ্ঞাপনে বিশাল অংকের খরচ কেন Deferred Revenue Expenditure বলা হয়?</span>
+            <p class="answer"><strong>উত্তর:</strong> কারণ বিজ্ঞাপনের সুবিধা কেবল ১ বছর নয়, বরং আগামী ৩-৫ বছর পর্যন্ত পাওয়া যেতে পারে। তাই পুরো খরচটি এক বছরের লাভ-ক্ষতি হিসেবে না দেখিয়ে কয়েক বছরে ভাগ করে দেখানো হয়।</p>
+        </div>
+
+        <div class="qa-card exp-theme">
+            <span class="tag exp-tag">Wages vs Salary</span>
+            <span class="question">প্রশ্ন ৫: Wages এবং Salary এর মধ্যে হিসাববিজ্ঞানের মূল পার্থক্য কী?</span>
+            <p class="answer"><strong>উত্তর:</strong> Wages কারখানার শ্রমিকদের দেওয়া হয় (Direct Revenue Expenditure), অন্যদিকে Salary অফিসের স্টাফদের দেওয়া হয় (Indirect Revenue Expenditure)।</p>
+        </div>
+
+        <div class="qa-card exp-theme">
+            <span class="tag exp-tag">Carriage</span>
+            <span class="question">প্রশ্ন ৬: Carriage Inward এবং Carriage Outward-এর মধ্যে পার্থক্য কী?</span>
+            <p class="answer"><strong>উত্তর:</strong> Inward হলো কাঁচামাল আনার ভাড়া (Direct Revenue Expenditure)। Outward হলো কাস্টমারকে পণ্য পাঠানোর ভাড়া (Indirect Revenue Expenditure)।</p>
+        </div>
+
+        <div class="qa-card exp-theme">
+            <span class="tag exp-tag">Software</span>
+            <span class="question">প্রশ্ন ৭: সফটওয়্যার (Software) কেনা কোন ধরনের ব্যয়?</span>
+            <p class="answer"><strong>উত্তর:</strong> এটি সাধারণত Capital Expenditure। কারণ এটি একটি 'অস্পর্শনীয় সম্পদ' (Intangible Asset) যা অনেক বছর ব্যবহার করা যায়।</p>
+        </div>
+
+        <div class="qa-card exp-theme">
+            <span class="tag exp-tag">Bad Debts</span>
+            <span class="question">প্রশ্ন ৮: Bad Debts বা অনাদায়ী পাওনা কেন রাজস্ব ব্যয়?</span>
+            <p class="answer"><strong>উত্তর:</strong> এটি ব্যবসা পরিচালনা করতে গিয়ে একটি নিয়মিত ঝুঁকি বা ক্ষতি, তাই একে Indirect Revenue Expenditure হিসেবে ধরা হয়।</p>
+        </div>
+
+        <div class="qa-card exp-theme">
+            <span class="tag exp-tag">Loan Installment</span>
+            <span class="question">প্রশ্ন ৯: লোন বা ঋণের কিস্তি (Installment) পরিশোধ করা কি ব্যয়?</span>
+            <p class="answer"><strong>উত্তর:</strong> ঋণের সুদ (Interest) হলো Revenue Expenditure। কিন্তু ঋণের আসল (Principal) ফেরত দেওয়া কোনো ব্যয় নয়, বরং এটি দায় (Liability) পরিশোধ।</p>
+        </div>
+
+        <div class="qa-card exp-theme">
+            <span class="tag exp-tag">Depreciation</span>
+            <span class="question">প্রশ্ন ১০: Depreciation বা অবচয় কেন ব্যয় হিসেবে ধরা হয়?</span>
+            <p class="answer"><strong>উত্তর:</strong> সম্পদ ব্যবহারের ফলে তার দাম কমতে থাকে। এই কমে যাওয়া অংশটুকু ব্যবসার একটি পরোক্ষ খরচ, তাই একে Indirect Revenue Expenditure বলা হয়।</p>
+        </div>
+    </div>
+
+    <div class="qa-section" id="incSection">
+        <div class="section-header">
+            <i class="fas fa-coins fa-2x" style="color: var(--green);"></i>
+            <h2 style="margin:0;">আয় (Income) সংক্রান্ত প্রশ্নোত্তর</h2>
+        </div>
+
+        <div class="qa-card inc-theme">
+            <span class="tag inc-tag">Owner's Equity</span>
+            <span class="question">প্রশ্ন ১: আয়ের (Income) ফলে মালিকানা স্বত্বের (Owner's Equity) কী পরিবর্তন হয়?</span>
+            <p class="answer"><strong>উত্তর:</strong> অ্যাকাউন্টিং ইকুয়েশন অনুযায়ী, আয় বাড়লে ব্যবসার মালিকানা স্বত্ব বা Equity বৃদ্ধি পায়। কারণ আয়ের টাকা শেষপর্যন্ত মালিকেরই পাওনা।</p>
+        </div>
+
+        <div class="qa-card inc-theme">
+            <span class="tag inc-tag">Bank Loan</span>
+            <span class="question">প্রশ্ন ২: ব্যাংক থেকে ঋণ (Loan) নিলে কি তাকে আয় বলা যাবে?</span>
+            <p class="answer"><strong>উত্তর:</strong> না। ব্যাংক থেকে টাকা আসা মানে দায় (Liability) বৃদ্ধি পাওয়া। এটি ফেরতযোগ্য, তাই একে আয় বলা যায় না।</p>
+        </div>
+
+        <div class="qa-card inc-theme">
+            <span class="tag inc-tag">Accrued Income</span>
+            <span class="question">প্রশ্ন ৩: বকেয়া আয় (Accrued Income) বলতে কী বোঝায়?</span>
+            <p class="answer"><strong>উত্তর:</strong> সেবা দেওয়া হয়েছে কিন্তু টাকা পাওয়া যায়নি—একে Accrued Income বলে। এটি বর্তমান বছরের আয় হিসেবেই গণ্য হয়।</p>
+        </div>
+
+        <div class="qa-card inc-theme">
+            <span class="tag inc-tag">Capital Gain</span>
+            <span class="question">প্রশ্ন ৪: মূলধনী আয় (Capital Income) এবং মূলধনী লাভ (Capital Gain)-এর পার্থক্য কী?</span>
+            <p class="answer"><strong>উত্তর:</strong> সম্পদ বিক্রি করে মোট যা পাওয়া যায় তা Capital Income। আর কেনা দামের চেয়ে যেটুকু বেশি পাওয়া যায় তা Capital Gain।</p>
+        </div>
+
+        <div class="qa-card inc-theme">
+            <span class="tag inc-tag">Commission</span>
+            <span class="question">প্রশ্ন ৫: কমিশন প্রাপ্তি (Commission Received) কেন রাজস্ব আয়?</span>
+            <p class="answer"><strong>উত্তর:</strong> এটি ব্যবসার একটি নিয়মিত এবং পরিচালন (Operating) কাজের অংশ, তাই এটি রাজস্ব আয়।</p>
+        </div>
+
+        <div class="qa-card inc-theme">
+            <span class="tag inc-tag">Unearned Income</span>
+            <span class="question">প্রশ্ন ৬: অগ্রিম আয় (Unearned Income) কী এবং এটি কেন দায়?</span>
+            <p class="answer"><strong>উত্তর:</strong> কাজ করার আগেই টাকা নেওয়া হলে তাকে Unearned Income বলে। সেবা না দেওয়া পর্যন্ত এটি দায় (Liability)। উদাহরণ: অগ্রিম বেতন গ্রহণ।</p>
+        </div>
+
+        <div class="qa-card inc-theme">
+            <span class="tag inc-tag">Dividend</span>
+            <span class="question">প্রশ্ন ৭: বিনিয়োগের লভ্যাংশ (Dividend Received) কোন ধরনের আয়?</span>
+            <p class="answer"><strong>উত্তর:</strong> এটি একটি অ-পরিচালন আয় (Non-operating Income)। এটি মূল ব্যবসার বাইরে বিনিয়োগ থেকে আসে।</p>
+        </div>
+
+        <div class="qa-card inc-theme">
+            <span class="tag inc-tag">Sales Discount</span>
+            <span class="question">প্রশ্ন ৮: বিক্রয় বাট্টা (Sales Discount) আয়ের ওপর কী প্রভাব ফেলে?</span>
+            <p class="answer"><strong>উত্তর:</strong> ডিসকাউন্ট দিলে আয়ের পরিমাণ কমে যায়। একে Contra Revenue Account বলা হয়।</p>
+        </div>
+
+        <div class="qa-card inc-theme">
+            <span class="tag inc-tag">Capital Loss</span>
+            <span class="question">প্রশ্ন ৯: কেনা দামের চেয়ে কম দামে সম্পদ বিক্রি করলে তাকে কি আয় বলা যাবে?</span>
+            <p class="answer"><strong>উত্তর:</strong> না। একে মূলধনী ক্ষতি (Capital Loss) বলা হয়। যেমন: ১০,০০০ টাকার কম্পিউটার ৮,০০০ টাকায় বিক্রি করলে লস হবে।</p>
+        </div>
+
+        <div class="qa-card inc-theme">
+            <span class="tag inc-tag">Recurring</span>
+            <span class="question">প্রশ্ন ১০: সকল রাজস্ব আয়ই নিয়মিত, কিন্তু সকল মূলধনী আয় নিয়মিত নয়—বুঝিয়ে বলুন।</span>
+            <p class="answer"><strong>উত্তর:</strong> রাজস্ব আয় (পণ্য বিক্রি) প্রতিদিন ঘটে (Recurring)। কিন্তু মূলধনী আয় (জমি বিক্রি) হুটহাট ঘটে (Non-recurring)।</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 SSCEC | বিপুল সরকার পরিচালিত - অ্যাকাউন্টিং টিউটোরিয়াল</p>
+</footer>
+
+<script>
+    function searchFunction() {
+        let input = document.getElementById('searchBar').value.toLowerCase();
+        let cards = document.getElementsByClassName('qa-card');
+        
+        for (let i = 0; i < cards.length; i++) {
+            if (cards[i].innerText.toLowerCase().includes(input)) {
+                cards[i].style.display = "block";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
