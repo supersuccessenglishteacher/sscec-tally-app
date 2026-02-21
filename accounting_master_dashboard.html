@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Master Dashboard - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --blue: #2563eb;
+            --purple: #8b5cf6;
+            --rose: #e11d48;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg);
+            margin: 0; padding: 0;
+            color: #334155;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #334155);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--purple);
+        }
+
+        .container { max-width: 1000px; margin: -40px auto 60px; padding: 0 20px; }
+
+        .welcome-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 30px 0 20px;
+            color: var(--primary);
+            font-size: 22px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: var(--purple);
+        }
+
+        .icon-box {
+            width: 60px; height: 60px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; margin-bottom: 20px;
+        }
+
+        /* Module Colors */
+        .c-blue { background: #eff6ff; color: var(--blue); }
+        .c-purple { background: #f5f3ff; color: var(--purple); }
+        .c-rose { background: #fff1f2; color: var(--rose); }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .btn-blue { background: var(--blue); }
+        .btn-purple { background: var(--purple); }
+        .btn-rose { background: var(--rose); }
+
+        .btn:hover { opacity: 0.9; }
+
+        footer { text-align: center; padding: 50px; color: #94a3b8; }
+        
+        .status-badge {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 5px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SSCEC Accounting Mastery 2026</h1>
+    <p>বিপুল সরকার পরিচালিত - ডিজিটাল কমার্স লার্নিং প্ল্যাটফর্ম</p>
+</header>
+
+<div class="container">
+    
+    <div class="welcome-card">
+        <h2 style="margin:0;">জার্নাল এন্ট্রি ড্যাশবোর্ড (অ্যাডভান্সড)</h2>
+        <p>সহজ ভাষায় অ্যাকাউন্টিং শিখুন এবং নিজেকে দক্ষ গড়ে তুলুন।</p>
+    </div>
+
+    <div class="section-header">
+        <i class="fas fa-book-open"></i> লার্নিং মডিউলস (Modules)
+    </div>
+
+    <div class="grid">
+        
+        <div class="card">
+            <div>
+                <span class="status-badge">Module 05</span>
+                <div class="icon-box c-purple">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <h3>Accounting Entries Guide</h3>
+                <p>Opening, Closing, Adjustment এবং Rectification-এর মতো ৬টি এন্ট্রির সহজ পাঠ।</p>
+            </div>
+            <a href="accounting_entries_guide.html" class="btn btn-purple">গাইডটি দেখুন</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <span class="status-badge">Module 06</span>
+                <div class="icon-box c-blue">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Special Entries Master</h3>
+                <p>দান, চুরি, আগুনে পণ্য পুড়ে যাওয়া এবং ব্যাংক সংক্রান্ত ২০টি স্পেশাল এন্ট্রি।</p>
+            </div>
+            <a href="special_entries_master.html" class="btn btn-blue">গাইডটি দেখুন</a>
+        </div>
+
+    </div>
+
+    <div class="section-header" style="margin-top: 50px;">
+        <i class="fas fa-vial"></i> এসেসমেন্ট (Assessment)
+    </div>
+
+    <div class="grid">
+        <div class="card" style="border: 2px solid var(--rose);">
+            <div>
+                <span class="status-badge" style="background: #fff1f2; color: var(--rose);">Assessment 02</span>
+                <div class="icon-box c-rose">
+                    <i class="fas fa-stopwatch"></i>
+                </div>
+                <h3>Special Entry Mock Test</h3>
+                <p>টাইমার এবং সাউন্ড ইফেক্টসহ ১৫টি প্রশ্নের মাধ্যমে নিজের দক্ষতা যাচাই করুন।</p>
+            </div>
+            <a href="special_entries_master_with_test.html" class="btn btn-rose">টেস্ট শুরু করো</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 SSCEC | Managed with Excellence by Bipul Sarkar</p>
+</footer>
+
+</body>
+</html>

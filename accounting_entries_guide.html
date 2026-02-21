@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Entries - SSCEC Mastery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --text: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0; padding: 0;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .container { max-width: 900px; margin: -40px auto 60px; padding: 0 20px; }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .entry-title {
+            color: var(--accent-purple);
+            font-size: 24px;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 10px;
+        }
+
+        .logic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .logic-item {
+            background: #f1f5f9;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        .logic-item strong { color: var(--accent-purple); }
+
+        .kids-line {
+            background: #fff7ed;
+            border-left: 5px solid #f97316;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #9a3412;
+        }
+
+        /* Journal Entry Box */
+        .journal-box {
+            background: #27272a;
+            color: #10b981;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .journal-box .dr-cr { color: #f87171; }
+        .journal-box .amt { color: #fbbf24; }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        th { background: var(--accent-purple); color: white; padding: 15px; text-align: left; }
+        td { padding: 12px 15px; border: 1px solid #e5e7eb; }
+        tr:nth-child(even) { background: #fafafa; }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; }
+        
+        .badge {
+            background: var(--accent-blue);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) { .logic-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📑 Accounting Entries (সহজপাঠ)</h1>
+    <p>বিপুল সরকার পরিচালিত - SSCEC প্রফেশনাল অ্যাকাউন্টিং মডিউল</p>
+</header>
+
+<div class="container">
+    
+    <div class="card">
+        <h2 class="entry-title"><i class="fas fa-door-open"></i> ১. Opening Entry (প্রারম্ভিক এন্ট্রি)</h2>
+        <div class="logic-grid">
+            <div class="logic-item"><strong>সহজ অর্থ:</strong> পুরনো বছরের হিসাবের জের (Balance) নতুন বছরের খাতায় আনা।</div>
+            <div class="logic-item"><strong>উদাহরণ:</strong> ক্যাশ ৫০,০০০ এবং কম্পিউটার ১০,০০০ টাকা নিয়ে বছর শুরু।</div>
+        </div>
+        <div class="kids-line">সহজ কথা: পুরনো বছরের হিসাব নতুন বছরে আনা = Opening Entry।</div>
+        <div class="journal-box">
+            Cash A/c .......................... <span class="dr-cr">Dr</span> <span class="amt">50,000</span><br>
+            Computer A/c ...................... <span class="dr-cr">Dr</span> <span class="amt">10,000</span><br>
+            &nbsp;&nbsp;To Capital A/c ..................... <span class="dr-cr">Cr</span> <span class="amt">60,000</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="entry-title"><i class="fas fa-exchange-alt"></i> ২. Transfer Entry (স্থানান্তর এন্ট্রি)</h2>
+        <div class="logic-grid">
+            <div class="logic-item"><strong>সহজ অর্থ:</strong> টাকা এক পকেট থেকে অন্য পকেটে পাঠানোর মতো এক হিসাব থেকে অন্য হিসাবে পাঠানো।</div>
+            <div class="logic-item"><strong>উদাহরণ:</strong> উত্তোলনের টাকা মূলধন থেকে কমিয়ে দেওয়া হলো।</div>
+        </div>
+        <div class="kids-line">সহজ কথা: এক খাতার টাকা অন্য খাতায় পাঠানো = Transfer Entry।</div>
+        <div class="journal-box">
+            Capital A/c ....................... <span class="dr-cr">Dr</span> <span class="amt">5,000</span><br>
+            &nbsp;&nbsp;To Drawings A/c .................. <span class="dr-cr">Cr</span> <span class="amt">5,000</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="entry-title"><i class="fas fa-lock"></i> ৩. Closing Entry (সমাপনী এন্ট্রি)</h2>
+        <div class="logic-grid">
+            <div class="logic-item"><strong>সহজ অর্থ:</strong> বছর শেষে আয়-ব্যয়ের হিসাবগুলো বন্ধ করে লাভ-ক্ষতি নির্ণয় করা।</div>
+            <div class="logic-item"><strong>উদাহরণ:</strong> বেতন ২০,০০০ টাকা বছর শেষে বন্ধ করা হলো।</div>
+        </div>
+        <div class="kids-line">সহজ কথা: বছর শেষে আয়-ব্যয়ের খাতা বন্ধ করা = Closing Entry।</div>
+        <div class="journal-box">
+            Profit & Loss A/c ................. <span class="dr-cr">Dr</span> <span class="amt">20,000</span><br>
+            &nbsp;&nbsp;To Salary A/c ..................... <span class="dr-cr">Cr</span> <span class="amt">20,000</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="entry-title"><i class="fas fa-sliders-h"></i> ৪. Adjustment Entry (সমন্বয় এন্ট্রি)</h2>
+        <div class="logic-grid">
+            <div class="logic-item"><strong>সহজ অর্থ:</strong> সঠিক আর্থিক অবস্থা দেখানোর জন্য বকেয়া বা অগ্রিম হিসাবগুলো যোগ-বিয়োগ করা।</div>
+            <div class="logic-item"><strong>উদাহরণ:</strong> ৫,০০০ টাকা ভাড়া এখনো বকেয়া (বাকি) আছে।</div>
+        </div>
+        <div class="kids-line">সহজ কথা: হিসাব একদম নিখুঁত করার জন্য দেওয়া এন্ট্রি = Adjustment Entry।</div>
+        <div class="journal-box">
+            Rent A/c .......................... <span class="dr-cr">Dr</span> <span class="amt">5,000</span><br>
+            &nbsp;&nbsp;To Outstanding Rent A/c .......... <span class="dr-cr">Cr</span> <span class="amt">5,000</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="entry-title"><i class="fas fa-magic"></i> ৫. Rectification Entry (ভুল সংশোধন)</h2>
+        <div class="logic-grid">
+            <div class="logic-item"><strong>সহজ অর্থ:</strong> হিসাবের খাতায় কোনো ভুল হয়ে গেলে কাটাকাটি না করে এন্ট্রির মাধ্যমে ঠিক করা।</div>
+            <div class="logic-item"><strong>উদাহরণ:</strong> আসবাবপত্র কিনে ভুল করে 'ক্রয়' হিসেবে লেখা হয়েছিল।</div>
+        </div>
+        <div class="kids-line">সহজ কথা: ভুল ঠিক করার জাদুকরী এন্ট্রি = Rectification Entry।</div>
+        <div class="journal-box">
+            Furniture A/c ..................... <span class="dr-cr">Dr</span> <span class="amt">5,000</span><br>
+            &nbsp;&nbsp;To Purchase A/c ................. <span class="dr-cr">Cr</span> <span class="amt">5,000</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="entry-title"><i class="fas fa-sync-alt"></i> ৬. Contra Entry (কন্ট্রা এন্ট্রি)</h2>
+        <div class="logic-grid">
+            <div class="logic-item"><strong>সহজ অর্থ:</strong> যখন লেনদেনটি শুধুমাত্র নিজের নগদ টাকা এবং নিজের ব্যাংক অ্যাকাউন্টের মধ্যে হয়।</div>
+            <div class="logic-item"><strong>উদাহরণ:</strong> অফিস থেকে ১০,০০০ টাকা ব্যাংকে জমা দেওয়া হলো।</div>
+        </div>
+        <div class="kids-line">সহজ কথা: নিজের পকেট থেকে নিজের ব্যাংকে টাকা রাখা = Contra Entry।</div>
+        <div class="journal-box">
+            Bank A/c .......................... <span class="dr-cr">Dr</span> <span class="amt">10,000</span><br>
+            &nbsp;&nbsp;To Cash A/c ...................... <span class="dr-cr">Cr</span> <span class="amt">10,000</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="entry-title"><i class="fas fa-table"></i> Accounting Entry – Quick Summary Chart</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>এন্ট্রির নাম</th>
+                    <th>কী বোঝায়?</th>
+                    <th>কখন দেওয়া হয়?</th>
+                    <th>মূল লক্ষ্য</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Opening</strong></td><td>সম্পদ ও দায় শুরু</td><td>বছরের শুরুতে</td><td>নতুন শুরু</td></tr>
+                <tr><td><strong>Transfer</strong></td><td>ব্যালেন্স সরানো</td><td>প্রয়োজন অনুযায়ী</td><td>সমন্বয়</td></tr>
+                <tr><td><strong>Closing</strong></td><td>আয়-ব্যয় বন্ধ</td><td>বছরের শেষে</td><td>লাভ-ক্ষতি বের করা</td></tr>
+                <tr><td><strong>Adjustment</strong></td><td>বকেয়া/অগ্রিম ঠিক করা</td><td>ফাইনাল অ্যাকাউন্টের আগে</td><td>সঠিক চিত্র</td></tr>
+                <tr><td><strong>Rectification</strong></td><td>ভুল সংশোধন</td><td>ভুল ধরা পড়লে</td><td>ভুল ঠিক করা</td></tr>
+                <tr><td><strong>Contra</strong></td><td>ক্যাশ ও ব্যাংক</td><td>লেনদেনের সময়</td><td>টাকা স্থানান্তর</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 SSCEC | বিপুল সরকার পরিচালিত - অ্যাকাউন্টিং সেশন</p>
+</footer>
+
+</body>
+</html>
