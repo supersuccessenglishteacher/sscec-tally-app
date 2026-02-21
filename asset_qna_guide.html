@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Q&A Guide - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #3b82f6;
+            --accent: #10b981;
+            --bg: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0; padding: 0;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .container { max-width: 900px; margin: -40px auto 60px; padding: 0 20px; }
+
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        h2 { color: var(--secondary); border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 25px; }
+
+        /* Q&A Styling */
+        .qa-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .question {
+            padding: 18px;
+            background: #f1f5f9;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .answer {
+            padding: 20px;
+            display: none;
+            border-top: 1px solid #e2e8f0;
+            background: #fff;
+            color: #475569;
+            text-align: justify;
+        }
+
+        /* Quiz Styling */
+        .quiz-item {
+            background: #fdfdfd;
+            border-left: 5px solid var(--accent);
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .show-ans-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .quiz-ans { display: none; font-weight: bold; color: var(--accent); margin-left: 10px; }
+
+        /* PDF Button */
+        .pdf-btn-container { text-align: center; margin-top: 40px; }
+        .btn-pdf {
+            background: #ef4444;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        .btn-pdf:hover { background: #dc2626; transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; }
+
+        .highlight { color: #2563eb; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📊 সম্পদ (Assets) সংক্রান্ত গুরুত্বপূর্ণ প্রশ্নোত্তর</h1>
+    <p>বিপুল সরকার পরিচালিত - SSCEC ডিজিটাল কমার্স লার্নিং</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2><i class="fas fa-question-circle"></i> সাধারণ জিজ্ঞাস্য (FAQ)</h2>
+        
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">১. স্টক (Stock) কেন কারেন্ট অ্যাসেট হলেও লিকুইড অ্যাসেট নয়? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">লিকুইড অ্যাসেট মানে যা এখনই বা খুব দ্রুত ক্যাশে রূপান্তর করে খরচ করা যায়। স্টক বা মজুদ পণ্য বিক্রি করতে সময় লাগে। বাজারে মন্দা থাকলে বা কাস্টমার না পাওয়া গেলে স্টক আটকে যেতে পারে। তাই স্টককে চলতি সম্পদ বললেও তাৎক্ষণিক নগদায়নযোগ্য বা 'তরল সম্পদ' বলা হয় না।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">২. স্টক (Stock) কি কখনো ফিক্সড অ্যাসেট হতে পারে? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">না। স্টক বা ইনভেন্টরি সাধারণত Current Asset বা চলতি সম্পদ। কারণ স্টক কেনাই হয় দ্রুত বিক্রি করে নগদে রূপান্তর করার জন্য। সাধারণত এক বছরের মধ্যেই স্টক বিক্রি হয়ে যায়, তাই এটি স্থায়ী সম্পদ নয়।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">৩. গুডউইল (Goodwill) বা সুনাম কি সারাজীবন সম্পদ হিসেবে থাকে? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">না। গুডউইল একটি অদৃশ্য সম্পদ যা ব্যবসার পারফরম্যান্সের ওপর নির্ভর করে। যদি কোনো কারণে ব্যবসার মান খারাপ হয় বা বাজারে বদনাম হয়, তবে গুডউইলের মূল্য কমে যায়। অ্যাকাউন্টিং-এ একে নির্দিষ্ট সময় পর পর <span class="highlight">Impairment</span> (মূল্য হ্রাস) করে কমিয়ে দেওয়া হয়।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">৪. গুডউইল কেন অস্পর্শযোগ্য সম্পদ (Intangible Asset)? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">গুডউইল হলো একটি ব্যবসার সুনাম। এটি চোখে দেখা যায় না বা ছোঁয়া যায় না, কিন্তু এটি কোম্পানিকে সাধারণের চেয়ে বেশি মুনাফা করতে সাহায্য করে। যখন একটি কোম্পানি বিক্রি হয়, তখন তার শারীরিক সম্পত্তির চেয়েও বেশি দাম পাওয়া যায় এই সুনামের জন্য।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">৫. জমির (Land) ওপর কেন ডেপ্রিসিয়েশন বা অবচয় হয় না? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">ডেপ্রিসিয়েশন হয় সেই সব জিনিসের ওপর যা ব্যবহারের ফলে পুরনো হয় বা যার আয়ু ফুরিয়ে যায়। জমির কোনো নির্দিষ্ট আয়ু নেই (এটি চিরস্থায়ী) এবং এটি ব্যবহারের ফলে শেষ হয়ে যায় না। বরং সাধারণত সময়ের সাথে জমির দাম বাড়ে।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">৬. ডেপ্রিসিয়েশন কোন ধরণের সম্পদের ওপর ধার্য করা হয়? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">ডেপ্রিসিয়েশন সাধারণত <span class="highlight">Tangible Fixed Assets</span> (যেমন: যন্ত্রপাতি, গাড়ি, আসবাবপত্র) এর ওপর ধার্য করা হয়। সময়ের সাথে ব্যবহারের ফলে এই সম্পদের মূল্য কমতে থাকে।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">৭. কার্যকরী মূলধন (Working Capital) ঋণাত্মক হলে কী বোঝায়? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">যদি চলতি দায়ের পরিমাণ চলতি সম্পদের চেয়ে বেশি হয়ে যায়, তবে Working Capital নেগেটিভ হয়। এর মানে হলো—ব্যবসার দৈনন্দিন খরচ চালানোর মতো পর্যাপ্ত টাকা হাতে নেই এবং ব্যবসাটি আর্থিক সংকটে আছে।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">৮. একটি কম্পিউটার কখন 'চলতি সম্পদ' আর কখন 'স্থায়ী সম্পদ'? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">এটি ব্যবহারের উদ্দেশ্যের ওপর নির্ভর করে: <br> ১. যদি কম্পিউটারটি অফিস ব্যবহারের জন্য কেনা হয়, তবে সেটি <strong>স্থায়ী সম্পদ</strong>। <br> ২. যদি কম্পিউটারটি বিক্রির উদ্দেশ্যে কেনা হয় (যেমন কম্পিউটারের দোকান), তবে সেটি <strong>চলতি সম্পদ বা স্টক</strong>।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">৯. লিকুইডিটি (Liquidity) বা তারল্য বলতে কী বোঝায়? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">লিকুইডিটি হলো কোনো সম্পদকে কত দ্রুত এবং সহজে বাজারে প্রচলিত নগদ টাকায় (Cash) রূপান্তর করা যায় তার ক্ষমতা। ক্যাশ সবচেয়ে বেশি লিকুইড সম্পদ।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">১০. ফিক্সড অ্যাসেট এবং কারেন্ট অ্যাসেট-এর মধ্যে মূল পার্থক্য কী? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">প্রধান পার্থক্য হলো সময় এবং উদ্দেশ্য। <br> - <strong>Fixed Asset:</strong> দীর্ঘমেয়াদী ব্যবহারের জন্য (১ বছরের বেশি)। <br> - <strong>Current Asset:</strong> স্বল্পমেয়াদী এবং দ্রুত নগদে রূপান্তরের উদ্দেশ্যে।</div>
+        </div>
+    </div>
+
+    
+
+    <div class="card">
+        <h2><i class="fas fa-edit"></i> স্টুডেন্টদের জন্য কুইজ</h2>
+        <p>নিচের আইটেমগুলো কোনটি কোন ধরণের অ্যাসেট? (বাটনে ক্লিক করে উত্তর মেলাও)</p>
+
+        <div class="quiz-item">
+            <span>১. ট্রেডমার্ক (Trademark)</span>
+            <div>
+                <span class="quiz-ans">উত্তর: Intangible/Fixed Asset</span>
+                <button class="show-ans-btn" onclick="toggleAns(this)">উত্তর দেখুন</button>
+            </div>
+        </div>
+
+        <div class="quiz-item">
+            <span>২. ব্যাংক ব্যালেন্স</span>
+            <div>
+                <span class="quiz-ans">উত্তর: Current/Liquid Asset</span>
+                <button class="show-ans-btn" onclick="toggleAns(this)">উত্তর দেখুন</button>
+            </div>
+        </div>
+
+        <div class="quiz-item">
+            <span>৩. অফিসের আসবাবপত্র</span>
+            <div>
+                <span class="quiz-ans">উত্তর: Tangible/Fixed Asset</span>
+                <button class="show-ans-btn" onclick="toggleAns(this)">উত্তর দেখুন</button>
+            </div>
+        </div>
+
+        <div class="quiz-item">
+            <span>৪. কাস্টমারের কাছ থেকে চেক (Debtors)</span>
+            <div>
+                <span class="quiz-ans">উত্তর: Current Asset</span>
+                <button class="show-ans-btn" onclick="toggleAns(this)">উত্তর দেখুন</button>
+            </div>
+        </div>
+
+        <div class="quiz-item">
+            <span>৫. কপিরাইট (Copyright)</span>
+            <div>
+                <span class="quiz-ans">উত্তর: Intangible Asset</span>
+                <button class="show-ans-btn" onclick="toggleAns(this)">উত্তর দেখুন</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pdf-btn-container">
+    <a href="https://drive.google.com/uc?export=download&id=1qz7hyROu7tILFuzLoIQANT4zy2BnuHSu" class="btn-pdf">
+        <i class="fas fa-file-pdf"></i> পূর্ণাঙ্গ নোট PDF ডাউনলোড করুন
+    </a>
+</div>
+
+</div>
+
+<footer>
+    <p>© 2026 SSCEC | বিপুল সরকার পরিচালিত - Digital Commerce Academy</p>
+</footer>
+
+<script>
+    function toggleQA(element) {
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector('i');
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+        } else {
+            answer.style.display = "block";
+            icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+        }
+    }
+
+    function toggleAns(btn) {
+        const ans = btn.previousElementSibling;
+        if (ans.style.display === "inline") {
+            ans.style.display = "none";
+            btn.innerText = "উত্তর দেখুন";
+        } else {
+            ans.style.display = "inline";
+            btn.innerText = "লুকান";
+        }
+    }
+</script>
+
+</body>
+</html>

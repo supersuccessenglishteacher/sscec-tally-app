@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liabilities Q&A - SSCEC Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #dc2626; /* Liabilities এর জন্য লাল থিম */
+            --accent: #2563eb;
+            --bg: #fdf2f2;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            margin: 0; padding: 0;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .container { max-width: 900px; margin: -40px auto 60px; padding: 0 20px; }
+
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        h2 { color: var(--secondary); border-bottom: 2px solid #fee2e2; padding-bottom: 10px; margin-bottom: 25px; }
+
+        /* Q&A Accordion Style */
+        .qa-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .question {
+            padding: 18px;
+            background: #fff5f5;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary);
+        }
+
+        .answer {
+            padding: 20px;
+            display: none;
+            border-top: 1px solid #e2e8f0;
+            background: #fff;
+            color: #475569;
+            text-align: justify;
+        }
+
+        /* Interview Special Section */
+        .special-box {
+            background: #fff7ed;
+            border: 2px dashed #f97316;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        /* Quiz Styling */
+        .quiz-item {
+            background: #fdfdfd;
+            border-left: 5px solid var(--accent);
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .show-ans-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .quiz-ans { display: none; font-weight: bold; color: var(--accent); margin-left: 10px; }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; }
+        
+        .math-font { font-family: 'Courier New', Courier, monospace; font-weight: bold; color: #b91c1c; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>❓ Assets এবং Liabilities প্রশ্নোত্তর</h1>
+    <p>বিপুল সরকার পরিচালিত - অ্যাকাউন্টিং সেশন ২০২৬</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2><i class="fas fa-question-circle"></i> সাধারণ জিজ্ঞাস্য</h2>
+        
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">১. অ্যাকাউন্টিং ইকুয়েশন (Accounting Equation) কী? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">অ্যাকাউন্টিং-এর মূল ভিত্তি হলো এই সমীকরণ: <span class="math-font">Assets = Liabilities + Owner's Equity (মূলধন)</span>। এর অর্থ হলো— একটি ব্যবসার মালিকানায় যা কিছু আছে (Assets), তা হয় বাইরের লোকের থেকে ধার নেওয়া (Liabilities) অথবা মালিকের নিজের বিনিয়োগ (Equity)। এই দুইয়ের যোগফল সবসময় সম্পদের সমান হবে।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">২. পাওনাদার (Creditors) কেন লায়াবিলিটি বা দায়? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">যখন ব্যবসা কারও কাছ থেকে ধারে পণ্য বা পরিষেবা কেনে, তখন ভবিষ্যতে সেই টাকা পরিশোধ করার একটি আইনি বাধ্যবাধকতা তৈরি হয়। যেহেতু এই টাকাটা ব্যবসা থেকে ভবিষ্যতে বেরিয়ে যাবে, তাই পাওনাদারকে দায় বা Liability বলা হয়।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">৩. অনাদায়ী খরচ (Outstanding Expenses) কী? এটিকেন লায়াবিলিটি? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">যখন কোনো সুবিধা বা পরিষেবা নেওয়া হয়ে গেছে কিন্তু তার দাম এখনো মেটানো হয়নি (যেমন: বকেয়া ঘর ভাড়া বা বকেয়া বেতন), তাকে অনাদায়ী খরচ বলে। এটি একটি দায় কারণ এটি পরিশোধ না করা পর্যন্ত ব্যবসার ওপর আর্থিক চাপ থেকে যায়।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">৪. ব্যাংক ওভারড্রাফট (Bank Overdraft) কী ধরণের দায়? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">ব্যাংক ওভারড্রাফট হলো একটি <strong>Current Liability</strong> (চলতি দায়)। যখন কোনো ব্যাংক তার গ্রাহককে অ্যাকাউন্টে থাকা টাকার চেয়ে বেশি টাকা তোলার অনুমতি দেয়, তখন সেই বাড়তি টাকাটা ব্যাংকের কাছে ঋণ হিসেবে গণ্য হয় এবং তা সাধারণত এক বছরের মধ্যেই ফেরত দিতে হয়।</div>
+        </div>
+
+        <div class="qa-item">
+            <div class="question" onclick="toggleQA(this)">৫. ডেটরস (Debtors) এবং ক্রেডিটরস (Creditors)-এর পার্থক্য কী? <i class="fas fa-chevron-down"></i></div>
+            <div class="answer">
+                <ul>
+                    <li><strong>Debtors (দেনাদার):</strong> যারা ব্যবসার কাছে ঋণী (ব্যবসা এদের কাছে টাকা পাবে)। এটি একটি <strong>Asset</strong>।</li>
+                    <li><strong>Creditors (পাওনাদার):</strong> ব্যবসা যাদের কাছে ঋণী (ব্যবসা এদের টাকা দেবে)। এটি একটি <strong>Liability</strong>।</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><i class="fas fa-user-graduate"></i> ইন্টারভিউ স্পেশাল (Advanced)</h2>
+        
+        <div class="special-box">
+            <h4>"সুনাম" বা Goodwill কি কখনো দায় (Liability) হতে পারে?</h4>
+            <p>উত্তর: না। গুডউইল সবসময় একটি <strong>Intangible Asset</strong>। তবে যদি কোনো ব্যবসার কুখ্যাতি বা নেতিবাচক ভাবমূর্তি থাকে, তবে তাকে অ্যাকাউন্টিং-এ দায় হিসেবে দেখানো হয় না, বরং তা ব্যবসার মুনাফাকে কমিয়ে দেয় এবং সম্পদের মূল্যকে পরোক্ষভাবে প্রভাবিত করে।</p>
+        </div>
+
+        <div class="special-box" style="border-color: #ef4444;">
+            <h4>লিকুইডেশন (Liquidation) বা ব্যবসা বন্ধ হওয়ার সময় কাদের আগে টাকা দেওয়া হয়?</h4>
+            <p>উত্তর: ব্যবসা বন্ধ হওয়ার সময় সবার আগে <strong>Liabilities</strong> বা বাইরের পাওনাদারদের টাকা মেটানো হয়। সব দায় মেটানোর পর যদি কিছু অবশিষ্ট থাকে, তবেই মালিক (Owner's Equity) সেই টাকা পান।</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><i class="fas fa-tasks"></i> প্র্যাকটিস কুইজ (শ্রেণিবিভাগ করো)</h2>
+        <p>নিচের আইটেমগুলো কোনটি Asset আর কোনটি Liability তা মেলাও:</p>
+
+        <div class="quiz-item">
+            <span>১. অগ্রিম পাওয়া কমিশন (Advance Commission)</span>
+            <div><span class="quiz-ans">উত্তর: Liability</span> <button class="show-ans-btn" onclick="toggleAns(this)">চেক করো</button></div>
+        </div>
+
+        <div class="quiz-item">
+            <span>২. আসবাবপত্র (Furniture)</span>
+            <div><span class="quiz-ans">উত্তর: Asset</span> <button class="show-ans-btn" onclick="toggleAns(this)">চেক করো</button></div>
+        </div>
+
+        <div class="quiz-item">
+            <span>৩. বন্ধকী ঋণ (Mortgage Loan)</span>
+            <div><span class="quiz-ans">উত্তর: Liability</span> <button class="show-ans-btn" onclick="toggleAns(this)">চেক করো</button></div>
+        </div>
+
+        <div class="quiz-item">
+            <span>৪. হাতে নগদ (Cash in hand)</span>
+            <div><span class="quiz-ans">উত্তর: Asset</span> <button class="show-ans-btn" onclick="toggleAns(this)">চেক করো</button></div>
+        </div>
+
+        <div class="quiz-item">
+            <span>৫. বকেয়া কর (Taxes Payable)</span>
+            <div><span class="quiz-ans">উত্তর: Liability</span> <button class="show-ans-btn" onclick="toggleAns(this)">চেক করো</button></div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 SSCEC | বিপুল সরকার পরিচালিত - Digital Commerce Mastery</p>
+</footer>
+
+<script>
+    function toggleQA(element) {
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector('i');
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+        } else {
+            answer.style.display = "block";
+            icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+        }
+    }
+
+    function toggleAns(btn) {
+        const ans = btn.previousElementSibling;
+        if (ans.style.display === "inline") {
+            ans.style.display = "none";
+            btn.innerText = "চেক করো";
+        } else {
+            ans.style.display = "inline";
+            btn.innerText = "লুকান";
+        }
+    }
+</script>
+
+</body>
+</html>

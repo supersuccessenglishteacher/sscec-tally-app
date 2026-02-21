@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally Course Dashboard - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #2563eb;
+            --accent: #10b981;
+            --tally-green: #1d4ed8;
+            --bg: #f1f5f9;
+            --gold: #f59e0b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0; padding: 0;
+            color: #334155;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--tally-green));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 6px solid var(--accent);
+        }
+
+        .container { max-width: 1100px; margin: -40px auto 50px; padding: 0 20px; }
+
+        /* Welcome Section */
+        .welcome-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-title {
+            margin: 40px 0 20px;
+            color: var(--primary);
+            border-left: 5px solid var(--secondary);
+            padding-left: 15px;
+            font-size: 22px;
+        }
+
+        /* Grid Layout */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .icon-circle {
+            width: 70px; height: 70px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px;
+        }
+
+        /* Theme Colors */
+        .asset-theme { background: #eff6ff; color: #2563eb; }
+        .liability-theme { background: #fff1f2; color: #ef4444; }
+        .test-theme { background: #fffbeb; color: var(--gold); border: 2px solid var(--gold); }
+
+        .btn-link {
+            text-decoration: none; padding: 12px;
+            border-radius: 8px; font-weight: bold;
+            display: block; transition: 0.3s;
+        }
+
+        .btn-asset { background: var(--secondary); color: white; }
+        .btn-liability { background: #ef4444; color: white; }
+        .btn-test { background: var(--gold); color: white; font-size: 18px; }
+
+        .status-tag {
+            font-size: 10px; font-weight: 900;
+            padding: 4px 10px; border-radius: 20px;
+            background: #f1f5f9; margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer { text-align: center; padding: 50px; color: #94a3b8; }
+
+        hr { border: 0; border-top: 2px dashed #cbd5e1; margin: 50px 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Super Success Computer Education Center</h1>
+    <p>Tally Prime Mastery Course - বিপুল সরকার</p>
+</header>
+
+<div class="container">
+    
+    <div class="welcome-card">
+        <h2 style="margin:0; color: var(--tally-green);">লার্নিং ড্যাশবোর্ড</h2>
+        <p>নিচের মডিউলগুলো সিরিয়াল অনুযায়ী শেষ করো।</p>
+    </div>
+
+    <h3 class="section-title">১. লার্নিং মডিউল (শেখার অংশ)</h3>
+    <div class="module-grid">
+        <div class="module-card">
+            <div>
+                <span class="status-tag">Module 01</span>
+                <div class="icon-circle asset-theme"><i class="fas fa-coins"></i></div>
+                <h3>Assets Master Guide</h3>
+                <p>সম্পদ কী ও কত প্রকার? বিস্তারিত নোট।</p>
+            </div>
+            <a href="assets_master_guide.html" class="btn-link btn-asset">পড়াশোনা শুরু করো</a>
+        </div>
+
+        <div class="module-card">
+            <div>
+                <span class="status-tag">Exercise</span>
+                <div class="icon-circle asset-theme"><i class="fas fa-question-circle"></i></div>
+                <h3>Assets Q&A</h3>
+                <p>সম্পদ সংক্রান্ত প্রশ্নোত্তর ও কুইজ।</p>
+            </div>
+            <a href="asset_qna_guide.html" class="btn-link btn-asset">উত্তর মেলাও</a>
+        </div>
+
+        <div class="module-card">
+            <div>
+                <span class="status-tag">Module 02</span>
+                <div class="icon-circle liability-theme"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3>Liabilities & Equity</h3>
+                <p>দায় ও মালিকানা স্বত্ব নিয়ে বিস্তারিত জানুন।</p>
+            </div>
+            <a href="liabilities_and_equity.html" class="btn-link btn-liability">পড়াশোনা শুরু করো</a>
+        </div>
+
+        <div class="module-card">
+            <div>
+                <span class="status-tag">Exercise</span>
+                <div class="icon-circle liability-theme"><i class="fas fa-tasks"></i></div>
+                <h3>Liabilities Q&A</h3>
+                <p>দায় সংক্রান্ত স্পেশাল প্রশ্নোত্তর।</p>
+            </div>
+            <a href="liabilities_qna_guide.html" class="btn-link btn-liability">উত্তর মেলাও</a>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3 class="section-title">২. ফাইনাল অ্যাসেসমেন্ট (মূল্যায়ন)</h3>
+    <div class="module-card test-theme" style="text-align: left; padding: 40px; flex-direction: row; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 30px;">
+            <div class="icon-circle" style="background: var(--gold); color: white; margin: 0; min-width: 70px;">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <div>
+                <h2 style="margin: 0; color: #92400e;">মক টেস্ট: সম্পদ ও দায়</h2>
+                <p style="margin: 5px 0 0;">সবগুলো মডিউল শেষ করে থাকলে এখন পরীক্ষায় অংশ নাও।</p>
+            </div>
+        </div>
+        <a href="tally_mock_test.html" class="btn-link btn-test" style="min-width: 200px;">টেস্ট শুরু করো</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 SSCEC | বিপুল সরকার পরিচালিত - Digital Commerce Academy</p>
+</footer>
+
+</body>
+</html>
