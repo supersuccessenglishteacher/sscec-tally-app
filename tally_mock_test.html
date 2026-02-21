@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally Mastery Mock Test - SSCEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #2563eb;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0; padding: 20px;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 20px; }
+        
+        .score-board {
+            display: flex; justify-content: space-between;
+            background: var(--primary); color: white;
+            padding: 15px 25px; border-radius: 10px; margin-bottom: 25px;
+            font-size: 18px; font-weight: bold;
+        }
+
+        .question-box { margin-bottom: 30px; padding: 20px; border: 1px solid #e2e8f0; border-radius: 15px; }
+        .question-text { font-size: 18px; font-weight: bold; margin-bottom: 15px; display: block; }
+
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .option-btn {
+            padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px;
+            background: white; cursor: pointer; transition: 0.3s; font-size: 15px;
+        }
+        .option-btn:hover { border-color: var(--secondary); background: #f0f7ff; }
+
+        /* Highlights */
+        .correct { background-color: var(--success) !important; color: white !important; border-color: var(--success) !important; }
+        .wrong { background-color: var(--danger) !important; color: white !important; border-color: var(--danger) !important; }
+
+        .result-screen { display: none; text-align: center; padding: 40px 20px; }
+        .btn-whatsapp {
+            background: #25d366; color: white; padding: 15px 30px;
+            border-radius: 50px; text-decoration: none; font-weight: bold;
+            display: inline-flex; align-items: center; gap: 10px; margin-top: 20px;
+        }
+
+        @media (max-width: 600px) { .options-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <header>
+        <h2 style="color: var(--secondary); margin: 0;">Tally Mastery Mock Test</h2>
+        <p style="margin: 5px 0 0; color: #64748b;">বিপুল সরকার পরিচালিত - SSCEC</p>
+    </header>
+
+    <div id="quiz-area">
+        <div class="score-board">
+            <span>প্রশ্ন: <span id="current-q">1</span>/15</span>
+            <span>স্কোর: <span id="score">0</span></span>
+        </div>
+
+        <div class="question-box">
+            <span class="question-text" id="question">Loading...</span>
+            <div class="options-grid" id="options">
+                </div>
+        </div>
+    </div>
+
+    <div id="result-area" class="result-screen">
+        <div style="font-size: 60px; color: var(--success); margin-bottom: 20px;">
+            <i class="fas fa-trophy"></i>
+        </div>
+        <h2>অভিনন্দন! আপনি টেস্টটি সম্পন্ন করেছেন।</h2>
+        <h1 style="font-size: 48px; margin: 10px 0;">আপনার স্কোর: <span id="final-score">0</span></h1>
+        
+        <p>আপনার রেজাল্ট বিপুল স্যারকে জানাতে নিচের বাটনে ক্লিক করুন:</p>
+        <a href="#" id="whatsapp-link" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> বিপুল স্যারকে রেজাল্ট জানাও
+        </a>
+    </div>
+</div>
+
+<audio id="correct-sound" src="https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3"></audio>
+<audio id="wrong-sound" src="https://assets.mixkit.co/active_storage/sfx/2017/2017-preview.mp3"></audio>
+
+<script>
+    const questions = [
+        { q: "ট্যালিতে Assets = Liabilities + Equity এই সূত্রকে কী বলে?", a: "Accounting Equation", options: ["Profit Box", "Accounting Equation", "Voucher List", "Ledger Guide"] },
+        { q: "নিচের কোনটি একটি স্থায়ী সম্পদ (Fixed Asset)?", a: "অফিসের আসবাবপত্র", options: ["হাতে নগদ", "ব্যাংক ব্যালেন্স", "অফিসের আসবাবপত্র", "পাওনাদার"] },
+        { q: "দেনাদার (Debtors) ব্যবসায়ের জন্য কী?", a: "Asset", options: ["Asset", "Liability", "Equity", "Expense"] },
+        { q: "ব্যাংক লোন কোন ধরণের দায়?", a: "Liability", options: ["Asset", "Liability", "Income", "Stock"] },
+        { q: "গুডউইল (Goodwill) কোন ধরণের সম্পদ?", a: "অদৃশ্য সম্পদ", options: ["দৃশ্যমান সম্পদ", "অদৃশ্য সম্পদ", "চলতি সম্পদ", "লিকুইড সম্পদ"] },
+        { q: "জমির ওপর কেন অবচয় হয় না?", a: "জমির নির্দিষ্ট আয়ু নেই", options: ["জমি অনেক দামী", "জমির নির্দিষ্ট আয়ু নেই", "জমি বিক্রি করা যায় না", "জমি কারেন্ট অ্যাসেট"] },
+        { q: "পাওনাদার (Creditors) সাধারণত কী?", a: "Liability", options: ["Asset", "Liability", "Stock", "Capital"] },
+        { q: " Working Capital এর সূত্র কোনটি?", a: "CA - CL", options: ["CA + CL", "CA - CL", "Assets + Capital", "Cash + Stock"] },
+        { q: "নিচের কোনটি সবচেয়ে বেশি তরল সম্পদ (Liquid Asset)?", a: "ক্যাশ টাকা", options: ["স্টক", "আসবাবপত্র", "ক্যাশ টাকা", "জমি"] },
+        { q: "মালিকের দেওয়া মূলধন ব্যবসায়ের জন্য কী?", a: "Internal Liability", options: ["Internal Liability", "External Liability", "Fixed Asset", "Stock"] },
+        { q: "বকেয়া বেতন (Outstanding Salary) কী?", a: "Liability", options: ["Income", "Asset", "Liability", "Equity"] },
+        { q: "ট্রেডমার্ক (Trademark) কী ধরণের সম্পদ?", a: "Intangible Asset", options: ["Tangible Asset", "Intangible Asset", "Liquid Asset", "Current Asset"] },
+        { q: "লিকুইডেশন মানে কী?", a: "ব্যবসা বন্ধ হওয়া", options: ["নতুন লোন নেওয়া", "ব্যবসা বন্ধ হওয়া", "সম্পদ কেনা", "মুনাফা বন্টন"] },
+        { q: "নিচের কোনটি চলতি দায় (Current Liability)?", a: "ব্যাংক ওভারড্রাফট", options: ["মেশিনারি", "ব্যাংক ওভারড্রাফট", "কপিরাইট", "ব্যাংক ব্যালেন্স"] },
+        { q: "Tally তে ল্যান্ড এন্ড বিল্ডিং কোন গ্রুপের অধীনে থাকে?", a: "Fixed Assets", options: ["Fixed Assets", "Current Assets", "Current Liabilities", "Direct Expenses"] }
+    ];
+
+    let currentIdx = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const qData = questions[currentIdx];
+        document.getElementById('question').innerText = `${currentIdx + 1}. ${qData.q}`;
+        const optionsDiv = document.getElementById('options');
+        optionsDiv.innerHTML = '';
+        
+        qData.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.innerText = opt;
+            btn.onclick = () => checkAnswer(btn, opt);
+            optionsDiv.appendChild(btn);
+        });
+        document.getElementById('current-q').innerText = currentIdx + 1;
+    }
+
+    function checkAnswer(btn, selected) {
+        const correct = questions[currentIdx].a;
+        const allBtns = document.querySelectorAll('.option-btn');
+        allBtns.forEach(b => b.disabled = true);
+
+        if (selected === correct) {
+            btn.classList.add('correct');
+            score++;
+            document.getElementById('score').innerText = score;
+            document.getElementById('correct-sound').play();
+        } else {
+            btn.classList.add('wrong');
+            allBtns.forEach(b => { if(b.innerText === correct) b.classList.add('correct'); });
+            document.getElementById('wrong-sound').play();
+        }
+
+        setTimeout(() => {
+            currentIdx++;
+            if (currentIdx < questions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }, 1500);
+    }
+
+    function showResult() {
+        document.getElementById('quiz-area').style.display = 'none';
+        document.getElementById('result-area').style.display = 'block';
+        document.getElementById('final-score').innerText = `${score} / 15`;
+
+        // আপনার WhatsApp নম্বর এখানে দিন (যেমন: 88017XXXXXXXX)
+        const myNumber = "91XXXXXXXXXX"; 
+        const message = `স্যার, আমি আপনার ট্যালি মক টেস্ট সম্পন্ন করেছি। আমার স্কোর: ${score} আউট অফ 15।`;
+        const waLink = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
+        document.getElementById('whatsapp-link').href = waLink;
+    }
+
+    loadQuestion();
+</script>
+
+</body>
+</html>
